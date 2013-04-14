@@ -1,0 +1,1 @@
+<?php/*Template Name: Check out*/get_header(); ?>	Check out page :<br/> [[FORM INSERT]] <?php get_footer(); ?><script></script>
