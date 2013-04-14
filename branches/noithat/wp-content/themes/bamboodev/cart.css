@@ -1,0 +1,71 @@
+.container {
+  padding: 10px;
+  text-align: left;
+}
+.container fieldset {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #CCCCCC;
+  border-image: none;
+  border-style: dashed none none;
+  border-width: 1px medium medium;
+  padding-left: 0;
+}
+.container .title {
+  color: gray;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+.tblGiohang {
+  border-left: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  margin: 5px;
+  width: 99%;
+}
+.container table tr {
+  height: 30px;
+}
+.tblGiohang th {
+  background-color: #F2F2F2;
+  border-bottom: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  font-weight: bold;
+  height: 30px;
+  text-align: center;
+}
+.tblGiohang td {
+  border-bottom: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  padding: 7px 3px;
+}
+.required {
+  color: red;
+}
+input, textarea {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  color: #000000;
+  font-family: Arial,Tahoma,Helvetica,sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 2px;
+}
+.input {
+  height: 20px;
+  width: 350px;
+}
+.img_button {
+  cursor: pointer;
+}
+.price {
+  color: #CC0033;
+  font-size: 12px;
+  font-weight: bold;
+}
+input.error, select.error {
+  border-color: red;
+  color: gray;
+}
