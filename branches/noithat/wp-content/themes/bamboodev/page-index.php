@@ -9,29 +9,29 @@
 */
 get_header();
 $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
-$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'ASC','posts_per_page' => POSTS_PER_PAGE,'paged' => $pagenum));
+$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
 ?>	
 <?php get_sidebar('left'); ?>
-<div id="right_col">
-	
+<div style="float: right; width: 770px;">
+<div id="slider">
+	<img src="<?php echo get_template_directory_uri(); ?>/images/slider.jpg"/>
+</div>
+<div style="float: left; width: 100%; margin-top: 5px;">
+	<div id="center">
+		<h3>Sản Phẩm Mới</h3>
+		<?php
+		foreach($posts as $post) {
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'thumbnail', 'single-post-thumbnail' );
+		?>
+		<a class="product_item" href="<?php the_permalink();?>" title="<?php echo $post->post_title?>">
+			<span class="title"><?php echo $post->post_title?></span>
+			<img width="150" height="150" alt="<?php echo $post->post_title?>" src="<?php echo $image[0]?>">
+		</a>
+		<?php
+		}
+		?>
+	</div>
+	<?php get_sidebar('right'); ?>
+</div>
 </div>
 <?php get_footer(); ?>
-<script>
-$(document).ready(function(){
-	var flag = parseInt($("#btPrev").attr("data-ref"))>0?null:true;
-	$("#btPrev").button({
-		disabled : flag,
-		text: false,
-		icons: {
-			primary: "ui-icon-triangle-1-w"
-		}
-	});
-	$("#btNext").button({
-		disabled : <?php echo count($posts)<POSTS_PER_PAGE?'true':'null'?>,
-		text: false,
-		icons: {
-			primary: "ui-icon-triangle-1-e"
-		}
-	});
-});
-</script>
