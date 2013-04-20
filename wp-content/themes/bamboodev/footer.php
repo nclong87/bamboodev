@@ -10,20 +10,36 @@
  */
 ?>	
 		</div>
-		</center>
 		<div id="footer">
-			<center>
-			<div style="width: 978px; height: 120px; position: relative;">
-				<div class="address">
-				<p style="padding-top:15px"> 
-					SHOP ONLINE<br/>
-					Địa chỉ: 70 Văn Cao, Phú Thọ Hòa, Q.Tân Phú, Tp. Hồ Chí Minh<br/>
-					Điện thoại : 0932 337 487 - Email : <a href="mailto:lienhe@shoponline.com">lienhe@shoponline.com</a>
-				</p>
-				</div>
+			<div style="margin-top:10px">
+				Copyright © 2013 DNTN SX - TM - DV Châu Hồng<br/>
+				ĐC : Hiệp Phước, Nhơn Trạch, Đồng Nai<br/>
+				ĐT : 0613.849 959  -  0918.695 839
 			</div>
-			</center>
 		</div>
+		</center>
 	</div>
 </body>
 </html>
+<script>
+ function initMenu() {
+  $('#menu ul').hide();
+  $('#menu ul:first').show();
+  $('#menu li a').click(
+  function() {
+  var checkElement = $(this).next();
+  if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+  return false;
+  }
+  if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+  $('#menu ul:visible').slideUp('normal');
+  checkElement.slideDown('normal');
+  return false;
+  }
+  }
+  );
+  }	
+$(document).ready(function(){
+	initMenu();
+});
+</script>

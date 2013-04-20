@@ -6,6 +6,46 @@ Template Name: Ajax
 	if($action == null)
 		die();
 	switch($action) {
+		case 'test' :
+			echo '<pre><br/>';
+			/* $args = array(
+				'type'                     => 'product',
+				'hierarchical'             => 1,
+				'order'                    => 'DESC',
+				'hide_empty' => 0,
+				'exclude'                  => '1',
+				'taxonomy'                 => 'category',
+				'pad_counts'               => false 
+			);
+			$items = get_categories($args);
+			$array = array();
+			foreach($items as $item) {
+				$array[$item->cat_ID] = $item;
+			}
+			foreach($array as $cat_ID => $item) {
+				if($item->parent != 0) {
+					if(isset($array[$item->parent])) {
+						$array[$item->parent]->childs[$cat_ID] = $item;
+					}
+					unset($array[$cat_ID]);
+				}
+			} */
+			/* $items = wp_get_nav_menu_items('product_menu'); 
+			$array = array();
+			foreach($items as $item) {
+				$array[$item->ID] = $item;
+			}
+			foreach($array as $id => $item) {
+				if($item->menu_item_parent != 0) {
+					if(isset($array[$item->menu_item_parent])) {
+						$array[$item->menu_item_parent]->childs[$id] = $item;
+					}
+					unset($array[$id]);
+				}
+			} */
+			$array = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 3,'paged' => 1));
+			print_r($array);die;
+			break;
 		case 'contact':
 			$content = $_POST['content'];
 			if(empty($content))
