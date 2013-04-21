@@ -8,17 +8,17 @@ Template Name: Ajax
 	switch($action) {
 		case 'test' :
 			echo '<pre><br/>';
-			/* $args = array(
+			$args = array(
 				'type'                     => 'product',
 				'hierarchical'             => 1,
+				'parent'                   => 0,
 				'order'                    => 'DESC',
 				'hide_empty' => 0,
-				'exclude'                  => '1',
 				'taxonomy'                 => 'category',
 				'pad_counts'               => false 
 			);
-			$items = get_categories($args);
-			$array = array();
+			$array = get_categories($args);
+			/*$array = array();
 			foreach($items as $item) {
 				$array[$item->cat_ID] = $item;
 			}
@@ -43,7 +43,9 @@ Template Name: Ajax
 					unset($array[$id]);
 				}
 			} */
-			$array = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 3,'paged' => 1));
+			/* $array = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 3,'paged' => 1));
+			Cache::set( 'test', $array);
+			die('OK');  */
 			print_r($array);die;
 			break;
 		case 'contact':

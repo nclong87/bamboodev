@@ -23,7 +23,7 @@ $posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'o
 		foreach($posts as $post) {
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'thumbnail', 'single-post-thumbnail' );
 		?>
-		<a class="product_item" href="<?php the_permalink();?>" title="<?php echo $post->post_title?>">
+		<a class="product_item" href="<?php echo get_permalink( $post->ID );?>" title="<?php echo $post->post_title?>">
 			<span class="title"><?php echo $post->post_title?></span>
 			<img width="150" height="150" alt="<?php echo $post->post_title?>" src="<?php echo $image[0]?>">
 		</a>
