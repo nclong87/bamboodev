@@ -12,6 +12,8 @@
  * @var bool
  */
 define('WP_USE_THEMES', true);
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', dirname(__FILE__));
 
 /** Loads the WordPress Environment and Template */
 require('./wp-blog-header.php');

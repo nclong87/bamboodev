@@ -82,7 +82,7 @@
 		<div id="main">
 			<div id="header">
 				<div id="navigation">
-					<a href="#">Trang chủ</a>
+					<a href="<?php bloginfo('siteurl'); ?>/">Trang chủ</a>
 					<a href="#">Giới thiệu</a>
 					<a href="#">Tin tức</a>
 					<a href="#">Liên hệ</a>
