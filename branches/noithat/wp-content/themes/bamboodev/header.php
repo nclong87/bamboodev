@@ -83,9 +83,9 @@
 			<div id="header">
 				<div id="navigation">
 					<a href="<?php bloginfo('siteurl'); ?>/">Trang chủ</a>
-					<a href="#">Giới thiệu</a>
-					<a href="#">Tin tức</a>
-					<a href="#">Liên hệ</a>
+					<a href="<?php bloginfo('siteurl'); ?>/gioi-thieu">Giới thiệu</a>
+					<a href="<?php bloginfo('siteurl'); ?>/tin-tuc">Tin tức</a>
+					<a href="<?php bloginfo('siteurl'); ?>/lien-he">Liên hệ</a>
 				</div>
 				<span id="slogan">Sự hài lòng của Quý Khách làm niềm vinh hạnh cho công ty chúng tôi</span>
 			</div>

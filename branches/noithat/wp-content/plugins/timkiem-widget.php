@@ -36,10 +36,12 @@ class SearchSPWidget extends WP_Widget
   function widget($args, $instance)
   {
     extract($args, EXTR_SKIP);
+	global $keyword;
+	if(!isset($keyword)) $keyword = '';
 	?>
-	<div style="float: left; margin-bottom: 20px;">
-	<input type="text" name="keyword" id="keyword" placeholder="Search" style="width:170px"/>
-	</div>
+	<form id="searchform" method="get" style="float: left; margin-bottom: 20px;" role="search" action="<?php bloginfo('siteurl'); ?>/">
+	<input onfocus="$(this).select()" type="text" name="s" value="<?php echo $keyword?>" id="s" placeholder="Search" style="width: 170px; height: 25px;"/>
+	</form>
 	<?php
   }
  

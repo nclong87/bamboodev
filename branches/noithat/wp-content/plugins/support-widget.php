@@ -47,7 +47,7 @@ class SupportWidget extends WP_Widget
     // WIDGET CODE GOES HERE
 	?>
 	<center>
-	<div style="background-color: rgb(188, 189, 192); border-radius: 10px 10px 10px 10px; text-align: center; width: 120px; padding-bottom: 5px; padding-top: 5px;">
+	<div style="background-color: rgb(188, 189, 192); text-align: center; width: 120px; border: 1px solid rgb(255, 255, 255); padding: 5px;">
 		<span class="phone">0613. 849 959</span>
 		<span class="phone">0933. 976 045</span>
 		<span class="phone">0935. 063 848</span>
