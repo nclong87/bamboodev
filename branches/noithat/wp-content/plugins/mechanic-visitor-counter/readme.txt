@@ -1,10 +1,10 @@
 === Mechanic Visitor Counter ===
 Contributors: adityasubawa
-Donate link: http://www.adityawebs.com/
+Donate link: http://www.adityasubawa.com/
 Tags: Visitor counter, visitor traffic, traffic statistics, traffic counter, blog stats, blog traffic, traffic count
 Requires at least: 2.5
-Tested up to: 3.4.2
-Stable tag: 2.3
+Tested up to: 3.5.1
+Stable tag: 2.9
 
 Mechanic Visitor Counter is a widgets which will display the Visitor counter and traffic statistics on WordPress. Some of the features offered include Today Visitor, Today Hits, Total Hits, Total Visit, Who's Online and IP Address Visitors.
 
@@ -86,11 +86,31 @@ Adding Image Counter styles and align options.
 
 = 2.2 =
 
-fix image patch.
+fix image patch. 
 
 = 2.3 =
 
-Fix total hits. Plug-in is now compatible upto wordpress version 3.4.2.
+upgrade to 2.4 version
+
+= 2.4 =
+
+fix total hits and widget options.
+
+= 2.5 =
+
+adding yesterday, this month, this year statistics
+
+= 2.6 =
+
+fix / path of some image
+
+= 2.7 =
+
+Universal Image path
+
+= 2.9 =
+
+Plug-in is now compatible upto wordpress version 3.5.1
 
 == Arbitrary section ==
 
@@ -104,4 +124,4 @@ Ordered list:
 1. Do not remove developer plugins link
 
 == Upgrade Notice ==
-Upgrade your already installed plug-ins to latest version 2.3
+Upgrade your already installed plug-ins to latest version 2.9

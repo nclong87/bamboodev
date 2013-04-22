@@ -84,6 +84,7 @@ class ProductsWidget extends WP_Widget
 	</div>
 	<?php
 	}
+	wp_reset_query();
     echo $after_widget;
   }
  
