@@ -12,9 +12,7 @@ $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
 ?>	
 <?php get_sidebar('left'); ?>
 <div style="float: right; width: 770px;">
-<div id="slider">
-	<img src="<?php echo get_template_directory_uri(); ?>/images/slider.jpg"/>
-</div>
+<?php if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
 <div style="float: left; width: 100%; margin-top: 5px;">
 	<div id="center">
 		<h3><?php echo $post->post_title?></h3>
