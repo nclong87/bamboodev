@@ -8,7 +8,10 @@ Template Name: Ajax
 	switch($action) {
 		case 'test' :
 			echo '<pre><br/>';
-			$args = array(
+			global $title,$wpdb;
+			$mam_global_where = "AND $wpdb->posts.post_title LIKE '%VP DT - 01%'";
+			$array = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'ASC','posts_per_page' => POSTS_PER_PAGE));
+			/* $args = array(
 				'type'                     => 'product',
 				'hierarchical'             => 1,
 				'parent'                   => 0,
@@ -17,7 +20,7 @@ Template Name: Ajax
 				'taxonomy'                 => 'category',
 				'pad_counts'               => false 
 			);
-			$array = get_categories($args);
+			$array = get_categories($args); */
 			/*$array = array();
 			foreach($items as $item) {
 				$array[$item->cat_ID] = $item;

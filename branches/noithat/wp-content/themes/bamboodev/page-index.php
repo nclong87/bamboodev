@@ -9,7 +9,6 @@
 */
 get_header();
 $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
-$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
 ?>	
 <?php get_sidebar('left'); ?>
 <div style="float: right; width: 770px;">
@@ -20,6 +19,7 @@ $posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'o
 	<div id="center">
 		<h3>Sản Phẩm Mới</h3>
 		<?php
+		$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
 		foreach($posts as $post) {
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'thumbnail', 'single-post-thumbnail' );
 		?>
@@ -29,6 +29,7 @@ $posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'o
 		</a>
 		<?php
 		}
+		wp_reset_query();
 		?>
 	</div>
 	<?php get_sidebar('right'); ?>
