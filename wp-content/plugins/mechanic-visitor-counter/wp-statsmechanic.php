@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
 Plugin Name: Mechanic Visitor Counter
 Plugin URI: http://www.adityasubawa.com/blog/64/install-mechanic-visitor-counter-wordpress.html
@@ -188,28 +188,28 @@ class Wp_StatsMechanic extends WP_Widget{
     	<div id="mvctable">
         	<table width='100%'>
             <?php if ($todayview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgvisit ?> Visit Today : <?php echo $pengunjung ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgvisit ?> Truy cập hôm nay : <?php echo $pengunjung ?></td></tr>
             <?php } ?>
             <?php if ($yesview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $yesterday ?> Visit Yesterday : <?php echo $kemarin1 ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $yesterday ?> Truy cập hôm qua : <?php echo $kemarin1 ?></td></tr>
             <?php } ?>
             <?php if ($monthview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $month ?> This Month : <?php echo $bulan1 ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $month ?> Trong tháng : <?php echo $bulan1 ?></td></tr>
             <?php } ?>
             <?php if ($yearview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $year ?> This Year : <?php echo $tahunini1 ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $year ?> Trong năm : <?php echo $tahunini1 ?></td></tr>
             <?php } ?>
 			<?php if ($totalview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgtotal ?> Total Visit : <?php echo $totalpengunjung ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgtotal ?> Tổng truy cập : <?php echo $totalpengunjung ?></td></tr>
             <?php } ?>
             <?php if ($hitsview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imghits ?> Hits Today : <?php echo $hits[hitstoday] ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imghits ?> Xem hôm nay : <?php echo $hits[hitstoday] ?></td></tr>
             <?php } ?>
             <?php if ($totalhitsview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgtotalhits ?> Total Hits : <?php echo $totalhits ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgtotalhits ?> Tổng lượt xem : <?php echo $totalhits ?></td></tr>
             <?php } ?>
             <?php if ($onlineview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgonline ?> Who's Online : <?php echo $pengunjungonline ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgonline ?> Số người trực tuyến : <?php echo $pengunjungonline ?></td></tr>
             <?php } ?>
             </table>
     	</div>
