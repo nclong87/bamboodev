@@ -117,6 +117,30 @@ font-weight: bold;
 padding-bottom: 3px;
 padding-top: 10px;
 }
+.article_item {
+border-bottom: 1px dashed #BBBBBB;
+display: block;
+float: left;
+height: 143px;
+margin-top: 10px;
+position: relative;
+text-align: left;
+width: 98%;
+}
+.article_item .title {
+display: block;
+float: left;
+font-size: 13px;
+font-weight: bold;
+padding-bottom: 3px;
+padding-left: 140px;
+position: absolute;
+top: 0;
+}
+.article_item img {
+border: 1px solid #BBBBBB;
+padding: 2px;
+}
 .product_item img {
 border: 1px solid #BBBBBB;
 padding: 2px;
