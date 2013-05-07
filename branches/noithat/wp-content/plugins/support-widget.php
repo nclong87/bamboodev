@@ -47,11 +47,7 @@ class SupportWidget extends WP_Widget
     // WIDGET CODE GOES HERE
 	?>
 	<center>
-	<div style="background-color: rgb(188, 189, 192); text-align: center; width: 120px; border: 1px solid rgb(255, 255, 255); padding: 5px;">
-		<span class="phone">0613. 849 959</span>
-		<span class="phone">0933. 976 045</span>
-		<span class="phone">0935. 063 848</span>
-	</div>
+	<img style="box-shadow: 2px 2px 6px;" src="<?php echo get_template_directory_uri(); ?>/images/support.png"/>
 	<div style="padding-top: 10px;">
 	<?php
 	if(!empty($yahoo)) {

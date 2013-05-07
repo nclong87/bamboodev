@@ -4,8 +4,8 @@ require_once(TEMPLATEPATH . "/meta-box.php");
 require_once(TEMPLATEPATH . "/meta-boxes.php");
 if (function_exists('add_theme_support')) {
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 150, 150, true);
-	add_image_size('thumbnail', 150, 150, true);		if ( function_exists( 'add_image_size' ) ) { 		add_image_size('large', 500, 9999);	}		//add_image_size('medium', 500, 9999);
+	set_post_thumbnail_size( 99999, 150);
+	add_image_size('thumbnail', 99999, 150);		if ( function_exists( 'add_image_size' ) ) { 		add_image_size('large', 500, 9999);	}		//add_image_size('medium', 500, 9999);
 
 }
 

@@ -79,7 +79,9 @@ class ProductsWidget extends WP_Widget
 	<div>
 	<a class="product_item" style="width:175px" href="<?php echo get_permalink( $post->ID );?>" title="<?php echo $post->post_title?>">
 		<span class="title"><?php echo $post->post_title?></span>
-		<img width="150" height="150" alt="<?php echo $post->post_title?>" src="<?php echo $image[0]?>">
+		<div class="wraptocenter">
+			<img width="<?php echo $image[1]?>" height="<?php echo $image[2]?>" alt="<?php echo $post->post_title?>" src="<?php echo $image[0]?>">
+		</div>
 	</a>
 	</div>
 	<?php

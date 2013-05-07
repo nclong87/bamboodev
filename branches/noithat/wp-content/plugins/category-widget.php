@@ -35,14 +35,14 @@ class DanhMucSanPhamWidget extends WP_Widget
  
   function widget($args, $instance)
   {
+	global $cat;
     extract($args, EXTR_SKIP);
  
-    echo $before_widget;
-    $title = isset($instance['title'])?$instance['title']:'Sản Phẩm';
- 
-    if (!empty($title))
-      echo $before_title . $title . $after_title;;
- 
+    //echo $before_widget;
+    //$title = isset($instance['title'])?$instance['title']:'Sản Phẩm';
+    /* if (!empty($title))
+      echo $before_title . $title . $after_title;; */
+	
     // WIDGET CODE GOES HERE
 	$args = array(
 		'hide_empty' => 0,
@@ -65,24 +65,33 @@ class DanhMucSanPhamWidget extends WP_Widget
 	}
 	//$categories = get_categories($args);
 	?>
-	<ul id="menu">
-		<li>
-		<?php
-		foreach($array as $item) {
-			if(empty($item->childs)) {
-				echo '<a href="'.$item->url.'">'.$item->title.'</a>';
-			} else {
-				echo '<a href="#" class="ico_posts">'.$item->title.'</a>';
-				echo '<ul>';
-				foreach($item->childs as $child) {
-					echo '<li><a href="'.$child->url.'">'.$child->title.'</a></li>';
+	<div class="small_box_container">
+		<div class="header"></div>
+		<h3 class="title" style="font-size: 25px; padding-top: 10px; height: 25px; font-style: oblique; font-family: Georgia;">Sản Phẩm</h3>
+		<div class="content">
+		<ul id="menu">
+			<li>
+			<?php
+			$i = isset($cat)?$cat->category_parent:-1;
+			foreach($array as $item) {
+				if(empty($item->childs)) {
+					echo '<a href="'.$item->url.'">'.$item->title.'</a>';
+				} else {
+					if($i == $item->object_id) {
+						echo '<a href="#" class="ico_posts active">'.$item->title.'</a>';
+					} else {
+						echo '<a href="#" class="ico_posts">'.$item->title.'</a>';
+					}
+					echo '<ul>';
+					foreach($item->childs as $child) {
+						echo '<li><a href="'.$child->url.'">'.$child->title.'</a></li>';
+					}
+					echo '</ul>';
 				}
-				echo '</ul>';
 			}
-		}
-		?>
-		</li>
-	</ul>
+			?>
+			</li>
+		</ul>
 	<?php
     echo $after_widget;
   }
