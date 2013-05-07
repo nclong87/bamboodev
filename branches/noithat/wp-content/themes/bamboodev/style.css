@@ -13,8 +13,12 @@ width: 100%;
 bottom: 5px;
 font-size: 13px;
 font-style: italic;
-left: 190px;
+left: 0px;
 position: absolute;
+}
+
+#slogan marquee{
+witdth: 100%;
 }
 #header #navigation {
 font-size: 13px;
@@ -25,8 +29,21 @@ top: 95px;
 }
 #header #navigation a{
 color: #56585A;
-margin-right: 10px;
 }
+#header #navigation .menu{
+color: #56585A;
+display: block;
+float: left;
+width: 70px;
+}
+
+#header #navigation a:hover{
+color: #FFFF7F;
+font-weight: bold;
+margin: 0px;
+font-size: 14px;
+}
+
 #main { display: inline-block; margin-left: 0px; padding-bottom: 10px; width: 960px; }
 #page { position: relative; }
 #footer { background-image: url("images/bg_footer.jpg"); display: block; float: left; height: 80px; margin-top: 20px; position: relative; width: 100%; }
