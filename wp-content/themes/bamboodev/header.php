@@ -82,11 +82,11 @@
 		<div id="main">
 			<div id="header">
 				<div id="navigation">
-					<a href="<?php bloginfo('siteurl'); ?>/">Trang chủ</a>
-					<a href="<?php bloginfo('siteurl'); ?>/gioi-thieu">Giới thiệu</a>
-					<a href="<?php bloginfo('siteurl'); ?>/tin-tuc">Tin tức</a>
-					<a href="<?php bloginfo('siteurl'); ?>/lien-he">Liên hệ</a>
+					<div class="menu"><a href="<?php bloginfo('siteurl'); ?>/">Trang chủ</a></div>
+					<div class="menu"><a href="<?php bloginfo('siteurl'); ?>/gioi-thieu">Giới thiệu</a></div>
+					<div class="menu" style="width: 55px"><a href="<?php bloginfo('siteurl'); ?>/tin-tuc">Tin tức</a></div>
+					<div class="menu" style="width: 60px"><a href="<?php bloginfo('siteurl'); ?>/lien-he">Liên hệ</a></div>
 				</div>
-				<span id="slogan">Sự hài lòng của Quý Khách làm niềm vinh hạnh cho công ty chúng tôi</span>
+				<span id="slogan"><marquee behavior="scroll" scrollamount="5" direction="left" id="slogan marquee">Sự hài lòng của Quý Khách làm niềm vinh hạnh cho công ty chúng tôi</marquee></span>
 			</div>
 			<div id="content">
