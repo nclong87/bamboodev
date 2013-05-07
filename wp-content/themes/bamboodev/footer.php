@@ -23,23 +23,23 @@
 </html>
 <script>
  function initMenu() {
-  $('#menu ul').hide();
-  $('#menu ul:first').show();
-  $('#menu li a').click(
-  function() {
-  var checkElement = $(this).next();
-  if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-  return false;
-  }
-  if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-  $('#menu ul:visible').slideUp('normal');
-  checkElement.slideDown('normal');
-  return false;
-  }
-  }
-  );
+	$jquery('#menu ul').hide();
+	$jquery('#menu li a.active').next().show();
+	$jquery('#menu > li > a').click(function() {
+		$jquery('#menu > li > a.active').removeClass("active");
+		$jquery(this).addClass("active");
+		var checkElement = $jquery(this).next();
+		if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+			return false;
+		}
+		if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+			$jquery('#menu ul:visible').slideUp('normal');
+			checkElement.slideDown('normal');
+			return false;
+		}
+	});
   }	
-$(document).ready(function(){
+$jquery(document).ready(function(){
 	initMenu();
 });
 </script>
