@@ -1,0 +1,57 @@
+<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+	            <input type="hidden" value="Ipad 3" name="item_name_1">
+	            <input type="hidden" value="2" name="amount_1">
+	            <input type="hidden" value="1" name="quantity_1">
+	            <input type="hidden" value="" name="item_number">
+				<input type="hidden" value="Ipad 2" name="item_name_2">
+	            <input type="hidden" value="2" name="amount_2">
+	            <input type="hidden" value="1" name="quantity_2">
+				<input type="hidden" value="" name="item_number">
+				<input type="hidden" value="0.00" name="shipping_1">
+			<input type="image" class="wp_cart_checkout_button" name="submit" src="http://localhost/dooms/wp-content/plugins/wordpress-simple-paypal-shopping-cart/images/paypal_checkout_EN.png" onclick="updateItems();">
+				<input type="hidden" value="http://localhost/shop/thank-you" name="return">
+			    <input type="hidden" value="imleeu_1332645492_biz@gmail.com" name="business">
+			    <input type="hidden" value="USD" name="currency_code">
+			    <input type="hidden" value="_cart" name="cmd">
+			    <input type="hidden" value="1" name="upload">
+			    <input type="hidden" value="2" name="rm">
+			    <input type="hidden" value="3FWGC6LFTMTUG" name="mrb"></form>
+				
+				
+Buyer:
+imleeu_1332645293_per@gmail.com
+Password: vutanle1911
+Country: 	  	United States
+Credit Card: 	  	Visa   4423735933649180
+Exp Date:  3/2017
+Bank Account: 	  	Checking (Confirmed)
+Routing Number: 325272063
+Bank Account Number: 718195327528411
+Balance: 	  	1000.00 USD
+
+
+Seller:
+	
+imleeu_1332645492_biz@gmail.com
+Password: vutanle1911
+Country: 	  	United States
+Business Name: 	  	vule levu's Test Store
+Credit Card: 	  	MasterCard   5254395995304330
+Exp Date:  3/2017
+Bank Account: 	  	Checking (Confirmed)
+Routing Number: 325272063
+Bank Account Number: 358880859775029
+Balance: 	  	1000.00 USD
+
+
+https://direct.sandbox-cresecure.net/direct/services/authorize?CRESecureID=cre9987213SB&CRESecureAPIToken=cfd048108d911efdb4fd37cb6a26296c&total_amt=12.01&CRE_Card_Token=4a05b6f379ad186d3776ea27e604034a88bf4c6b&order_id=120
+
+&customer_id=XXXXXX&customer_zip_code=XXXXXX&ip_address=XXXXXX&order_desc=XXXXXX&order_id=XXXXXX&total_weight=XXXXXX&currency_code=XXXXXX
+
+https://direct.sandbox-cresecure.net/direct/services/card2token/?CRESecureID=cre9987213SB&CRESecureAPIToken=cfd048108d911efdb4fd37cb6a26296c&PAN=4111111111111111&name_on_card=Jane+Doe&card_type=visa&expiration=1212&customer_address=112+Krog+Street&customer_city=Atlanta&customer_state=GA&customer_postal_code=33615&customer_country=USA&customer_phone=18005551212&customer_email=john.doe%40gmail.com&customer_id=12&order_id=730115&Submit=Submit 
+
+
+https://direct.sandbox-cresecure.net/direct/services/card2token/?CRESecureID=cre9987213SB&CRESecureAPIToken=cfd048108d911efdb4fd37cb6a26296c&PAN=5424000000000015&name_on_card=Jane+Doe&card_type=mastercard&expiration=1212&customer_address=112+Krog+Street&customer_city=Atlanta&customer_state=GA&customer_postal_code=33615&customer_country=USA&customer_phone=18005551212&customer_email=john.doe%40gmail.com&customer_id=12&order_id=730115&Submit=Submit 
+
+
+https://direct.sandbox-cresecure.net/direct/services/validation?CRESecureID=cre9987213SB&CRESecureAPIToken=cfd048108d911efdb4fd37cb6a26296c&order_id=120&total_amt=12.01  
