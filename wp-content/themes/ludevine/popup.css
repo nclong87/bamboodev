@@ -1,0 +1,76 @@
+body {
+	background-color: #FFFFFF;
+	background-image:;
+	background-repeat:;
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+}A:link    { 
+	color: #000;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration:none;
+}
+A:visited    { 
+	color: #000;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration:none;
+}A:hover    { 
+	color: #999;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration:none;
+}
+A.nav:link    { 
+	color: #666;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration:none;
+	vertical-align: super;
+	font-style: italic;
+}
+A.nav:visited    { 
+	color: #666;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration:none;
+	vertical-align: super;
+	font-style: italic;
+}A.nav:hover    { 
+	color: #000;
+	font-weight: normal;
+	text-decoration:none;
+	vertical-align: super;
+	font-style: italic;
+}
+
+.clicktoenter {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	color: #999;
+}
+
+.copyright {
+	color: #999;
+	font-size: small;
+	text-align: left;
+}
+.stockists {
+	font-size: 11pt;
+}
+.bio {
+	font-size: 10pt;
+}
+.bioinfo {
+	text-align: right;
+}
+.bioinfo {
+	font-size: 14pt;
+	text-align: left;
+}
+.info2 {
+	font-size: 14px;
+}
+.addviews {
+}
