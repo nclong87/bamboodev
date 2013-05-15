@@ -72,7 +72,7 @@ class DanhMucSanPhamWidget extends WP_Widget
 		<ul id="menu">
 			<li>
 			<?php
-			$i = isset($cat)?$cat->category_parent:-1;
+			$i = !empty($cat)?$cat->category_parent:4;
 			foreach($array as $item) {
 				if(empty($item->childs)) {
 					echo '<a href="'.$item->url.'">'.$item->title.'</a>';
