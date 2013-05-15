@@ -18,7 +18,7 @@ $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
 <?php if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
 <div style="float: left; width: 100%; margin-top: 5px;">
 	<div id="center">
-		<h3>Nội Thất Văn Phòng</h3>
+		<h3 style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/NTVP.jpg'); color: transparent;">Nội Thất Văn Phòng</h3>
 		<?php
 		
 		//$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
