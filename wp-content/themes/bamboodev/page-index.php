@@ -22,15 +22,18 @@ $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
 		<?php
 		
 		//$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
-		$categories = get_categories( array('orderby' => 'name', 'order' => 'ASC', 'parent'=> 4));
+		$categories = get_categories( array('orderby' => 'created', 'order' => 'ASC', 'parent'=> 4));
 		foreach($categories as $category) {
-		$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC', 'category_name' => $category->slug));
+		$posts = query_posts( array('post_type' => 'product', 'orderby' => 'name', 'order' => 'ASC', 'category_name' => $category->slug));
 		
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id($posts[0]->ID),'thumbnail', 'single-post-thumbnail' );
 		?>
 		<a class="product_item" href="<?php echo get_category_link( $category->term_id );?>" title="<?php echo $category->name?>">
 			<span class="title"><?php echo $category->name?></span>
-			<img width="150" height="150" alt="<?php echo $category->name?>" src="<?php echo $image[0]?>">
+			<!--<img width="150" height="150" alt="<?php //echo $category->name?>" src="<?php //echo $image[0]?>">-->
+			<div class="wraptocenter">
+				<img width="<?php echo $image[1]?>" height="<?php echo $image[2]?>" alt="<?php echo $category->name?>" src="<?php echo $image[0]?>">
+			</div>
 		</a>
 		<?php
 		}
