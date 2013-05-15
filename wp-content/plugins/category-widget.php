@@ -67,7 +67,7 @@ class DanhMucSanPhamWidget extends WP_Widget
 	?>
 	<div class="small_box_container">
 		<div class="header"></div>
-		<h3 class="title" style="font-size: 25px; padding-top: 10px; height: 25px; font-style: oblique; font-family: Georgia;">Sản Phẩm</h3>
+		<h3 class="title" style="height: 55px;"><img src="<?php echo get_template_directory_uri(); ?>/images/sanpham.jpg"/></h3>
 		<div class="content">
 		<ul id="menu">
 			<li>
