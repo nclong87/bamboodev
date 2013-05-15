@@ -46,6 +46,7 @@ class SupportWidget extends WP_Widget
 	$yahoo = $instance['yahoo']; 
     // WIDGET CODE GOES HERE
 	?>
+	<div style="clear:both;margin-top:10px"></div>
 	<center>
 	<img style="box-shadow: 2px 2px 6px;" src="<?php echo get_template_directory_uri(); ?>/images/support.png"/>
 	<div style="padding-top: 10px;">
