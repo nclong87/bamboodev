@@ -46,7 +46,16 @@ color: #D28216;
 
 #main { display: inline-block; margin-left: 0px; padding-bottom: 10px; width: 960px; }
 #page { position: relative; }
-#footer { background-image: url("images/bg_footer.jpg"); display: block; float: left; height: 80px; margin-top: 20px; position: relative; width: 100%; }
+#footer {
+background-image: url("images/footer.jpg");
+background-repeat: no-repeat;
+display: block;
+float: left;
+height: 102px;
+margin-top: 20px;
+position: relative;
+width: 100%;
+}
 #left_col { float: left; padding-left: 2px; position: relative; width: 180px; }
 #right_col{ display: block; float: right; position: relative; width: 180px; }
 ol,ul { list-style: none outside none; }
