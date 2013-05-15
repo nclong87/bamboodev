@@ -16,24 +16,28 @@
 </body>
 </html>
 <script>
- function initMenu() {
+function showChildMenu(parent) {
+	$jquery('#menu > li > a.active').removeClass("active");
+	parent.addClass("active");
+	var checkElement = parent.next();
+	if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+		return false;
+	}
+	if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+		$jquery('#menu ul:visible').slideUp('normal');
+		checkElement.slideDown('normal');
+		return false;
+	}
+}
+function initMenu() {
 	$jquery('#menu ul').hide();
 	$jquery('#menu li a.active').next().show();
 	$jquery('#menu > li > a').click(function() {
-		$jquery('#menu > li > a.active').removeClass("active");
-		$jquery(this).addClass("active");
-		var checkElement = $jquery(this).next();
-		if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-			return false;
-		}
-		if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-			$jquery('#menu ul:visible').slideUp('normal');
-			checkElement.slideDown('normal');
-			return false;
-		}
+		showChildMenu($jquery(this));
 	});
   }	
 $jquery(document).ready(function(){
 	initMenu();
+	showChildMenu($jquery('#menu > li > a.active'));
 });
 </script>
