@@ -183,7 +183,7 @@ class Wp_StatsMechanic extends WP_Widget{
 					
                     echo "<link rel='stylesheet' type='text/css' href='". WP_PLUGIN_URL ."/mechanic-visitor-counter/styles/css/default.css' />";
 					?>
-<div id='mvcwid' style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'>
+<div id='mvcwid' style='font-size:2; text-align:center;color:<?php echo $fontcolor ?>;'>
 	<div id="mvccount"><?php echo $tothitsgbr ?></div>
     	<div id="mvctable">
         	<table width='100%'>
