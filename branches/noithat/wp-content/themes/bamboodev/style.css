@@ -5,12 +5,12 @@ body { color: rgb(51, 51, 51); font: 13px/18px Arial,Tahoma,Geneva,sans-serif; }
 background-image: url("images/banner.jpg");
 background-repeat: no-repeat;
 float: left;
-height: 150px;
+height: 160px;
 position: relative;
 width: 100%;
 }
 #header #slogan {
-bottom: 5px;
+bottom: 1px;
 font-size: 13px;
 font-style: italic;
 left: 0px;
@@ -21,27 +21,27 @@ position: absolute;
 width: 960px;
 }
 #header #navigation {
-font-size: 13px;
+font-size: 14px;
 font-style: italic;
 position: absolute;
 right: 10px;
-top: 95px;
+top: 103px;
 }
 #header #navigation a{
-color: #56585A;
+color: #ffffff;
 }
 #header #navigation .menu{
 color: #56585A;
 display: block;
 float: left;
-width: 70px;
+width: 72px;
 }
 
 #header #navigation a:hover{
 font-weight: bold;
 margin: 0px;
 font-size: 14px;
-color: #D28216;
+color: #FFFF7F;
 }
 
 #main { display: inline-block; margin-left: 0px; padding-bottom: 10px; width: 960px; }
@@ -71,9 +71,9 @@ width: 100%;
 }
 .small_box_container h3 { background-color: rgb(221, 221, 221); border-left: 1px solid rgb(202, 202, 202); border-right: 1px solid rgb(202, 202, 202); margin: 0px; padding: 0px; }
 .small_box_container div.content { 
-background-color: #DDDDDD;
-border-left: 1px solid #CACACA;
-border-right: 1px solid #CACACA;
+background-color: #E0E1E2;
+border-left: 1px solid #B4B6B9;
+border-right: 1px solid #B4B6B9;
 display: block;
 float: left;
 padding-top: 5px;
@@ -104,6 +104,7 @@ font-style: italic;
 margin-top: 10px;
 padding: 5px;
 text-align: left;
+padding-left: 15px;
 }
 #center h1 {
 font-size: 15px;
