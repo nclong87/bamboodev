@@ -209,7 +209,7 @@ class Wp_StatsMechanic extends WP_Widget{
             <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgtotalhits ?> Tổng lượt xem : <?php echo $totalhits ?></td></tr>
             <?php } ?>
             <?php if ($onlineview) { ?>
-            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgonline ?> Số người trực tuyến : <?php echo $pengunjungonline ?></td></tr>
+            <tr><td style='font-size:2; text-align:<?php echo $align ?>;color:<?php echo $fontcolor ?>;'><?php echo $imgonline ?> Trực tuyến : <?php echo $pengunjungonline ?></td></tr>
             <?php } ?>
             </table>
     	</div>
