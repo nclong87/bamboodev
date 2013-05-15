@@ -10,13 +10,7 @@
  */
 ?>	
 		</div>
-		<div id="footer">
-			<div style="margin-top:10px">
-				Copyright © 2013 DNTN SX - TM - DV Châu Hồng<br/>
-				ĐC : Hiệp Phước, Nhơn Trạch, Đồng Nai<br/>
-				ĐT : 0613.849 959  -  0918.695 839
-			</div>
-		</div>
+		<div id="footer"></div>
 		</center>
 	</div>
 </body>
