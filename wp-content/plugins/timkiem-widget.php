@@ -39,7 +39,7 @@ class SearchSPWidget extends WP_Widget
 	global $keyword;
 	if(!isset($keyword)) $keyword = '';
 	?>
-	<form id="searchform" method="get" style="float: left; margin-bottom: 20px;" role="search" action="<?php bloginfo('siteurl'); ?>/">
+	<form id="searchform" method="get" style="float: left; margin-bottom: 20px; margin-left: 2px;" role="search" action="<?php bloginfo('siteurl'); ?>/">
 	<input onfocus="$(this).select()" type="text" name="s" value="<?php echo $keyword?>" id="s" placeholder="Tìm Kiếm" style="width: 170px; height: 25px; margin-top: 10px; border-radius: 5px 5px 5px 5px; border: 1px solid rgb(110, 111, 114);"/>
 	</form>
 	<?php
