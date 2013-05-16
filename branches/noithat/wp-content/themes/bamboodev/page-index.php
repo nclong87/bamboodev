@@ -11,7 +11,7 @@ get_header();
 $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
 ?>	
 <?php get_sidebar('left'); ?>
-<div style="float: right; width: 770px;">
+<div style="float: right; width: 776px;">
 <!--<div id="slider">
 	<img src="<?php //echo get_template_directory_uri(); ?>/images/slider.jpg"/>
 </div>-->

@@ -57,23 +57,27 @@ position: relative;
 width: 100%;
 }
 #left_col { float: left; padding-left: 2px; position: relative; width: 180px; }
-#right_col{ display: block; float: right; position: relative; width: 180px; }
+#right_col{ display: block; float: right; position: relative; width: 176px; background-color: #E0E1E2;
+border-radius: 7px;
+-moz-border-radius: 7px;
+border: 4px solid #b6b8ba;}
 ol,ul { list-style: none outside none; }
-.small_box_container { background-color: rgb(255, 255, 255); display: block; float: left; margin-bottom: 10px; min-height: 50px; position: relative; width: 176px; }
-.small_box_container div.header { background-image: url("images/wg_top.jpg"); background-repeat: no-repeat; display: block; height: 7px; margin-top: 1px; padding-left: 5px; }
+.small_box_container { background-color: rgb(255, 255, 255); display: block; float: left; /*margin-bottom: 10px;*/ min-height: 50px; position: relative; width: 176px; }
+.small_box_container div.header { background-image: url("images/wg_top.jpg"); background-repeat: no-repeat; display: block; height: 7px; /*margin-top: 1px; */padding-left: 5px; }
 .small_box_container div.footer {
-background-image: url("images/wg_bottom.jpg");
-background-repeat: no-repeat;
+/*background-image: url("images/wg_bottom.jpg");
+background-repeat: no-repeat;*/
+background-color: #E0E1E2;
 display: block;
 float: left;
-height: 15px;
+height: 25px;
 width: 100%;
 }
 .small_box_container h3 { 
 background-color: #6F7075;
 border-bottom: 1px solid #CACACA;
-border-left: 1px solid #CACACA;
-border-right: 1px solid #CACACA;
+/*border-left: 1px solid #CACACA;
+border-right: 1px solid #CACACA;*/
 color: #FFFFFF;
 font-family: tahoma;
 font-style: oblique;
@@ -83,11 +87,11 @@ padding: 0;
 }
 .small_box_container div.content { 
 background-color: #E0E1E2;
-border-left: 1px solid #B4B6B9;
-border-right: 1px solid #B4B6B9;
+/*border-left: 1px solid #B4B6B9;
+border-right: 1px solid #B4B6B9;*/
 display: block;
 float: left;
-width: 99%;
+width: 100%;
 }
 a { color: navy; outline: medium none; text-decoration: none; }
 a:hover {
@@ -169,6 +173,8 @@ display: block;
 float: left;
 height: 200px;
 width: 185px;
+/*margin-left: 5px;
+margin-right: 3px;*/
 }
 .product_item .title {
 display: block;
@@ -232,11 +238,17 @@ width: 96%;
 }
 .wraptocenter {
 background-color: #FFFFFF;
-border: 1px solid #BBBBBB;
+border: 3px solid #BBBBBB;
 display: table-cell;
 height: 155px;
 padding-top: 4px;
 text-align: center;
 vertical-align: middle;
 width: 158px;
+}
+
+#wpcontent_slider_container {
+  border: 3px solid #B6B8BA;
+  border-radius: 12px 12px 12px 12px;
+  -moz-border-radius: 12px 12px 12px 12px;
 }
