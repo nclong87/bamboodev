@@ -11,7 +11,7 @@ get_header();
 $pagenum = isset($_GET['page'])?$_GET['page']:1;
 ?>	
 <?php get_sidebar('left'); ?>
-<div style="float: right; width: 770px;">
+<div style="float: right; width: 776px;">
 <?php if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
 <div style="float: left; width: 100%; margin-top: 5px;">
 	<div id="center">
