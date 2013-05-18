@@ -55,7 +55,7 @@ function MM_swapImage() { //v3.0
 //-->
 </script>
 </head>
-<body dir="LTR">
+<body dir="ltr">
   <table valign="top" border="0" cellpadding="0" width="930"><tbody><tr><th colspan="3" align="center"> </th>
     
 </tr><tr>
