@@ -74,3 +74,17 @@ A.nav:visited    {
 }
 .addviews {
 }
+.button {
+  color: green;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 2px;
+}
+fieldset#order {
+border-bottom: medium none;
+border-left: medium none;
+border-right: medium none;
+margin-bottom: 10px;
+margin-left: 0;
+padding-left: 0;
+}
