@@ -20,6 +20,17 @@ if(count($attachments) > 0) {
 $categories = get_the_category($post->ID);
 $catName = isset($categories[0])?$categories[0]->name:'';
 $list_size = wp_get_post_terms($post->ID, 'size',array("fields" => "names"));
+if(isset($categories[0])) {
+	$args = array(
+	   'post_type' => 'product',
+	   'numberposts' => 3,
+	   'post_status' => null,
+	   'orderby' => 'rand',
+	   'cat' => $categories[0]->cat_ID,
+	   'exclude' => $post->ID,
+	);
+	$similars = get_posts( $args );
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -110,6 +121,15 @@ function MM_swapImage() { //v3.0
 	}
   ?>
   <br>
+  <strong style="display: block; clear: left; line-height: 60px;" class="addviews">SUGGESTION PRODUCTS: </strong><br/>
+  <?php
+	foreach($similars as $item) {
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID),'thumbnail', 'single-post-thumbnail' );
+		?>
+		<a href="<?php echo get_permalink( $item->ID );?>" ><img title="<?php echo $item->post_title ?>" src="<?php echo $image[0]?>" width="140"/></a>
+		<?php
+	}
+	?>
 </td></tr>
 </tbody></table>
 </body>
