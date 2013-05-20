@@ -6,7 +6,7 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
- debug(get_option('shop_quantity'));
+ //debug(get_option('shop_quantity'));
 $attachments = get_posts(array(
 	'post_type' => 'attachment',
 	'posts_per_page' => -1,
