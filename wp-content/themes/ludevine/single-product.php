@@ -21,6 +21,7 @@ if(count($attachments) > 0) {
 $categories = get_the_category($post->ID);
 $catName = isset($categories[0])?$categories[0]->name:'';
 $list_size = wp_get_post_terms($post->ID, 'size',array("fields" => "names"));
+$quantity = get_option('shop_quantity');
 if(isset($categories[0])) {
 	$args = array(
 	   'post_type' => 'product',
@@ -92,6 +93,7 @@ function MM_swapImage() { //v3.0
 	<p>
 	Price : <strong><?php echo format_number(get_post_meta($post->ID,'catalog_product_price',true)); ?></strong> USD
 	</p>
+	
 	<fieldset id="order">
 	<?php
 	if(!empty($list_size)) {
@@ -107,8 +109,17 @@ function MM_swapImage() { //v3.0
 		<?php
 	}
 	?>
+	<select id="quantity" name="quantity">
+			<option value="">Quantity</option>
+			<?php
+			for($i = 1; $i <= $quantity; $i++){
+				echo '<option value="'.$i.'">'.$i.'</option>';
+			}
+			?>
+	</select>
 	<button id="btAdd2Cart" class="button">Add to cart</button>
 	</fieldset>	
+	
   <strong class="addviews">ADDITIONAL VIEWS: </strong>(Hover over each image to enlarge)<br><br>
   <?php
 	//print_r($post);die;
@@ -131,6 +142,13 @@ function MM_swapImage() { //v3.0
 		<?php
 	}
 	?>
+<br/>
+<strong style=" clear: left; " class="addviews">JOIN LUDEVINE!</strong><br/>
+<ul class="tags">
+		<li><a target="_blank" href="https://www.facebook.com/pages/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/fb.jpg"></a></li>
+		<li><a target="_blank" href="http://www.twitter.com/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/twitter.jpg"></a></li>
+		<li><a target="_blank" href="http://pinterests.com/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/pinterest.jpg"></a></li>
+	</ul>
 </td></tr>
 </tbody></table>
 </body>
