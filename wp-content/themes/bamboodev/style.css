@@ -276,3 +276,9 @@ width: 165px;
   vertical-align: middle;
   width: 160px;
 }
+#similar_products {
+display: block;
+float: left;
+text-align: left;
+width: 100%;
+}
