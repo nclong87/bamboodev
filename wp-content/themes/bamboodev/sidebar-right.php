@@ -6,6 +6,8 @@
  * @subpackage Twenty_Eleven
  * @since Shop 1.0
  */
+global $keyword;
+if(!isset($keyword)) $keyword = '';
 ?>
 <div style="display: block; position: relative; float: right; width: 177px;">
 <form id="searchform" method="get" style="float: left; margin-bottom: 20px; margin-left: 2px;" role="search" action="<?php bloginfo('siteurl'); ?>/">
