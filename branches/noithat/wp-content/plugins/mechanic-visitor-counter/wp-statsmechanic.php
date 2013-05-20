@@ -159,14 +159,14 @@ class Wp_StatsMechanic extends WP_Widget{
               $totalpengunjung  = mysql_result(mysql_query("SELECT COUNT(hits) FROM `". BMW_TABLE_NAME . "`"), 0); 
               $hits             = mysql_fetch_assoc(mysql_query("SELECT SUM(hits) as hitstoday FROM `". BMW_TABLE_NAME . "` WHERE tanggal='$tanggal' GROUP BY tanggal")); 
               $totalhits        = mysql_result(mysql_query("SELECT SUM(hits) FROM `". BMW_TABLE_NAME . "`"), 0); 
-              $tothitsgbr      = mysql_result(mysql_query("SELECT COUNT(hits) FROM `". BMW_TABLE_NAME . "`"), 0);
+              $tothitsgbr      = mysql_result(mysql_query("SELECT COUNT(hits)+1368 FROM `". BMW_TABLE_NAME . "`"), 0);
               $bataswaktu       = time() - 300;
               $pengunjungonline = mysql_num_rows(mysql_query("SELECT * FROM `". BMW_TABLE_NAME . "` WHERE online > '$bataswaktu'"));
 			  $kemarin1 = mysql_num_rows($kemarin);  
 			
               $ext = ".gif";
 			//image print
-			  $tothitsgbr = sprintf("%06d", $tothitsgbr);
+			  $tothitsgbr = sprintf("%07d", $tothitsgbr);
 		      for ($i = 0; $i <= 9; $i++) {
 			  $tothitsgbr = str_replace($i, "<img src='http://demo.balimechanicweb.net/counter/styles/$style/$i$ext' alt='$i'>", $tothitsgbr);
               }
