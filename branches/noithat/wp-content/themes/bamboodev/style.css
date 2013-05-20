@@ -288,6 +288,6 @@ width: 165px;
 #similar_products {
 display: block;
 float: left;
-text-align: left;
+margin-top: 20px;
 width: 100%;
 }
