@@ -64,6 +64,9 @@ float: left;
 height: 1303px;
 position: relative;
 width: 176px;
+background-image: url("images/wg_bottom.jpg");
+background-repeat: no-repeat;
+background-position: center bottom;
 }
 #right_col{ 
 background-color: #E0E1E2;
@@ -71,6 +74,10 @@ display: block;
 float: right;
 position: relative;
 width: 176px;
+background-image: url("images/wg_bottom.jpg");
+background-repeat: no-repeat;
+background-position: center bottom;
+padding-bottom: 10px;
 }
 ol,ul { list-style: none outside none; }
 .small_box_container { background-color: rgb(255, 255, 255); display: block; float: left; /*margin-bottom: 10px;*/ min-height: 50px; position: relative; width: 176px; }
