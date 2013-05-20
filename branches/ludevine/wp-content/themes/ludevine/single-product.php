@@ -110,7 +110,6 @@ function MM_swapImage() { //v3.0
 	}
 	?>
 	<select id="quantity" name="quantity">
-			<option value="">Quantity</option>
 			<?php
 			for($i = 1; $i <= $quantity; $i++){
 				echo '<option value="'.$i.'">'.$i.'</option>';
@@ -166,7 +165,7 @@ jQuery(document).ready(function(){
 			}
 			submitUrl += "&size="+jQuery("#size").val();
 		}
-		var quantity = $("#quantity").val();
+		var quantity = jQuery("#quantity").val();
 		if(quantity == '') return;
 		submitUrl += "&quantity="+quantity;
 		alert(submitUrl);
