@@ -75,12 +75,20 @@ class ProductsWidget extends WP_Widget
 	//$categories = get_categories($args);
 	foreach($posts as $post) {
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'thumbnail', 'single-post-thumbnail' );
+		$sSize = '';
+		$width = $image[1];
+		$height = $image[2];
+		if($width/$height < 1.4) {
+			$sSize = ' height = "100" ';
+		} else {
+			$sSize = ' width = "140" ';
+		}
 	?>
 	<div>
 	<a class="product_item" style="width: 161px; height: 160px;" href="<?php echo get_permalink( $post->ID );?>" title="<?php echo $post->post_title?>">
 		<span class="title"><?php echo $post->post_title?></span>
 		<div class="wraptocenter2">
-			<img width="140" height="100" alt="<?php echo $post->post_title?>" src="<?php echo $image[0]?>">
+			<img <?php echo $sSize?> alt="<?php echo $post->post_title?>" src="<?php echo $image[0]?>">
 		</div>
 	</a>
 	</div>
