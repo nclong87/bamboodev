@@ -166,6 +166,9 @@ jQuery(document).ready(function(){
 			}
 			submitUrl += "&size="+jQuery("#size").val();
 		}
+		var quantity = $("#quantity").val();
+		if(quantity == '') return;
+		submitUrl += "&quantity="+quantity;
 		alert(submitUrl);
 	});
 });
