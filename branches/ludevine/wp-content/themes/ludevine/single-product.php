@@ -135,3 +135,20 @@ function MM_swapImage() { //v3.0
 </tbody></table>
 </body>
 </html>
+<script type="text/javascript">
+var product_id = '<?php echo $post->ID?>';
+jQuery(document).ready(function(){	
+	jQuery("#btAdd2Cart").click(function(){
+		var submitUrl = '/checkout?product_id='+product_id;
+		if(jQuery("#size").length > 0) {
+			if(jQuery("#size").val() == '') {
+				alert("Please select size!");
+				jQuery("#size").focus();
+				return;
+			}
+			submitUrl += "&size="+jQuery("#size").val();
+		}
+		alert(submitUrl);
+	});
+});
+</script>
