@@ -81,13 +81,8 @@
 		<center>
 		<div id="main">
 			<div id="header">
-			<!--<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="960" height="123" id="player1" align="middle">
-							<param name="movie" value="<?php bloginfo('siteurl'); ?>/wp-content/uploads/2013/05/1.swf" />
-							<param name="menu" value="false" />
-							<param name="quality" value="high" />
-							<param name="bgcolor" value="#FFFFFF" />
-							<embed src="<?php bloginfo('siteurl'); ?>/wp-content/uploads/2013/05/1.swf" menu="false" quality="high" bgcolor="#FFFFFF" width="960" height="123" name="player" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-						</object> -->				<div id="navigation">
+				<a href="<?php bloginfo('siteurl'); ?>/" id="logo"></a>
+				<div id="navigation">
 					<div class="menu"><a href="<?php bloginfo('siteurl'); ?>/">Trang chủ</a></div>
 					<div class="menu"><a href="<?php echo get_permalink(43); ?>">Giới thiệu</a></div>
 					<div class="menu" style="width: 55px"><a href="<?php echo get_permalink(60); ?>">Tin tức</a></div>
