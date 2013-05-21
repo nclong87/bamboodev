@@ -48,7 +48,7 @@ class SupportWidget extends WP_Widget
 	?>
 	<div style="clear:both;margin-top:10px"></div>
 	<center>
-	<img style="box-shadow: 2px 2px 6px;" src="<?php echo get_template_directory_uri(); ?>/images/support.png"/>
+	<img  src="<?php echo get_template_directory_uri(); ?>/images/support.png"/>
 	<div style="padding-top: 10px;">
 	<?php
 	if(!empty($yahoo)) {
