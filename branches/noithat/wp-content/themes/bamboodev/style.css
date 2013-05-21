@@ -273,7 +273,7 @@ color: #AC0404;text-decoration: underline;font-size:14px;font-weight: bold;
 #more_detail {
 float: left;
 text-align: justify;
-width: 25%;
+width: 560px;
 padding-left: 10px;
 
 }
@@ -308,4 +308,12 @@ display: block;
 float: left;
 margin-top: 20px;
 width: 100%;
+}
+#header a#logo {
+display: block;
+height: 82px;
+left: 44px;
+position: absolute;
+top: 18px;
+width: 271px;
 }
