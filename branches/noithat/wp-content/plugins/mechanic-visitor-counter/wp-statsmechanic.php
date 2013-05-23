@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
 Plugin Name: Mechanic Visitor Counter
 Plugin URI: http://www.adityasubawa.com/blog/64/install-mechanic-visitor-counter-wordpress.html
