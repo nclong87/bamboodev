@@ -24,6 +24,9 @@ $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
 		//$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
 		$categories = get_categories( array('orderby' => 'created', 'order' => 'ASC', 'parent'=> 4));
 		foreach($categories as $category) {
+		if($category->term_id == 48){
+			continue;
+		}
 		$posts = query_posts( array('post_type' => 'product', 'orderby' => 'name', 'order' => 'ASC', 'category_name' => $category->slug));
 		
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id($posts[0]->ID),'thumbnail', 'single-post-thumbnail' );
