@@ -209,12 +209,26 @@ background-color: #eee
 .product_item {
 display: block;
 float: left;
-height: 180px;
+height: 185px;
 width: 185px;
 margin-left: 8px;
 /*margin-left: 5px;
 margin-right: 3px;*/
 }
+
+.detail-link {
+  background-image: url("images/chitiet.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: block;
+  float: left;
+  height: 18px;
+  margin-left: 10px;
+  margin-top: 4px;
+  padding: 0 0 0 7px;
+  width: 60px;
+}
+
 .product_item .title {
 display: block;
 font-size: 12px;
