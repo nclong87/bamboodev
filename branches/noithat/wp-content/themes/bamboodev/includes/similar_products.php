@@ -30,7 +30,7 @@ foreach($similars as $item) {
 	<div class="wraptocenter">
 		<img <?php echo $sSize?> alt="<?php echo $item->post_title?>" src="<?php echo $image[0]?>">
 	</div>
-	<div class="detail-link">Chi tiết</div>
+	<div class="detail-link"><span>Chi tiết</span></div>
 </a>
 <?php
 }
