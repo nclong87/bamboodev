@@ -15,7 +15,7 @@ $pagenum = isset($_GET['page'])?$_GET['page']:1;
 <?php if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
 <div style="float: left; width: 100%; margin-top: 5px;">
 	<div id="center">
-		<h3>Tin tức</h3>
+		<h3>Khuyến Mãi</h3>
 		<?php
 		$posts = query_posts( array('post_type' => 'article', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => $pagenum));
 		$htmlPaging =  paginate_links( array(

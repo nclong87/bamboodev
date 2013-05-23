@@ -27,6 +27,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width" />
+<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/ntch.ico" /> 
 <?php wp_head();?>
 <title><?php
 	/*
@@ -85,7 +86,7 @@
 				<div id="navigation">
 					<div class="menu"><a href="<?php bloginfo('siteurl'); ?>/">Trang chủ</a></div>
 					<div class="menu"><a href="<?php echo get_permalink(43); ?>">Giới thiệu</a></div>
-					<div class="menu" style="width: 55px"><a href="<?php echo get_permalink(60); ?>">Tin tức</a></div>
+					<div class="menu" style="width: 80px"><a href="<?php echo get_permalink(60); ?>">Khuyến Mãi</a></div>
 					<div class="menu" style="width: 60px"><a href="<?php echo get_permalink(52); ?>">Liên hệ</a></div>
 				</div>
 				<span id="slogan"><marquee behavior="scroll" scrollamount="5" direction="left" id="slogan marquee">Sự hài lòng của Quý Khách làm niềm vinh hạnh cho công ty chúng tôi</marquee></span>
