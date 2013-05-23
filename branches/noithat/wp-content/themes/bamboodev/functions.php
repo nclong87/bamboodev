@@ -1,4 +1,4 @@
-<?phpdefine('POSTS_PER_PAGE',30);
+<?phpdefine('POSTS_PER_PAGE',15);
  
 require_once(TEMPLATEPATH . "/meta-box.php");
 require_once(TEMPLATEPATH . "/meta-boxes.php");
