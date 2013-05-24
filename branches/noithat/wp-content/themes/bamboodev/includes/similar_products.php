@@ -1,14 +1,26 @@
 <?php
 if($cat != null) {
+	if($page == 0) $page = 1;
 	$args = array(
 	   'post_type' => 'product',
 	   'numberposts' => 9,
 	   'post_status' => null,
-	   'orderby' => 'rand',
+	   'orderby' => 'created',
+	   'order' => 'ASC',
 	   'cat' => $cat->cat_ID,
-	   'exclude' => $post->ID,
+	   'post__not_in' => array($post->ID),
+	   'posts_per_page' => 9,
+	   'paged' => $page
 	);
-	$similars = get_posts( $args );
+	$similars = query_posts($args);
+	$htmlPaging =  paginate_links( array(
+		'total' => $wp_query->max_num_pages,
+		'base' => @add_query_arg('page','%#%'),
+		'format' => '',
+		'current' => $page,
+		'prev_text'    => __('« Trước'),
+		'next_text'    => __('Tiếp »')
+	) );
 }
 ?>
 <div id="similar_products">
@@ -35,4 +47,5 @@ foreach($similars as $item) {
 <?php
 }
 ?>
+	<div class="paging"><?php echo $htmlPaging;?></div>
 </div>
