@@ -67,7 +67,7 @@ class DanhMucSanPhamWidget extends WP_Widget
 	?>
 	<div class="small_box_container">
 		<div class="header-menu"></div>
-		<h3 class="title-menu" style="height: 45px;"><img src="<?php echo get_template_directory_uri(); ?>/images/sanpham.jpg" height="40"/></h3>
+		<h3 class="title-menu" style="height: 45px;"><a href="<?php bloginfo('siteurl'); ?>/"><img src="<?php echo get_template_directory_uri(); ?>/images/sanpham.jpg" height="40"/></a></h3>
 		<div class="content">
 		<ul id="menu">
 			<li>
