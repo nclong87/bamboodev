@@ -39,5 +39,11 @@ function initMenu() {
 $jquery(document).ready(function(){
 	initMenu();
 	showChildMenu($jquery('#menu > li > a.active'));
+	var content_height = $jquery("#content").height();
+	//debugger;
+	if(content_height != null && content_height != 0) {
+		$jquery("#left_col").css("height",(content_height)+"px");
+		$jquery("#right_col").css("height",(content_height-366)+"px");
+	}
 });
 </script>
