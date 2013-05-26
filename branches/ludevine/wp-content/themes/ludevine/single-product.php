@@ -154,9 +154,10 @@ function MM_swapImage() { //v3.0
 </html>
 <script type="text/javascript">
 var product_id = '<?php echo $post->ID?>';
+var baseUrl = '<?php echo DOMAIN ?>';
 jQuery(document).ready(function(){	
 	jQuery("#btAdd2Cart").click(function(){
-		var submitUrl = '/checkout?product_id='+product_id;
+		var submitUrl = baseUrl+'/ajax/?action=add-to-cart&product_id='+product_id;
 		if(jQuery("#size").length > 0) {
 			if(jQuery("#size").val() == '') {
 				alert("Please select size!");
@@ -168,7 +169,13 @@ jQuery(document).ready(function(){
 		var quantity = jQuery("#quantity").val();
 		if(quantity == '') return;
 		submitUrl += "&quantity="+quantity;
-		alert(submitUrl);
+		jQuery.get(submitUrl,function(response) {
+			if(response == 'OK') {
+				alert('OK');
+			} else {
+				alert('System busy right now, please try again!');
+			}
+		});
 	});
 });
 </script>
