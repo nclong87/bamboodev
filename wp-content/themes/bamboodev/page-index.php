@@ -21,8 +21,26 @@ $pagenum = isset($_GET['pagenum'])?$_GET['pagenum']:1;
 		<h3 style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/bg_center_title.jpg'); ">Nội Thất Văn Phòng</h3>
 		<?php
 		
+		// Sort categoies list function
+		function cmp($x, $y) {
+		$temp = get_option(MY_CATEGORY_FIELDS);
+		$a = $temp[$x->term_id]['category_order'];
+		$b = $temp[$y->term_id]['category_order'];
+			if ($a == $b ){
+				return 0;
+			}
+			if($a == null || $a == ''){
+				$a=9999;
+			}
+			if($b == null || $b == ''){
+				$b=9999;
+			}
+			
+			return ($a < $b) ? -1 : 1;
+		}
 		//$posts = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => 30,'paged' => 1));
 		$categories = get_categories( array('orderby' => 'created', 'order' => 'ASC', 'parent'=> 4));
+		uasort($categories, 'cmp');
 		foreach($categories as $category) {
 		if($category->term_id == 48){
 			continue;
