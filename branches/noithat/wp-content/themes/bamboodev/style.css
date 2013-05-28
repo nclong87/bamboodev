@@ -286,7 +286,9 @@ margin: 5px;
   font-weight: bold;
 }
 .vnd {
-color: #AC0404;text-decoration: underline;font-size:14px;font-weight: bold;
+color: #AC0404;
+font-size: 14px;
+font-weight: bold;
 }
 #more_detail {
 float: left;
