@@ -50,18 +50,31 @@ function catalog_init()
  *********************************************************************************/
 add_action('add_meta_boxes', 'catalog_add_custom_box');
 function catalog_add_custom_box() {
-    add_meta_box('catalog_priceid', 'Product Price', 'catalog_price_box', 'product','side');
+    add_meta_box('catalog_priceid', 'Product Prices', 'catalog_price_box', 'product','side');
 }
 
 function catalog_price_box() {
     $price = 0;
     if ( isset($_REQUEST['post']) ) {
-        $price = get_post_meta((int)$_REQUEST['post'],'catalog_product_price',true);
+        $prices = get_post_meta((int)$_REQUEST['post'],'product_metal_price',true);
+		if($prices == null) {
+			$prices = array(
+				'Bronze' => '',
+				'Sterling Silver' => '',
+				'Solid 14K Gold' => '',
+				'Solid 14k Gold with Diamonds' => '',
+				'Solid 18k Gold' => ''
+			);
+		}
         //$price = (float) $price;
     }
+	foreach($prices as $metal => $price) {
+	?>
+	<label style="float: left;"><?php echo $metal?> : </label><input class="widefat" name="product_metal_price[<?php echo $metal?>]" value="<?php echo $price?>" type="text" style="float: left; width: 150px; margin-bottom: 8px;">
+	<br clear="all">
+	<?php
+	}
 ?>
-<label for="catalog_product_price">Product Price</label>
-<input id="catalog_product_price" class="widefat" name="catalog_product_price" value="<?php echo $price; ?>" type="text">
 <?php
 }
 
@@ -74,9 +87,9 @@ add_action('save_post','catalog_save_meta');
 function catalog_save_meta($postID) {
     if ( is_admin() ) {
 		global $wpdb;
-        if ( isset($_POST['catalog_product_price']) ) {
-            update_post_meta($postID,'catalog_product_price',
-                                $_POST['catalog_product_price']);
+        if ( isset($_POST['product_metal_price']) ) {
+            update_post_meta($postID,'product_metal_price',
+                                $_POST['product_metal_price']);
         }
 		if($_POST['post_type'] == 'product') {
 			/* $myrows = $wpdb->get_results( "SELECT * FROM `data_index` WHERE `post_id` = {$postID}" );
