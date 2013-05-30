@@ -39,6 +39,7 @@ if(isset($categories[0])) {
 <head>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/thumbnailviewer2.js" type="text/javascript"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.formatCurrency.min.js" type="text/javascript"></script>
 <link href="<?php echo get_template_directory_uri(); ?>/popup.css" type="text/css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
@@ -90,35 +91,50 @@ function MM_swapImage() { //v3.0
 	echo $content;
 	?>
 	</p>
-	<p>
-	Price : <strong><?php echo format_number(get_post_meta($post->ID,'catalog_product_price',true)); ?></strong> USD
-	</p>
-	
-	<fieldset id="order">
 	<?php
-	if(!empty($list_size)) {
-		?>
-		<select id="size" name="size">
-			<option value="">Size</option>
-			<?php
-			foreach($list_size as $size) {
-				echo '<option value="'.$size.'">'.$size.'</option>';
-			}
-			?>
-		</select>
-		<?php
+	$prices = get_post_meta($post->ID,'product_metal_price',true);
+	if(empty($prices)) $prices = array();
+	$html = '';
+	$defaultPrice = '';
+	foreach($prices as $metal => $price) {
+		if(!empty($price)) {
+			if(empty($defaultPrice)) $defaultPrice = $price;
+			$html.='<option value="'.$price.'">'.$metal.'</option>';
+		}
 	}
-	?>
-	<select id="quantity" name="quantity">
-			<?php
-			for($i = 1; $i <= $quantity; $i++){
-				echo '<option value="'.$i.'">'.$i.'</option>';
-			}
+	if(!empty($html)) {
+		?>
+		<p>
+			<select id="metal" onchange="doChangeMetal(this.value)" autocomplete="off">
+				<?php echo $html?>
+			</select>
+			Price : <b id="price">$<?php echo format_number($defaultPrice)?></b>
+		</p>
+		<fieldset id="order">
+		<?php
+		if(!empty($list_size)) {
 			?>
-	</select>
-	<button id="btAdd2Cart" class="button">Add to cart</button>
-	</fieldset>	
-	
+			<select id="size" name="size">
+				<option value="">Size</option>
+				<?php
+				foreach($list_size as $size) {
+					echo '<option value="'.$size.'">'.$size.'</option>';
+				}
+				?>
+			</select>
+			<?php
+		}
+		?>
+		<select id="quantity" name="quantity">
+				<?php
+				for($i = 1; $i <= $quantity; $i++){
+					echo '<option value="'.$i.'">'.$i.'</option>';
+				}
+				?>
+		</select>
+		<button id="btAdd2Cart" class="button">Add to cart</button>
+		</fieldset>	
+	<?php }?>
   <strong class="addviews">ADDITIONAL VIEWS: </strong>(Hover over each image to enlarge)<br><br>
   <?php
 	//print_r($post);die;
@@ -155,9 +171,16 @@ function MM_swapImage() { //v3.0
 <script type="text/javascript">
 var product_id = '<?php echo $post->ID?>';
 var baseUrl = '<?php echo DOMAIN ?>';
+function doChangeMetal(value) {
+	jQuery("#price").text(value).formatCurrency();
+}
 jQuery(document).ready(function(){	
 	jQuery("#btAdd2Cart").click(function(){
-		var submitUrl = baseUrl+'/ajax/?action=add-to-cart&product_id='+product_id;
+		var metal = '';
+		if(jQuery("#metal option:selected").length > 0) {
+			metal = jQuery("#metal option:selected").text();
+		}
+		var submitUrl = baseUrl+'/ajax/?action=add-to-cart&product_id='+product_id+'&metal='+metal;
 		if(jQuery("#size").length > 0) {
 			if(jQuery("#size").val() == '') {
 				alert("Please select size!");
@@ -169,11 +192,15 @@ jQuery(document).ready(function(){
 		var quantity = jQuery("#quantity").val();
 		if(quantity == '') return;
 		submitUrl += "&quantity="+quantity;
+		var bt = this;
+		bt.disabled = true;
 		jQuery.get(submitUrl,function(response) {
-			if(response == 'OK') {
-				alert('OK');
-			} else {
+			response = jQuery.parseJSON(response);
+			if(response.code == 1) {
+				location.href = response.data;
+			} else if(response.code == 0) {
 				alert('System busy right now, please try again!');
+				bt.disabled = false;
 			}
 		});
 	});
