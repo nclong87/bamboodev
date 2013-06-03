@@ -1,0 +1,1 @@
+<?php/*Template Name: Thank you*/unset($_SESSION['cart']);get_header(); ?>	<div id="primary">	<div id="content" role="main">				Thank you for your order!		<a href="<?php bloginfo('wpurl'); ?>">Click here to return to shop.</a>	<div style="clear:both">	<br/>	<br/>	</div><!-- #content --></div><!-- #primary --><?php get_footer(); ?><script></script>
