@@ -1,4 +1,4 @@
-<?php	 	
+<?php
 /*
 Template Name: Payment
 */
@@ -22,149 +22,78 @@ Template Name: Payment
   <h2>Name and address</h2>
     <form name="registerform" method="post" action="cart.php?mode=checkout" class="skip-auto-validation">
       <fieldset class="registerform" id="personal_details">
-
         <input type="hidden" value="C" name="usertype" autocomplete="off">
         <input type="hidden" value="Y" name="anonymous" autocomplete="off">
         <input type="hidden" value="8a13300997a144440d570c79372cc7dd" name="xid_c84cc" autocomplete="off">
-<ul class="first">                           
-    <li class="fields-group"> 
+<ul class="first">
+    <li class="fields-group">
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_firstname">First name</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
           <input type="text" value="" maxlength="32" size="32" name="address_book[B][firstname]" id="b_firstname" autocomplete="off">
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-                                                    
     <li class="fields-group last">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_lastname">Last name</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
           <input type="text" value="" maxlength="32" size="32" name="address_book[B][lastname]" id="b_lastname" autocomplete="off">
-
-              
   </div>
   </div>
     </li>
-
           <li class="clearing"></li>
-    
-  
-                        
     <li class="single-field">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_address">Address</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
           <input type="text" value="" maxlength="32" size="32" name="address_book[B][address]" id="b_address" autocomplete="off">
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-                        
     <li class="single-field">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label for="b_address_2">Address (line 2)</label>
   </div>
-
   <div class="data-value">
-    
-        
           <input type="text" value="" maxlength="32" size="32" name="address_book[B][address_2]" id="b_address_2" autocomplete="off">
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-                        
     <li class="single-field">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_city">City</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-                  
           <input type="text" value="" maxlength="32" size="32" name="address_book[B][city]" id="b_city" autocomplete="off">
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-  
-                        
     <li class="single-field">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="address_book_B_state">State</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
                     <select style="width: 250px;" class="input-style" id="address_book_B_state" name="address_book[B][state]" autocomplete="off">
 <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="AA">Armed Forces Americas</option><option value="AE">Armed Forces Europe, Middle East &amp; Canada</option><option value="AP">Armed Forces Pacific</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select>
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-                        
     <li class="single-field">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_country">Country</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
           <select style="width: 250px;" class="input-style" onchange="check_zip_code_field(this, $('#b_zipcode'))" id="b_country" name="address_book[B][country]" autocomplete="off">
                           <option value="AF">Afghanistan</option>
                           <option value="AX">Aland Islands</option>
@@ -413,60 +342,30 @@ Template Name: Payment
                           <option value="ZM">Zambia</option>
                           <option value="ZW">Zimbabwe</option>
                       </select>
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-                              
     <li class="fields-group">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_zipcode">Zip/Postal code</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
-          
     <input type="text" value="" maxlength="32" size="32" name="address_book[B][zipcode]" class="zipcode billing" id="b_zipcode" autocomplete="off">
-  
-
-              
   </div>
   </div>
     </li>
-
-    
-  
-                                                    
     <li class="fields-group last">
-
-      
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="b_phone">Phone</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-    
-        
           <input type="text" value="" maxlength="32" size="32" name="address_book[B][phone]" id="b_phone" autocomplete="off">
-
-              
   </div>
   </div>
     </li>
-
           <li class="clearing"></li>
-    
-  
-  
   <li style="display:none">
       <span style="display:none;">
 <input type="text" value="NY" id="b_country_state_value" autocomplete="off">
@@ -478,7 +377,6 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
 //]]&gt;
 </script>
   </li>
-
 </ul>
 <ul>
   <li class="single-field">
@@ -490,44 +388,36 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
           <input type="text" value="" maxlength="128" size="32" class="input-required input-email" name="email" id="email" autocomplete="off">
             <div style="display: none;" class="note-box" id="email_note">Make sure you enter a valid email address because the store will send you notifications to this address.</div>
   </div>
-  </div>  
+  </div>
   </li>
 </ul>
-
-
       <div class="optional-label">
     <!--  <label for="create_account" class="pointer">
         <input type="checkbox" value="Y" name="create_account" id="create_account" autocomplete="off">
         Create account for this Email
       </label>-->
     </div>
-  
   <ul id="create_account_box" style="display: none;">
    <li class="single-field">
             <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="passwd1">Password</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
             <input type="hidden" value="N" id="password_is_modified" name="password_is_modified" autocomplete="off">
         <input type="password" value="" maxlength="64" size="32" name="passwd1" id="passwd1" autocomplete="off">
-              
   </div>
   </div>
             <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="passwd2">Confirm password</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
             <input type="password" value="" maxlength="64" size="32" name="passwd2" id="passwd2" autocomplete="off">
         <span class="validate-mark"><img width="15" height="15" alt="" src="/skin/common_files/images/spacer.gif"></span>
-      
   </div>
   </div>
     </li>
-  
   </ul>
     <div class="optional-label">
       <label for="ship2diff" class="pointer">
@@ -536,58 +426,58 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
       </label>
     </div>
     <div id="ship2diff_box" style="display: none;">
-<ul class="first">                          
-    <li class="fields-group">   
+<ul class="first">
+    <li class="fields-group">
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="s_firstname">First name</label><span class="star">*</span>
   </div>
-  <div class="data-value">     
-          <input type="text" value="" maxlength="32" size="32" name="address_book[S][firstname]" id="s_firstname" autocomplete="off">             
+  <div class="data-value">
+          <input type="text" value="" maxlength="32" size="32" name="address_book[S][firstname]" id="s_firstname" autocomplete="off">
   </div>
   </div>
-    </li>                                                  
-    <li class="fields-group last">   
+    </li>
+    <li class="fields-group last">
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="s_lastname">Last name</label><span class="star">*</span>
   </div>
   <div class="data-value">
-        <input type="text" value="" maxlength="32" size="32" name="address_book[S][lastname]" id="s_lastname" autocomplete="off">            
+        <input type="text" value="" maxlength="32" size="32" name="address_book[S][lastname]" id="s_lastname" autocomplete="off">
   </div>
   </div>
     </li>
-     <li class="clearing"></li>                    
-    <li class="single-field"> 
+     <li class="clearing"></li>
+    <li class="single-field">
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="s_address">Address</label><span class="star">*</span>
   </div>
-  <div class="data-value">   
-          <input type="text" value="" maxlength="32" size="32" name="address_book[S][address]" id="s_address" autocomplete="off">          
+  <div class="data-value">
+          <input type="text" value="" maxlength="32" size="32" name="address_book[S][address]" id="s_address" autocomplete="off">
   </div>
   </div>
-    </li>                   
+    </li>
     <li class="single-field">
       <div class="field-container">
   <div class="data-name">
     <label for="s_address_2">Address (line 2)</label>
   </div>
   <div class="data-value">
-       <input type="text" value="" maxlength="32" size="32" name="address_book[S][address_2]" id="s_address_2" autocomplete="off">      
+       <input type="text" value="" maxlength="32" size="32" name="address_book[S][address_2]" id="s_address_2" autocomplete="off">
   </div>
   </div>
-    </li>                
+    </li>
     <li class="single-field">
       <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="s_city">City</label><span class="star">*</span>
   </div>
-  <div class="data-value">          
-          <input type="text" value="" maxlength="32" size="32" name="address_book[S][city]" id="s_city" autocomplete="off">   
+  <div class="data-value">
+          <input type="text" value="" maxlength="32" size="32" name="address_book[S][city]" id="s_city" autocomplete="off">
   </div>
   </div>
-    </li>                
+    </li>
     <li class="single-field">
       <div class="field-container">
   <div class="data-name">
@@ -595,10 +485,10 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
   </div>
   <div class="data-value">
                     <select style="width: 250px;" class="input-style" id="address_book_S_state" name="address_book[S][state]" autocomplete="off">
-<option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="AA">Armed Forces Americas</option><option value="AE">Armed Forces Europe, Middle East &amp; Canada</option><option value="AP">Armed Forces Pacific</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select>          
+<option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="AA">Armed Forces Americas</option><option value="AE">Armed Forces Europe, Middle East &amp; Canada</option><option value="AP">Armed Forces Pacific</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select>
   </div>
   </div>
-    </li>                
+    </li>
     <li class="single-field">
       <div class="field-container">
   <div class="data-name">
@@ -855,7 +745,7 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
                       </select>
   </div>
   </div>
-    </li>                   
+    </li>
     <li class="fields-group">
       <div class="field-container">
   <div class="data-name">
@@ -865,7 +755,7 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
     <input type="text" value="" maxlength="32" size="32" name="address_book[S][zipcode]" class="zipcode shipping" id="s_zipcode" autocomplete="off">
   </div>
   </div>
-    </li>                                           
+    </li>
     <li class="fields-group last">
       <div class="field-container">
   <div class="data-name">
@@ -888,112 +778,60 @@ init_js_states(document.getElementById('s_country'), 'address_book[S][state]', '
 //]]&gt;
 </script>
   </li>
-
 </ul>
-
   </div>
-
-        
-        
       <h3>_____________________</h3>
-  
   <ul class="first">
-  
-      
-    
-                            
       <li class="fields-group">
-
                 <div class="field-container">
   <!--<div class="data-name">
     <label class="data-required" for="firstname">First name</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
                           <input type="text" value="" id="firstname" name="firstname" autocomplete="off">
-                  
   </div>-->
   </div>
       </li>
-
-      
-    
-                                              
      <!-- <li class="fields-group last">
-
                 <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="lastname">Last name</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
                           <input type="text" value="" id="lastname" name="lastname" autocomplete="off">
-                  
   </div>
   </div>
       </li>
 -->
-      
-      
-      
-      
         </ul>
-
-    
-          
-                
-        
-          
                 <div align="center" class="button-row">
-            
-  
-    
-
-
   <button title="Continue" type="submit" >
   <span class="button-right"><span class="button-left">Continue</span></span>
   </button>
-
-
         </div>
-          
       </fieldset>
     </form>
-    
     <script type="text/javascript">
 //&lt;![CDATA[
 var is_run = false;
 var unique_key = 'be7d602fe7513fd2c4340ecdfeee7d41';
-
 function checkRegFormFields(form) {
-
   if (is_run) {
     return false;
   }
-
   var is_valid_card_number = true;
   var is_valid_cvv2 = true;
-
-  
   is_run = false;
   if (
       check_zip_code(form)
-      && is_valid_card_number 
+      && is_valid_card_number
       && is_valid_cvv2
         ) {
     return true;
   }
-
   is_run = false;
-
   return false;
-}
-
-
-var anonymousFlag = true;
-
-
-
+}var anonymousFlag = true;
 $(function() {
   $('#email')
     .live('blur submit', function(){
@@ -1002,7 +840,6 @@ $(function() {
     .live('focus', function(){
       showNote('email_note', this)
     });
-
   $('#passwd1, #passwd2')
     .bind('change', function() {
       $('#password_is_modified').val('Y');
@@ -1015,18 +852,14 @@ $(function() {
     .bind('focus', function() {
       showNote('passwd_note', this)
     });
-
   $('#passwd1, #passwd2')
     .bind('change', function() {
-
       var pwd1 = $('#passwd1').val();
       var pwd2 = $('#passwd2').val();
       var vm   = $('#passwd2').parent().find('span.validate-mark');
-
       if (vm === undefined) {
         return true;
       }
-
       if (pwd1 == '' || pwd2 == '') {
         vm.removeClass('validate-matched validate-non-matched');
       } else if (pwd1 != pwd2) {
@@ -1035,74 +868,47 @@ $(function() {
         vm.removeClass('validate-non-matched').addClass('validate-matched');
       }
     });
-
-
   $('#create_account, #ship2diff')
     .bind('click', function(){
       if ($(this).is(':checked')) {
         $('#' + $(this).attr('id') + '_box').show();
-        $(this).parents('.register-exp-section').removeClass('register-sec-minimized'); 
+        $(this).parents('.register-exp-section').removeClass('register-sec-minimized');
       }
       else {
         $('#' + $(this).attr('id') + '_box').hide();
-        $(this).parents('.register-exp-section').addClass('register-sec-minimized'); 
+        $(this).parents('.register-exp-section').addClass('register-sec-minimized');
       }
-      
-            
     });
-
-
-
 $('#ship2diff_box').hide();
 $('#create_account_box').hide();
-
-
 });
-
-
 //]]&gt;
-</script>  
-  
+</script>
 </div>  </li>
-
   <li id="payment_shipping_payment" class="payment-section">
               <div id="payment_shipping">
   <h2>Shipping method</h2>
-
   <form name="shippingsform" method="post" action="cart.php">
-
     <input type="hidden" value="checkout" name="mode" disabled="" autocomplete="off">
     <input type="hidden" value="cart_operation" name="cart_operation" disabled="" autocomplete="off">
     <input type="hidden" value="update" name="action" disabled="" autocomplete="off">
-
     <div class="payment-section-container payment-shipping-options">
-      
   <div >$20 flat rate for packaging and shipping throughout the US</div>
-
-
   <div class="checkout-customer-notes">
     <label for="customer_notes">Customer notes:</label>
     <textarea name="Customer_Notes" id="customer_notes" rows="3" cols="47"></textarea>
   </div>
-
-
   <input type="hidden" value="0" name="shippingid" disabled="" autocomplete="off">
-
-
       <div class="clearing"></div>
     </div>
-
-    
   </form>
-</div>            
+</div>
 <!--<div id="payment_payment">
   <h2>Payment method</h2>
-
   <form name="paymentform" method="post" action="cart.php">
     <input type="hidden" value="checkout" name="mode" disabled="" autocomplete="off">
     <input type="hidden" value="cart_operation" name="cart_operation" disabled="" autocomplete="off">
     <input type="hidden" value="update" name="action" disabled="" autocomplete="off">
-
     <div class="payment-section-container payment-payment-options">
       <div class="checkout-payments">
   <script language="JavaScript 1.2" type="text/javascript">
@@ -1144,54 +950,36 @@ var lbl_cvv2_must_be_number = "CVV2 must be a number";
 //]]&gt;
 </script>
 <script src="/skin/common_files/js/check_cc_number_script.js" type="text/javascript"></script>
-
-
 <table cellspacing="0" summary="Payment methods" class="checkout-payments">
-
-
   <tbody><tr>
     <td>
       <input type="radio" checked="checked" value="20" id="pm20" name="paymentid" disabled="" autocomplete="off">
     </td>
-
-    
       <td class="checkout-payment-name">
       <label for="pm20">Credit Card
               </label>
       <div class="checkout-payment-descr">
-        
-          
               </div>
     </td>
-
     </tr>
-
 <tr id="pmbox_20" class="payment-details">
   <td colspan="3">
     <div class="payment-payment-options">
     <fieldset class="registerform"><script type="text/javascript">
 //&lt;![CDATA[
-
   $(document).ready(function(){
-    $("input,select").attr({ 
+    $("input,select").attr({
           autocomplete: "off"
         });
   });
-
 //]]&gt;
 </script>
-
-  
-          
-      
-
 <ul>
   <li class="single-field">
         <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="card_type">Credit card type</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
               <select id="card_type" onchange="javascript: markCVV2(this)" name="card_type[be7d602fe7513fd2c4340ecdfeee7d41]" disabled="" autocomplete="off">
                   <option value="VISA">Visa</option>
@@ -1207,47 +995,31 @@ var lbl_cvv2_must_be_number = "CVV2 must be a number";
                   <option value="ERT">enRoute</option>
                   <option value="UKE">Visa Electron</option>
               </select>
-        
   </div>
   </div>  </li>
-
   <li class="single-field">
         <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="card_name">Cardholder's name</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
-        
-                    
-                    
       <input type="text" id="card_name" value="" maxlength="50" size="32" name="card_name[be7d602fe7513fd2c4340ecdfeee7d41]" disabled="" autocomplete="off">
-
-        
   </div>
   </div>  </li>
-
   <li class="single-field">
         <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="card_number">Credit card number (no spaces or dashes)</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
               <input type="text" id="card_number" value="" maxlength="20" size="32" name="card_number[be7d602fe7513fd2c4340ecdfeee7d41]" disabled="" autocomplete="off">
-
-      
-        
   </div>
   </div>  </li>
-
-  
   <li class="single-field">
         <div class="field-container">
   <div class="data-name">
     <label class="data-required">Expiration date (month/year)</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
               <select name="card_expire_Month[be7d602fe7513fd2c4340ecdfeee7d41]" disabled="" autocomplete="off">
 <option value="01" label="01">01</option>
@@ -1263,7 +1035,6 @@ var lbl_cvv2_must_be_number = "CVV2 must be a number";
 <option value="11" label="11">11</option>
 <option value="12" label="12">12</option>
 </select>
-
 <select name="card_expire_Year[be7d602fe7513fd2c4340ecdfeee7d41]" disabled="" autocomplete="off">
 <option selected="selected" value="2013" label="2013">2013</option>
 <option value="2014" label="2014">2014</option>
@@ -1277,48 +1048,34 @@ var lbl_cvv2_must_be_number = "CVV2 must be a number";
 <option value="2022" label="2022">2022</option>
 <option value="2023" label="2023">2023</option>
 </select>
-        
   </div>
   </div>  </li>
-  
                                                                                                                                   <li class="single-field">
             <div class="field-container">
   <div class="data-name">
     <label class="data-required" for="card_cvv2">CVV2</label><span class="star">*</span>
   </div>
-
   <div class="data-value">
                   <input type="text" id="card_cvv2" style="width:50px;" value="" maxlength="4" size="4" name="card_cvv2[be7d602fe7513fd2c4340ecdfeee7d41]" disabled="" autocomplete="off">
           <a target="_blank" class="popup-link" onclick="javascript: return typeof(window.popupOpen) == 'undefined' || !popupOpen('popup_info.php?action=CVV2', 'What is CVV2?');" href="popup_info.php?action=CVV2"><img alt="What is it?" src="/skin/common_files/images/spacer.gif"></a>
-            
   </div>
   </div>    </li>
-  
-  
 </ul></fieldset>
   </div>
   </td>
 </tr>
-
- 
-</tbody></table></div>
-
+ </tbody></table></div>
 <script type="text/javascript">
 //&lt;![CDATA[
 var paymentsCOD = [];
 display_cod(false);
-
-
 function display_cod(flag) {
   for (var i = 0; i &lt; paymentsCOD.length; i++) {
     if (paymentsCOD[i] &amp;&amp; document.getElementById('cod_tr' + paymentsCOD[i]))
       document.getElementById('cod_tr' + paymentsCOD[i]).style.display = flag ? "" : "none";
   }
-
   return true;
-}
-
-//]]&gt;
+}//]]&gt;
 </script>
       <div class="clearing"></div>
     </div>
