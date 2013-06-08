@@ -9,7 +9,19 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
-				debug($_SESSION['cart']);
+				global $wpdb;
+				$data = array('test' => 'Heeello3');
+				$wpdb->_insert_replace_helper('test', $data);
+				$id = $wpdb->insert_id;
+				echo $id.' ';
+				//$wpdb->update('test', $data, array('id' => 1));
+				exit;
+				$cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
+				require_once 'includes/paypal.php';
+				$token = Paypal::getToken();
+				//$response = Paypal::createPayment($token, $cart);
+				$response = Paypal::queryOrder($token, 'PAY-3XF77111X6468281AKGZXHHI');
+				debug($response);
 				break;
 			case 'cart-change-quantity':
 				$product_id = getParam('product_id');
@@ -41,7 +53,7 @@ Template Name: Ajax
 				$prices = get_post_meta($product_id,'product_metal_price',true);
 				if(empty($prices)) throw new Exception('add-to-cart-2', 0);
 				if(!isset($prices[$metal])) throw new Exception('add-to-cart-3', 0);
-				$price = parseInt($prices[$metal]);
+				$price = $prices[$metal];
 				$quantity = parseInt(getParam('quantity',1));
 				if($quantity == 0) throw new Exception('add-to-cart-4', 0);
 				$cart[$product_id] = array(

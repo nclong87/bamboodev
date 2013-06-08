@@ -766,18 +766,8 @@ init_js_states(document.getElementById('b_country'), 'address_book[B][state]', '
   </div>
   </div>
     </li>
-          <li class="clearing"></li
-  <li style="display:none">
-      <span style="display:none;">
-<input type="text" value="NY" id="s_country_state_value" autocomplete="off">
-<input type="text" value="" id="s_country_county_value" autocomplete="off">
-</span>
-<script type="text/javascript">
-//&lt;![CDATA[
-init_js_states(document.getElementById('s_country'), 'address_book[S][state]', 'address_book[S][county]', 's_country');
-//]]&gt;
-</script>
-  </li>
+          <li class="clearing"></li>
+
 </ul>
   </div>
       <h3>_____________________</h3>
