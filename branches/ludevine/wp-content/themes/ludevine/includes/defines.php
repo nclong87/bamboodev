@@ -1,0 +1,1 @@
+<?php//define error codesdefine('ERR_PAYMENT', 10000);define('ERR_PAYMENT_CREATE_ORDER', ERR_PAYMENT + 1);define('ERR_PAYMENT_PAYPAL_CREATE_ORDER', ERR_PAYMENT + 2);
