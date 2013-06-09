@@ -9,7 +9,7 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
-				global $wpdb;
+				/*global $wpdb;
 				$data = array('test' => 'Heeello3');
 				$wpdb->_insert_replace_helper('test', $data);
 				$id = $wpdb->insert_id;
@@ -17,10 +17,12 @@ Template Name: Ajax
 				//$wpdb->update('test', $data, array('id' => 1));
 				exit;
 				$cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
+				require_once 'includes/paypal.php';*/
 				require_once 'includes/paypal.php';
 				$token = Paypal::getToken();
 				//$response = Paypal::createPayment($token, $cart);
-				$response = Paypal::queryOrder($token, 'PAY-3XF77111X6468281AKGZXHHI');
+				$response = Paypal::queryPayment($token, 'PAY-7PS78383X4832934PKG2MIMI');
+				//$response = Paypal::approvePayment($token,'PAY-7PS78383X4832934PKG2MIMI', 'NEU8N24L9535J');
 				debug($response);
 				break;
 			case 'cart-change-quantity':
