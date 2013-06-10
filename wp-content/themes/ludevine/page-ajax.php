@@ -9,21 +9,33 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
-				/*global $wpdb;
-				$data = array('test' => 'Heeello3');
+				//require_once 'includes/order.php';
+				//$sale = Order::findSaleById('0BB8241620788551A');
+				require_once 'includes/paypal.php';
+				$token = Paypal::getToken();
+				$response = Paypal::queryPayment($token, 'PAY-8WW46939R6382820LKG3CNJY');
+				//$response = Paypal::refundSale($token,$sale,'40');
+				debug($response);
+				global $wpdb;
+				/*$query = $wpdb->prepare('SELECT * FROM `orders` WHERE `status` = 0 AND `id` = %d',13);
+				$order = $wpdb->get_row($query);
+				check($order);
+				debug($order);*/
+				/*$data = array('test' => 'Heeello3');
 				$wpdb->_insert_replace_helper('test', $data);
 				$id = $wpdb->insert_id;
 				echo $id.' ';
 				//$wpdb->update('test', $data, array('id' => 1));
 				exit;
 				$cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
-				require_once 'includes/paypal.php';*/
+				require_once 'includes/paypal.php';
 				require_once 'includes/paypal.php';
 				$token = Paypal::getToken();
+				debug($token);
 				//$response = Paypal::createPayment($token, $cart);
-				$response = Paypal::queryPayment($token, 'PAY-7PS78383X4832934PKG2MIMI');
-				//$response = Paypal::approvePayment($token,'PAY-7PS78383X4832934PKG2MIMI', 'NEU8N24L9535J');
-				debug($response);
+				//$response = Paypal::queryPayment($token, 'PAY-7PS78383X4832934PKG2MIMI');
+				$response = Paypal::approvePayment($token,'PAY-0MG16962XC201362KKG3BEWI', 'NEU8N24L9535J');
+				debug($response);*/
 				break;
 			case 'cart-change-quantity':
 				$product_id = getParam('product_id');
