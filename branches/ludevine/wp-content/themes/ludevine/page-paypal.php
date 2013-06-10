@@ -45,7 +45,7 @@ Template Name: Paypal
 		Utils::log('payment::createOrder_BEGIN',$orderData);
 		$wpdb->insert('orders', $orderData);
 		$orderId = $wpdb->insert_id;
-		Utils::log('payment::createOrder_END','OrderId ='.$orderId);
+		Utils::log('payment::createOrder_END',array('order_id' => $orderId));
 		if($orderId=='') throw new Exception('payment::createOrder', ERR_PAYMENT_CREATE_ORDER);
 		
 		//insert order_products
@@ -54,7 +54,9 @@ Template Name: Paypal
 				'order_id' => $orderId,
 				'product_id' => $product_id,
 				'price' => $item['price'],
-				'quantity' => $item['quantity']
+				'quantity' => $item['quantity'],
+				'metal' => $item['metal'],
+				'size' => $item['size']
 			);
 			Utils::log('payment::addOrderProducts',$data);
 			$wpdb->insert('order_products', $data);
@@ -70,14 +72,15 @@ Template Name: Paypal
 			'cart' => $cart
 		);
 		Utils::log('payment::createPayment_BEGIN',$logInfo);
-		$response = Paypal::createPayment($token, $cart);
+		$response = Paypal::createPayment($token, $cart,$orderId);
 		Utils::log('payment::createPayment_END',$response);
 		if(!isset($response['id'])) throw new Exception('payment::createPayment', ERR_PAYMENT_PAYPAL_CREATE_ORDER);
-		$rs = $wpdb->update('orders', array('paypal_id' => $response['id']), array('id' => $orderId));
+		$rs = $wpdb->update('orders', array('paypal_id' => $response['id'],'status' => 1,'time_update' => $time), array('id' => $orderId));
 		if(empty($rs)) throw new Exception('payment::createPayment', ERR_PAYMENT);
-		
-		debug($response);
-		
+		foreach ($response['links'] as $link) {
+			if($link['rel'] == 'approval_url') wp_redirect($link['href']);
+		}
+		exit;
 	} catch (Exception $e) {
 		Utils::logException($e);
 		exit;

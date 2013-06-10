@@ -1,0 +1,1 @@
+<?phpclass Order {	public static function findSaleById($saleId) {		global $wpdb;		$query = $wpdb->prepare('SELECT * FROM `sales` WHERE `id` = %s',$saleId);		return $wpdb->get_row($query,ARRAY_A);	}	}
