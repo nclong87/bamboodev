@@ -1,0 +1,1 @@
+<?phpclass Customer {	public static function findByEmail($email) {		global $wpdb;		$query = $wpdb->prepare('SELECT * FROM `customers` WHERE `email` = %s',$email);		return $wpdb->get_row($query,ARRAY_A);	}	}
