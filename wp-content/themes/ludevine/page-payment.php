@@ -12,19 +12,31 @@ $states = Utils::loadState();
 <link href="<?php echo get_template_directory_uri(); ?>/payment.css" type="text/css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/temp_payment.css" type="text/css" rel="stylesheet">
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.js" type="text/javascript"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.form.min.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <center>
 <div id="main">
 	<h1 style="margin-top: 30px; margin-bottom: 30px; font-size: 30px; font-weight: normal;">Wrap it up! Check out in one page!</h1>
+	<div id="message"></div>
 <ul id="payment-sections">
   <li class="payment-section">
     <div id="payment_profile">
   <h2>Name and address</h2>
-    <form name="registerform" method="post" action="cart.php?mode=checkout" class="skip-auto-validation">
+	<?php
+	require 'includes/order.php';
+	$addressId = isset($_SESSION['address_id'])?$_SESSION['address_id']:'';
+	if(!empty($addressId)) {
+		$address = Order::findAddressById($addressId);
+		print_r($address);
+	} else {
+	?>
+	<form name="registerform" id="registerform" method="post" action="<?php echo DOMAIN?>/ajax" class="skip-auto-validation">
+		<input type="hidden" name="action" value="sign-up"/>
+		<input type="hidden" name="redirect_url" value="<?php echo DOMAIN?>/payment"/>
       <fieldset class="registerform" id="personal_details">
-		<?php require_once 'includes/address_1.php';?>
+		<?php require 'includes/address_1.php';?>
 		<ul>
 			<li class="single-field">
 			<div class="field-container">
@@ -70,14 +82,15 @@ $states = Utils::loadState();
 			Ship to a different address
 			</label>
 		</div>
-		<?php require_once 'includes/address_2.php';?>
+		<?php require 'includes/address_2.php';?>
         <div align="center" class="button-row" style="float: right;">
-			<button title="Continue" type="submit" >
-			<span class="button-right"><span class="button-left">Continue</span></span>
-			</button>
+			<input type="button" title="Continue" id="btRegister" value="Continue"/>
         </div>
       </fieldset>
     </form>
+	<?php
+	}
+	?>
 </div>  </li>
   <li id="payment_shipping_payment" class="payment-section">
               <div id="payment_shipping">
@@ -97,7 +110,7 @@ $states = Utils::loadState();
     </div>
   </form>
 </div>
-<?php require_once 'includes/payment_order_summary.php';?>
+<?php require 'includes/payment_order_summary.php';?>
 </ul>
 </div>
 </center>
@@ -107,5 +120,19 @@ $states = Utils::loadState();
 var selected_country = 'United States';
 $(function() {
 	$("#b_country,#s_country").val(selected_country);
+	$('#registerform').ajaxForm(function(response) {
+		response = jQuery.parseJSON(response);
+		if(response.code == 1) {
+			//location.reload();
+		} else {
+			$("#message").html('<span class="error_msg">'+response.data+'</span>');
+			$("#btRegister")[0].disabled = false;
+			location.href = "#message";
+		}
+	});
+	$("#btRegister").click(function(){
+		this.disabled = true;
+		$('#registerform').submit();
+	});
 });
 </script>
