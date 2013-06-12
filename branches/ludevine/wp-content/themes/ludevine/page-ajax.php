@@ -9,6 +9,7 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
+				debug($_SESSION['address_id']);
 				//require_once 'includes/order.php';
 				//$sale = Order::findSaleById('0BB8241620788551A');
 				require_once 'includes/paypal.php';
@@ -85,13 +86,49 @@ Template Name: Ajax
 				$_SESSION['cart'] = $cart;
 				$success['data'] = DOMAIN.'/checkout';
 				break;
+			case 'sign-up':
+				require_once 'includes/validate.php';
+				require 'includes/order.php';
+				$bArress = getArray($_POST['address_book']['B']);
+				$email = getParam('email');
+				if(empty($email) || !is_email($email)) throw new Exception('Please check your email address.', ERR_VALIDATE);
+				if(Validate::validateAddress($bArress) == false) throw new Exception('Customer info is invalid', ERR_VALIDATE_ADDRESS);
+				$createAccount = getParam('create_account');
+				if($createAccount == 'Y') {
+					$password = getParam('passwd1');
+					if(empty($password)) throw new Exception('Password is not empty', ERR_VALIDATE);
+					$validateRs = Validate::validateEmail($email);
+					if($validateRs != '') throw new Exception($validateRs, ERR_VALIDATE_EMAIL);
+				}
+				$ship2diff = getParam('ship2diff');
+				if($ship2diff == 'Y') {
+					$sArress = getArray($_POST['address_book']['S']);
+					if(Validate::validateAddress($sArress) == false) throw new Exception('Shipping info is invalid', ERR_VALIDATE_ADDRESS);
+				}
+				$bArress['email'] = $email;
+				$addressId = Order::addAddress($bArress,true);
+				if($createAccount == 'Y') {
+					$data = array(
+						'email' => $email,
+						'password' => $password,
+						'address_id' => $addressId
+					);
+					$customerId = Order::addCustomer($data,true);
+				}
+				if($ship2diff == 'Y') {
+					if(isset($customerId)) $sArress['customer_id'] = $customerId;
+					$sArress['email'] = $email;
+					$addressId = Order::addAddress($sArress,true);
+				}
+				$_SESSION['address_id'] = $addressId;
+				break;
 			default:
 				break;
 		}
 		echo json_encode($success);
 	} catch (Exception $e) {
 		echo json_encode(array(
-			'code' => 0,
+			'code' => $e->getCode(),
 			'data' => $e->getMessage()
 		));
 	}
