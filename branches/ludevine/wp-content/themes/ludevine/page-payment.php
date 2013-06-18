@@ -29,12 +29,33 @@ $states = Utils::loadState();
 	$addressId = isset($_SESSION['address_id'])?$_SESSION['address_id']:'';
 	if(!empty($addressId)) {
 		$address = Order::findAddressById($addressId);
+		?>
+		<form name="registerform" id="registerform" method="post" action="<?php echo DOMAIN?>/ajax" class="skip-auto-validation">
+			<input type="hidden" name="action" value="sign-up"/>
+			<input type="hidden" name="id" value="<?php echo $address['id']?>"/>
+			<fieldset class="registerform" id="personal_details">
+			<?php require 'includes/address_1.php';?>
+			<ul>
+				<li class="single-field">
+				<div class="field-container">
+				<div class="data-name">
+				<label class="data-required" for="email">Email</label><span class="star">*</span>
+				</div>
+				<div class="data-value">
+				<input type="text" value="<?php echo $address['email']?>" maxlength="128" size="32" class="input-required input-email" name="email" id="email" autocomplete="off">
+				<div style="display: none;" class="note-box" id="email_note">Make sure you enter a valid email address because the store will send you notifications to this address.</div>
+				</div>
+				</div>
+				</li>
+			</ul>
+			</fieldset>
+		</form>
+		<?php
 		print_r($address);
 	} else {
 	?>
 	<form name="registerform" id="registerform" method="post" action="<?php echo DOMAIN?>/ajax" class="skip-auto-validation">
 		<input type="hidden" name="action" value="sign-up"/>
-		<input type="hidden" name="redirect_url" value="<?php echo DOMAIN?>/payment"/>
       <fieldset class="registerform" id="personal_details">
 		<?php require 'includes/address_1.php';?>
 		<ul>
