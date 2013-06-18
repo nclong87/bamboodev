@@ -9,6 +9,12 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
+				$t = new View();
+				$t->friends = array(
+				    'Rachel', 'Monica', 'Phoebe', 'Chandler', 'Joey', 'Ross'
+				);
+				$t->render('test.phtml');
+				exit;
 				debug($_SESSION['address_id']);
 				//require_once 'includes/order.php';
 				//$sale = Order::findSaleById('0BB8241620788551A');
