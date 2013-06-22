@@ -174,6 +174,11 @@ var baseUrl = '<?php echo DOMAIN ?>';
 function doChangeMetal(value) {
 	jQuery("#price").text(value).formatCurrency();
 }
+function open_in_new_tab(url )
+{
+  var win=window.open(url, '_blank');
+  win.focus();
+}
 jQuery(document).ready(function(){	
 	jQuery("#btAdd2Cart").click(function(){
 		var metal = '';
@@ -197,7 +202,11 @@ jQuery(document).ready(function(){
 		jQuery.get(submitUrl,function(response) {
 			response = jQuery.parseJSON(response);
 			if(response.code == 1) {
-				location.href = response.data;
+				if(parent != null) {
+					parent.location.href = response.data;
+				} else {
+					location.href = response.data;
+				}
 			} else if(response.code == 0) {
 				alert('System busy right now, please try again!');
 				bt.disabled = false;

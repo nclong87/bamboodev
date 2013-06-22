@@ -1,0 +1,1 @@
+<?phpclass Messages {	public static function getErrorMessage($error_code) {		return 'System busy, please try again later.';	}}
