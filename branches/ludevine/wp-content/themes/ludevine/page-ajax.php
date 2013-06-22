@@ -9,15 +9,13 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
-				$t = new View();
-				$t->friends = array(
-				    'Rachel', 'Monica', 'Phoebe', 'Chandler', 'Joey', 'Ross'
-				);
-				$t->render('test.phtml');
-				exit;
-				debug($_SESSION['address_id']);
-				//require_once 'includes/order.php';
-				//$sale = Order::findSaleById('0BB8241620788551A');
+				$data = array('test'=>array('a','b','c'));
+				$html = get_include_contents(ROOT.'/templates/test.phtml', $data);
+				debug($html);
+				$array = json_decode('{"id":"PAY-34M15731E7955184GKHCTFUI","create_time":"2013-06-22T05:14:57Z","update_time":"2013-06-22T05:14:58Z","state":"created","intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"35.67","currency":"USD","details":{"subtotal":"15.67","shipping":"20.00"}},"description":"Pay for order on ludevine.com","item_list":{"items":[{"name":"HUMAN HEART LOCKET","sku":"262","price":"15.67","currency":"USD","quantity":"1"}]}}],"links":[{"href":"https:\/\/api.sandbox.paypal.com\/v1\/payments\/payment\/PAY-34M15731E7955184GKHCTFUI","rel":"self","method":"GET"},{"href":"https:\/\/www.sandbox.paypal.com\/cgi-bin\/webscr?cmd=_express-checkout&token=EC-9KR35077L6870243X","rel":"approval_url","method":"REDIRECT"},{"href":"https:\/\/api.sandbox.paypal.com\/v1\/payments\/payment\/PAY-34M15731E7955184GKHCTFUI\/execute","rel":"execute","method":"POST"}]}',true);
+				$link = getValue($array['links'][1], 'href');
+				debug(getParamsUrl($link));
+				
 				require_once 'includes/paypal.php';
 				$token = Paypal::getToken();
 				$response = Paypal::queryPayment($token, 'PAY-8WW46939R6382820LKG3CNJY');
@@ -116,7 +114,7 @@ Template Name: Ajax
 				if($createAccount == 'Y') {
 					$data = array(
 						'email' => $email,
-						'password' => $password,
+						'password' => md5($password),
 						'address_id' => $addressId
 					);
 					$customerId = Order::addCustomer($data,true);
@@ -125,8 +123,46 @@ Template Name: Ajax
 					if(isset($customerId)) $sArress['customer_id'] = $customerId;
 					$sArress['email'] = $email;
 					$addressId = Order::addAddress($sArress,true);
+					$sArress['id'] = $addressId;
+					$_SESSION['shippingAddr'] = $sArress;
+				} else {
+					if(isset($customerId)) {
+						$bArress['customer_id'] = $customerId;
+						$addressId = Order::addAddress($bArress,true);
+					} 
+					$bArress['id'] = $addressId;
+					$_SESSION['shippingAddr'] = $bArress;
 				}
-				$_SESSION['address_id'] = $addressId;
+				break;
+			case 'save-shipping':
+				require_once 'includes/validate.php';
+				require 'includes/order.php';
+				$sArress = getArray($_POST['address_book']);
+				$email = getParam('email');
+				if(empty($email) || !is_email($email)) throw new Exception('Please check your email address.', ERR_VALIDATE);
+				if(Validate::validateAddress($sArress) == false) throw new Exception('Customer info is invalid', ERR_VALIDATE_ADDRESS);
+				$sArress['email'] = $email;
+				Order::updateAddress($sArress, getParam('id'));
+				$_SESSION['shippingAddr'] = $sArress;
+				break;
+			case 'login':
+				$email = getParam('email');
+				$password = getParam('password');
+				if(empty($email) || !is_email($email)) throw new Exception('Please check your email address.', ERR_VALIDATE);
+				require 'includes/customer.php';
+				$customer = Customer::findByEmail($email);
+				if($customer == null) throw new Exception('Your email address is not registered', ERR_ACCOUNT_LOGIN);
+				if($customer['status'] != 1) throw new Exception('This account has been blocked', ERR_ACCOUNT_LOGIN);
+				if($customer['password'] != md5($password)) throw new Exception('Your password is not correct', ERR_ACCOUNT_LOGIN);
+				$_SESSION['customer'] = $customer;
+				$sArress = Customer::findShippingInfo($customer['id']);
+				if($sArress != null) {
+					$_SESSION['shippingAddr'] = $sArress;
+				}
+				break;
+			case 'logout':
+				unset($_SESSION['customer']);
+				unset($_SESSION['shippingAddr']);
 				break;
 			default:
 				break;

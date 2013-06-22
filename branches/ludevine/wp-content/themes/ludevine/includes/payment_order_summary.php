@@ -2,15 +2,22 @@
 $cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
 $nItem = 0;
 $total = 0;
-$shippingCost = 20;
+$shippingCost = PAYMENT_SHIPPING_FEE;
+$disabled = '';
+if(isset($address)) {
+	if($address['country'] != 'United States') {
+		$shippingCost = 0;
+	}
+} else {
+	$disabled = 'disabled';
+}
 foreach($cart as $item) {
 	$nItem++;
 	$total+=$item['total'];
 }
 ?>
-<li id="payment_summary_li" class="payment-section last">
-<div id="payment_summary">
-  <h2>Order summary</h2>
+<div id="payment_summary" style="background-color: rgb(244, 244, 244); text-align: left; float: right; width: 300px;" class="payment-section last">
+  <h2><span class="black circle">2</span>Order summary</h2>
   <div id="payment_totals" class="cart-totals">
   <table cellspacing="0" summary="Total" class="totals">
     <tbody>
@@ -25,7 +32,15 @@ foreach($cart as $item) {
 			<td class="total-name dcoupons-clear">
 			Shipping cost:
 			</td>
-			<td class="total-value">$<?php echo format_number($shippingCost) ?></td>
+			<td class="total-value">
+			<?php
+			if($shippingCost == 0) {
+				echo 'N/A';
+			} else {
+				echo '$'.format_number($shippingCost);
+			}
+			?>
+			</td>
 		</tr>
 		<tr>
 			<td class="total-name dcoupons-clear">
@@ -35,18 +50,27 @@ foreach($cart as $item) {
 		</tr>
 	</tbody>
   </table>
-  <hr>
-</div>
-<!--div class="coupon-info" id="payment_coupon">
-  <div style="display:none;" id="coupon-applied-container">
-    <strong>Discount coupon applied</strong>
-    <a title="Unset coupon" href="cart.php?mode=unset_coupons" class="dotted unset-coupon-link">Unset coupon</a>
+  <form method="post" action="<?php echo DOMAIN?>/paypal" id="frmPaypal">
+  <div class="checkout-customer-notes">
+    <label for="customer_notes">Customer notes:</label>
+    <textarea <?php echo $disabled?> name="notes" id="customer_notes" rows="3" cols="44"></textarea>
+	<?php
+	if($shippingCost == 0) {
+		echo '<input style="margin-top: 10px; margin-right: -2px;" class="button" type="submit" value="Order Now!" id="btSubmitOrderNow"/>';
+	} else {
+		echo '<input '.$disabled.' class="button" type="submit" value="Checkout with PayPal" id="btSubmitCheckoutPaypal" style="margin-top: 10px; margin-right: -2px;"/>';
+	}
+	?>
   </div>
-  <hr>
-</div-->
+  </form>
 </div>
-
-<form method="post" action="<?php echo DOMAIN?>/paypal" id="form">
-	<input type="submit" value="" class="wp_cart_checkout_button" src="<?php bloginfo('template_url'); ?>/images/paypal_checkout_EN.png" />
-</form>
-</li>
+</div>
+<script type="text/javascript">
+var baseUrl = '<?php echo DOMAIN ?>';
+$(function() {
+	$('#frmPaypal').submit(function(){
+		$("input",this).attr("disabled","true");
+		return true;
+	});
+});
+</script>

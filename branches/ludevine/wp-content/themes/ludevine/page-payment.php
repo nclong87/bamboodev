@@ -2,6 +2,11 @@
 /*
 Template Name: Payment
 */
+$cart = isset($_SESSION['cart'])?$_SESSION['cart']:array();
+if(empty($cart)) {
+	wp_redirect(DOMAIN.'/');
+	exit;
+}
 $countries = Utils::loadAllCountry();
 $states = Utils::loadState();
 ?>
@@ -18,40 +23,23 @@ $states = Utils::loadState();
 <body>
 <center>
 <div id="main">
-	<h1 style="margin-top: 30px; margin-bottom: 30px; font-size: 30px; font-weight: normal;">Wrap it up! Check out in one page!</h1>
-	<div id="message"></div>
-<ul id="payment-sections">
-  <li class="payment-section">
-    <div id="payment_profile">
-  <h2>Name and address</h2>
+	<h1 style="font-size: 30px; font-weight: normal; margin-bottom: 10px; margin-top: 10px;">Wrap it up! Check out in one page!</h1>
+	<div id="message">
+	<?php
+	$error_code = getParam('error_code');
+	if(!empty($error_code)) {
+		require 'includes/messages.php';
+		echo '<span class="error_msg">'.Messages::getErrorMessage($error_code).'<span>';
+	}
+	?>
+	</div>
+    <div id="payment_profile" class="payment-section" style="text-align: left; float: left; width: 300px;">
+	<h2><span class="black circle">1</span>Name and address</h2>
 	<?php
 	require 'includes/order.php';
-	$addressId = isset($_SESSION['address_id'])?$_SESSION['address_id']:'';
-	if(!empty($addressId)) {
-		$address = Order::findAddressById($addressId);
-		?>
-		<form name="registerform" id="registerform" method="post" action="<?php echo DOMAIN?>/ajax" class="skip-auto-validation">
-			<input type="hidden" name="action" value="sign-up"/>
-			<input type="hidden" name="id" value="<?php echo $address['id']?>"/>
-			<fieldset class="registerform" id="personal_details">
-			<?php require 'includes/address_1.php';?>
-			<ul>
-				<li class="single-field">
-				<div class="field-container">
-				<div class="data-name">
-				<label class="data-required" for="email">Email</label><span class="star">*</span>
-				</div>
-				<div class="data-value">
-				<input type="text" value="<?php echo $address['email']?>" maxlength="128" size="32" class="input-required input-email" name="email" id="email" autocomplete="off">
-				<div style="display: none;" class="note-box" id="email_note">Make sure you enter a valid email address because the store will send you notifications to this address.</div>
-				</div>
-				</div>
-				</li>
-			</ul>
-			</fieldset>
-		</form>
-		<?php
-		print_r($address);
+	if(isset($_SESSION['shippingAddr'])) {
+		$address = $_SESSION['shippingAddr'];
+		require 'includes/address_3.php';
 	} else {
 	?>
 	<form name="registerform" id="registerform" method="post" action="<?php echo DOMAIN?>/ajax" class="skip-auto-validation">
@@ -88,51 +76,35 @@ $states = Utils::loadState();
 			</div>
 			<div class="data-value">
 			<input type="password" value="" maxlength="64" size="32" name="passwd2" id="passwd2" autocomplete="off">
-			<span class="validate-mark"><img width="15" height="15" alt="" src="/skin/common_files/images/spacer.gif"></span>
 			</div>
 			</div>
 			</li>
 		</ul>
-		<div class="optional-label">
+		<ul>
+			<li>
 			<label for="create_account" class="pointer" style="height:20px">
 			<input type="checkbox" onclick="javascript: $('#create_account_box').toggle();" value="Y" name="create_account" autocomplete="off" id="create_account">
 			Create account for this Email
 			</label>
+			</li>
+			<li>
 			<label for="ship2diff" class="pointer">
 			<input type="checkbox" onclick="javascript: $('#ship2diff_box').toggle();" value="Y" name="ship2diff" id="ship2diff" autocomplete="off">
 			Ship to a different address
 			</label>
-		</div>
+			</li>
+		</ul>
 		<?php require 'includes/address_2.php';?>
-        <div align="center" class="button-row" style="float: right;">
-			<input type="button" title="Continue" id="btRegister" value="Continue"/>
+        <div align="center" class="button-row" style="float: left; margin-top: 5px; margin-left: 17px;">
+			<input class="button" type="button" title="Continue" id="btSubmit" value="Continue"/>
         </div>
       </fieldset>
     </form>
 	<?php
 	}
 	?>
-</div>  </li>
-  <li id="payment_shipping_payment" class="payment-section">
-              <div id="payment_shipping">
-  <h2>Shipping method</h2>
-  <form name="shippingsform" method="post" action="cart.php">
-    <input type="hidden" value="checkout" name="mode" disabled="" autocomplete="off">
-    <input type="hidden" value="cart_operation" name="cart_operation" disabled="" autocomplete="off">
-    <input type="hidden" value="update" name="action" disabled="" autocomplete="off">
-    <div class="payment-section-container payment-shipping-options">
-  <div >$20 flat rate for packaging and shipping throughout the US</div>
-  <div class="checkout-customer-notes">
-    <label for="customer_notes">Customer notes:</label>
-    <textarea name="Customer_Notes" id="customer_notes" rows="3" cols="47"></textarea>
-  </div>
-  <input type="hidden" value="0" name="shippingid" disabled="" autocomplete="off">
-      <div class="clearing"></div>
-    </div>
-  </form>
-</div>
+</div> 
 <?php require 'includes/payment_order_summary.php';?>
-</ul>
 </div>
 </center>
 </body>
@@ -144,14 +116,15 @@ $(function() {
 	$('#registerform').ajaxForm(function(response) {
 		response = jQuery.parseJSON(response);
 		if(response.code == 1) {
-			//location.reload();
+			location.reload();
 		} else {
+			alert(response.data);
 			$("#message").html('<span class="error_msg">'+response.data+'</span>');
-			$("#btRegister")[0].disabled = false;
+			$("#btSubmit")[0].disabled = false;
 			location.href = "#message";
 		}
 	});
-	$("#btRegister").click(function(){
+	$("#btSubmit").click(function(){
 		this.disabled = true;
 		$('#registerform').submit();
 	});

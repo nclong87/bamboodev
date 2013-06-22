@@ -43,14 +43,16 @@
 		for="address_book_S_state">State</label><span class="star">*</span></div>
 	<div class="data-value">
 		<select style="width: 250px;"
-		class="input-style" id="address_book_B_state"
+		class="input-style" id="address_book_S_state"
 		name="address_book[S][state]" autocomplete="off">
+			<option value="">--Select State---</option>
 			<?php
 			foreach($states as $item) {
 				echo '<option value="'.$item.'">'.$item.'</option>';
 			}
 			?>
 		</select>
+		<span style="display:none">The selected country doesn't require 'state' field</span>
 	</div>
 	</div>
 	</li>
@@ -60,7 +62,7 @@
 		class="star">*</span></div>
 	<div class="data-value">
 		<select style="width: 250px;"
-		class="input-style" id="b_country" name="address_book[S][country]"
+		class="input-style" id="s_country" name="address_book[S][country]"
 		autocomplete="off">
 		<?php
 			foreach($countries as $item) {
@@ -92,3 +94,18 @@
 	<li class="clearing"></li>
 </ul>
 </div>
+<script>
+jQuery(document).ready(function(){	
+	$("#s_country").change(function(){
+		var selectState = $("#address_book_S_state");
+		if(this.value == 'United States') {
+			selectState.show();
+			selectState.next().hide();
+		} else {
+			selectState.val("");
+			selectState.hide();
+			selectState.next().show();
+		}
+	});
+});
+</script>
