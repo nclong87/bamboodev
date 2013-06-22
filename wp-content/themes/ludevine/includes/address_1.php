@@ -1,5 +1,8 @@
 <ul class="first">
 	<li class="fields-group">
+		If you already have an account please <a href="<?php echo DOMAIN?>/login?ref=/payment">sign in</a>
+	</li>
+	<li class="fields-group">
 	<div class="field-container">
 	<div class="data-name"><label class="data-required" for="b_firstname">First
 	name</label><span class="star">*</span></div>
@@ -44,12 +47,14 @@
 		<select style="width: 250px;"
 		class="input-style" id="address_book_B_state"
 		name="address_book[B][state]" autocomplete="off">
+			<option value="">--Select State---</option>
 			<?php
 			foreach($states as $item) {
 				echo '<option value="'.$item.'">'.$item.'</option>';
 			}
 			?>
 		</select>
+		<span style="display:none">The selected country doesn't require 'state' field</span>
 	</div>
 	</div>
 	</li>
@@ -89,8 +94,19 @@
 	</div>
 	</li>
 	<li class="clearing"></li>
-	<li style="display: none"><span style="display: none;"> <input
-		type="text" value="NY" id="b_country_state_value" autocomplete="off">
-	<input type="text" value="" id="b_country_county_value"
-		autocomplete="off"> </span></li>
 </ul>
+<script>
+jQuery(document).ready(function(){	
+	$("#b_country").change(function(){
+		var selectState = $("#address_book_B_state");
+		if(this.value == 'United States') {
+			selectState.show();
+			selectState.next().hide();
+		} else {
+			selectState.val("");
+			selectState.hide();
+			selectState.next().show();
+		}
+	});
+});
+</script>
