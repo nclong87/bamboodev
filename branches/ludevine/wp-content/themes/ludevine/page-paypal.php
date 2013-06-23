@@ -12,7 +12,7 @@ Template Name: Paypal
 		if(!isset($_SESSION['shippingAddr']) || empty($_SESSION['shippingAddr'])) throw new Exception('payment::checkShippingInfo', ERR_PAYMENT_SHIPPING_INFO);
 		$address = $_SESSION['shippingAddr'];
 		$customer_id = 0; 
-		if(!isset($_SESSION['customer'])){
+		if(isset($_SESSION['customer'])){
 			$customer_id = $_SESSION['customer']['id'];
 		}
 		/*
@@ -32,6 +32,7 @@ Template Name: Paypal
 			'customer_id' => $customer_id,
 			'total' => $total,
 			'shipping_fee' => $shippingFee,
+			'billaddr_id' => getValue($_SESSION['billAddr'],'id'),
 			'address_id' => $address['id'],
 			'notes' => getParam('notes'),
 			'time_create' => $time,
@@ -51,7 +52,9 @@ Template Name: Paypal
 				'price' => $item['price'],
 				'quantity' => $item['quantity'],
 				'metal' => $item['metal'],
-				'size' => $item['size']
+				'size' => $item['size'],
+				'product_name' => $item['post_title'],
+				'url' => $item['url']
 			);
 			Utils::log('payment::addOrderProducts',$data);
 			$wpdb->insert('order_products', $data);
@@ -62,9 +65,14 @@ Template Name: Paypal
 		 */
 		if($shippingFee == 0) { //international order
 			//send order detail to seller
-			
+			Utils::log('payment::confirm_sendMail_BEGIN',array('order_id' => $orderId));
+			require 'includes/order.php';
+			$rs = Order::sendMail($orderId);
+			Utils::log('payment::confirm_sendMail_END',array('$rs' => $rs));
+			wp_redirect(DOMAIN.'/success');
+			exit;
 		} else { //usa order
-			require_once 'includes/paypal.php';
+			require 'includes/paypal.php';
 			$token = Paypal::getToken();
 			$logInfo = array(
 				'token' => $token,
@@ -86,6 +94,11 @@ Template Name: Paypal
 		}
 		exit;
 	} catch (Exception $e) {
+		if(WP_DEBUG) {
+			echo '<pre>';
+			echo $e->getMessage().' at line '.$e->getLine().'<br>';
+			echo $e->getTraceAsString();
+		}
 		Utils::logException($e);
 		exit;
 		//wp_redirect('/');

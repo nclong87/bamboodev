@@ -336,15 +336,18 @@ fieldset.registerform ul.first {
     padding-top: 15px;
 }
 fieldset.registerform ul li {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 fieldset.registerform ul li.clearing {
     margin: 0;
     padding: 0;
 }
 fieldset.registerform ul li.fields-group {
-    float: left;
-    margin-right: 10px;
+display: block;
+float: left;
+margin-right: 10px;
+padding-bottom: 5px;
+width: 100%;
 }
 fieldset.registerform ul li.fields-group input[type="text"], fieldset.registerform ul li.fields-group input[type="password"] {
     width: 90px;
