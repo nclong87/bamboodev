@@ -66,7 +66,6 @@ foreach($cart as $item) {
 </div>
 </div>
 <script type="text/javascript">
-var baseUrl = '<?php echo DOMAIN ?>';
 $(function() {
 	$('#frmPaypal').submit(function(){
 		$("input",this).attr("disabled","true");
