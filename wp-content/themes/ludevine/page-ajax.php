@@ -9,6 +9,9 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
+				debug($_SESSION['shippingAddr']);
+				require_once 'includes/order.php';
+				Order::sendMail(44);exit;
 				$data = array('test'=>array('a','b','c'));
 				$html = get_include_contents(ROOT.'/templates/test.phtml', $data);
 				debug($html);
@@ -111,6 +114,8 @@ Template Name: Ajax
 				}
 				$bArress['email'] = $email;
 				$addressId = Order::addAddress($bArress,true);
+				$bArress['id'] = $addressId;
+				$_SESSION['billAddr'] = $bArress;
 				if($createAccount == 'Y') {
 					$data = array(
 						'email' => $email,
@@ -130,7 +135,6 @@ Template Name: Ajax
 						$bArress['customer_id'] = $customerId;
 						$addressId = Order::addAddress($bArress,true);
 					} 
-					$bArress['id'] = $addressId;
 					$_SESSION['shippingAddr'] = $bArress;
 				}
 				break;
@@ -142,7 +146,9 @@ Template Name: Ajax
 				if(empty($email) || !is_email($email)) throw new Exception('Please check your email address.', ERR_VALIDATE);
 				if(Validate::validateAddress($sArress) == false) throw new Exception('Customer info is invalid', ERR_VALIDATE_ADDRESS);
 				$sArress['email'] = $email;
-				Order::updateAddress($sArress, getParam('id'));
+				$addressId = getParam('id');
+				Order::updateAddress($sArress, $addressId);
+				$sArress['id'] = $addressId;
 				$_SESSION['shippingAddr'] = $sArress;
 				break;
 			case 'login':
@@ -155,6 +161,8 @@ Template Name: Ajax
 				if($customer['status'] != 1) throw new Exception('This account has been blocked', ERR_ACCOUNT_LOGIN);
 				if($customer['password'] != md5($password)) throw new Exception('Your password is not correct', ERR_ACCOUNT_LOGIN);
 				$_SESSION['customer'] = $customer;
+				$bAddress = Customer::findAddressById($customer['address_id']);
+				$_SESSION['billAddr'] = $bAddress;
 				$sArress = Customer::findShippingInfo($customer['id']);
 				if($sArress != null) {
 					$_SESSION['shippingAddr'] = $sArress;
@@ -163,6 +171,7 @@ Template Name: Ajax
 			case 'logout':
 				unset($_SESSION['customer']);
 				unset($_SESSION['shippingAddr']);
+				unset($_SESSION['billAddr']);
 				break;
 			default:
 				break;

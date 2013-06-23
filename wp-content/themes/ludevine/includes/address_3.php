@@ -3,10 +3,25 @@
 	<input type="hidden" name="id" value="<?php echo $address['id']?>"/>
 	<fieldset class="registerform" id="personal_details">
 	<ul class="first">
+		<?php
+		if(!isset($_SESSION['customer'])){
+		?>
+		<li class="single-field">
+		If you already have an account please <a href="<?php echo DOMAIN?>/login?ref=/payment">sign in</a>
+		</li>
+		<?php
+		} else {
+		?>
+		<li class="single-field">
+		Hello <?php echo $_SESSION['customer']['fullname']?>. <a href="<?php echo DOMAIN?>/process?action=logout&ref=/payment">Logout</a>
+		</li>
+		<?php
+		}
+		?>
 		<li>
 		<input type="checkbox" id="chkChangeShippingAddr" style="margin-right: 6px;"> <label for="chkChangeShippingAddr">Change your shipping address.</label>
 		</li>
-		<li class="fields-group">
+		<li class="single-field">
 		<div class="field-container">
 		<div class="data-name"><label class="data-required" for="b_firstname">First
 		name</label><span class="star">*</span></div>
@@ -14,7 +29,7 @@
 			autocomplete="off"></div>
 		</div>
 		</li>
-		<li class="fields-group last">
+		<li class="single-field">
 		<div class="field-container">
 		<div class="data-name"><label class="data-required" for="b_lastname">Last
 		name</label><span class="star">*</span></div>

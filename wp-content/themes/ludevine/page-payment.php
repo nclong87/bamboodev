@@ -19,6 +19,9 @@ $states = Utils::loadState();
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.form.min.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+var baseUrl = '<?php echo DOMAIN ?>';
+</script>
 </head>
 <body>
 <center>
@@ -116,7 +119,7 @@ $(function() {
 	$('#registerform').ajaxForm(function(response) {
 		response = jQuery.parseJSON(response);
 		if(response.code == 1) {
-			location.reload();
+			location.href = baseUrl + "/payment";
 		} else {
 			alert(response.data);
 			$("#message").html('<span class="error_msg">'+response.data+'</span>');

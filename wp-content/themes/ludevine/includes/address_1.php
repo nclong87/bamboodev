@@ -1,8 +1,8 @@
 <ul class="first">
-	<li class="fields-group">
+	<li class="single-field">
 		If you already have an account please <a href="<?php echo DOMAIN?>/login?ref=/payment">sign in</a>
 	</li>
-	<li class="fields-group">
+	<li class="single-field">
 	<div class="field-container">
 	<div class="data-name"><label class="data-required" for="b_firstname">First
 	name</label><span class="star">*</span></div>
@@ -11,7 +11,7 @@
 		autocomplete="off"></div>
 	</div>
 	</li>
-	<li class="fields-group last">
+	<li class="single-field">
 	<div class="field-container">
 	<div class="data-name"><label class="data-required" for="b_lastname">Last
 	name</label><span class="star">*</span></div>
