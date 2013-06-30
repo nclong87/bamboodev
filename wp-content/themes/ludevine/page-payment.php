@@ -21,6 +21,7 @@ $states = Utils::loadState();
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
 var baseUrl = '<?php echo DOMAIN ?>';
+var selected_country = 'United States';
 </script>
 </head>
 <body>
@@ -41,69 +42,9 @@ var baseUrl = '<?php echo DOMAIN ?>';
 	<?php
 	require 'includes/order.php';
 	if(isset($_SESSION['shippingAddr'])) {
-		$address = $_SESSION['shippingAddr'];
-		require 'includes/address_3.php';
+		require 'includes/address_2.php';
 	} else {
-	?>
-	<form name="registerform" id="registerform" method="post" action="<?php echo DOMAIN?>/ajax" class="skip-auto-validation">
-		<input type="hidden" name="action" value="sign-up"/>
-      <fieldset class="registerform" id="personal_details">
-		<?php require 'includes/address_1.php';?>
-		<ul>
-			<li class="single-field">
-			<div class="field-container">
-			<div class="data-name">
-			<label class="data-required" for="email">Email</label><span class="star">*</span>
-			</div>
-			<div class="data-value">
-			<input type="text" value="" maxlength="128" size="32" class="input-required input-email" name="email" id="email" autocomplete="on">
-			<div style="display: none;" class="note-box" id="email_note">Make sure you enter a valid email address because the store will send you notifications to this address.</div>
-			</div>
-			</div>
-			</li>
-		</ul>
-		<ul id="create_account_box" style="display: none;">
-			<li class="single-field">
-			<div class="field-container">
-			<div class="data-name">
-			<label class="data-required" for="passwd1">Password</label><span class="star">*</span>
-			</div>
-			<div class="data-value">
-			<input type="hidden" value="N" id="password_is_modified" name="password_is_modified" autocomplete="off">
-			<input type="password" value="" maxlength="64" size="32" name="passwd1" id="passwd1" autocomplete="off">
-			</div>
-			</div>
-			<div class="field-container">
-			<div class="data-name">
-			<label class="data-required" for="passwd2">Confirm password</label><span class="star">*</span>
-			</div>
-			<div class="data-value">
-			<input type="password" value="" maxlength="64" size="32" name="passwd2" id="passwd2" autocomplete="off">
-			</div>
-			</div>
-			</li>
-		</ul>
-		<ul>
-			<li>
-			<label for="create_account" class="pointer" style="height:20px">
-			<input type="checkbox" onclick="javascript: $('#create_account_box').toggle();" value="Y" name="create_account" autocomplete="off" id="create_account">
-			Create account for this Email
-			</label>
-			</li>
-			<li>
-			<label for="ship2diff" class="pointer">
-			<input type="checkbox" onclick="javascript: $('#ship2diff_box').toggle();" value="Y" name="ship2diff" id="ship2diff" autocomplete="off">
-			Ship to a different address
-			</label>
-			</li>
-		</ul>
-		<?php require 'includes/address_2.php';?>
-        <div align="center" class="button-row" style="float: left; margin-top: 5px; margin-left: 17px;">
-			<input class="button" type="button" title="Continue" id="btSubmit" value="Continue"/>
-        </div>
-      </fieldset>
-    </form>
-	<?php
+		require 'includes/address_1.php';
 	}
 	?>
 </div> 

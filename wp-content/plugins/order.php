@@ -92,8 +92,8 @@ class Order_List_Table extends WP_List_Table {
 	
 	function column_action($item){
   		$actions = array(
-            'view'      => sprintf('<a href="?page=%s&action=%s&book=%s">Detail</a>',$_REQUEST['page'],'view',$item['id']),
-  			'delete'      => sprintf('<a href="?page=%s&action=%s&book=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
+            'view'      => sprintf('<a href="?page=%s&action=%s&id=%s">Detail</a>',$_REQUEST['page'],'view',$item['id']),
+  			'delete'      => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
         );
   		return sprintf('%1$s', $this->row_actions($actions) );
 	}
@@ -146,16 +146,23 @@ function add_options() {
 add_action ( 'admin_menu', 'my_add_menu_items' );
 
 function my_render_list_page() {
-	global $myListTable;
-	echo '</pre><div class="wrap"><h2>List Orders</h2>';
-	$myListTable->prepare_items ();
-	?>
-<form method="post"><input type="hidden" name="page"
-	value="ttest_list_table">
-    <?php
-	$myListTable->search_box ( 'search', 'search_id' );
-	
-	$myListTable->display ();
-	echo '</form></div>';
+	$action = getParam('action');
+	if($action == 'view') {
+		require 'order_detail.php';
+	} else {
+		global $myListTable;
+		echo '</pre>';
+		$myListTable->prepare_items ();
+		?>
+		<div class="wrap"><h2>List Orders</h2>
+		<form method="POST"><input type="hidden" name="page" value="ttest_list_table">
+	    <?php
+		$myListTable->search_box ( 'search', 'search_id' );
+		
+		$myListTable->display ();
+		?>
+		</form></div>
+		<?php
+	}
 }
 
