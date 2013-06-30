@@ -86,7 +86,7 @@ $billAddr = $_SESSION['billAddr'];
 			class="star">*</span></div>
 		<div class="data-value">
 			<select disabled style="width: 250px;"
-			class="input-style input" id="country" name="address_book[country]"
+			class="input-style input change_country" id="country" name="address_book[country]"
 			autocomplete="off">
 			<?php
 				foreach($countries as $item) {
@@ -203,7 +203,7 @@ $billAddr = $_SESSION['billAddr'];
 			class="star">*</span></div>
 		<div class="data-value">
 			<select disabled style="width: 250px;"
-			class="input-style input" id="country" name="address_book[country]"
+			class="input-style input change_country" id="country" name="address_book[country]"
 			autocomplete="off">
 			<?php
 				foreach($countries as $item) {
@@ -266,7 +266,7 @@ jQuery(document).ready(function(){
 			$("#frmPaypal input").removeAttr("disabled");
 		}
 	});
-	$("#country").change(function(){
+	$(".change_country").change(function(){
 		var form = $(this).parents("form");
 		if(this.value == 'United States') {
 			$("#address_book_state",form).show();
