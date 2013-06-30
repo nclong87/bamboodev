@@ -1,0 +1,13 @@
+td.label {
+padding-right: 10px;
+text-align: right;
+width: 100px;
+}
+td.data {
+font-weight: bold;
+}
+h3.title {
+border-bottom: 1px dashed gray;
+margin-bottom: 5px;
+padding-bottom: 5px;
+}
