@@ -158,8 +158,42 @@ $(function() {
 				alert("The required field 'Phone' is empty!");
 				markErrorField('b_phone');		
         } else {
-			this.disabled = true;
-            $('#registerform').submit();
+			if($('#ship2diff').attr('checked')){
+				if($('input#s_firstname').val() == '' ) {
+					alert("The required field 'First name' is empty!");
+					markErrorField('s_firstname');
+				} else if($('input#s_lastname').val() == '' ) {
+						alert("The required field 'Last name' is empty!");
+						markErrorField('s_lastname');
+				} else if($('input#s_address').val() == '' ) {
+						alert("The required field 'Address' is empty!");
+						markErrorField('s_address');		
+				} else if($('input#s_address').val() == '' ) {
+						alert("The required field 'Address' is empty!");
+						markErrorField('s_address');		
+				} else if($('input#s_city').val() == '' ) {
+						alert("The required field 'City' is empty!");
+						markErrorField('s_city');		
+				} else if($('select#address_book_S_state').val() == '' ) {
+						alert("The required field 'State' is not selected!");
+						markErrorField('address_book_S_state');		
+				} else if($('#s_country').val() == '' ) {
+						alert("The required field 'Country' is not selected!");
+						markErrorField('s_country');		
+				} else if($('input#s_zipcode').val() == '' ) {
+						alert("The required field 'Zip Code' is empty!");
+						markErrorField('s_zipcode');		
+				} else if($('input#s_phone').val() == '' ) {
+						alert("The required field 'Phone' is empty!");
+						markErrorField('s_phone');
+				}else{
+					this.disabled = true;
+					$('#registerform').submit();
+				}
+			}else{
+				this.disabled = true;
+				$('#registerform').submit();
+			}
         };
 		
 	});
@@ -240,5 +274,13 @@ function resetMarkedErrorFields(){
 	unmarkErrorField('b_country');
 	unmarkErrorField('b_zipcode');
 	unmarkErrorField('b_phone');
+	unmarkErrorField('s_firstname');
+	unmarkErrorField('s_lastname');
+	unmarkErrorField('s_address');
+	unmarkErrorField('s_city');
+	unmarkErrorField('address_book_S_state');
+	unmarkErrorField('s_country');
+	unmarkErrorField('s_zipcode');
+	unmarkErrorField('s_phone');
 }
 </script>
