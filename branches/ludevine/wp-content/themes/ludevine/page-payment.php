@@ -128,8 +128,117 @@ $(function() {
 		}
 	});
 	$("#btSubmit").click(function(){
-		this.disabled = true;
-		$('#registerform').submit();
+		resetMarkedErrorFields();
+		if($('input#b_firstname').val() == '' ) {
+            alert("The required field 'First name' is empty!");
+			markErrorField('b_firstname');
+			
+		} else if($('input#b_lastname').val() == '' ) {
+				alert("The required field 'Last name' is empty!");
+				markErrorField('b_lastname');
+		} else if($('input#b_address').val() == '' ) {
+				alert("The required field 'Address' is empty!");
+				markErrorField('b_address');		
+        } else if($('input#b_address').val() == '' ) {
+				alert("The required field 'Address' is empty!");
+				markErrorField('b_address');		
+        } else if($('input#b_city').val() == '' ) {
+				alert("The required field 'City' is empty!");
+				markErrorField('b_city');		
+        } else if($('select#address_book_B_state').val() == '' ) {
+				alert("The required field 'State' is not selected!");
+				markErrorField('address_book_B_state');		
+        } else if($('#b_country').val() == '' ) {
+				alert("The required field 'Country' is not selected!");
+				markErrorField('b_country');		
+        } else if($('input#b_zipcode').val() == '' ) {
+				alert("The required field 'Zip Code' is empty!");
+				markErrorField('b_zipcode');		
+        } else if($('input#b_phone').val() == '' ) {
+				alert("The required field 'Phone' is empty!");
+				markErrorField('b_phone');		
+        } else {
+			this.disabled = true;
+            $('#registerform').submit();
+        };
+		
 	});
+	$('#email')
+		.live('blur submit', function(){
+		$('#email_note').hide();
+		})
+		.live('focus', function(){
+		showNote('email_note', this)
+		}); 
+	
 });
+
+/**
+* Show note next to element
+*/
+function showNote(id, next_to) {
+	if ( typeof showNote.isReadyToShow == 'undefined' ) {
+	showNote.isReadyToShow = true;
+	}
+	if (
+	showNote.isReadyToShow
+	&& $('#' + id).css('display') == 'none'
+	) {
+	showNote.isReadyToShow = false;
+	var div = $('#' + id).get();
+	$('#' + id).remove();
+	$('body').append(div);
+	$('#' + id).show();
+	var sw = getRealWidth('#' + id);
+	$('#' + id).css('left', $(next_to).offset().left + $(next_to).width() + 'px');
+	$('#' + id).css('top', $(next_to).offset().top + 'px');
+	if (sw > $('#' + id).width()) {
+	$('#' + id).css('width', sw + 'px');
+	}
+	showNote.isReadyToShow = true;
+	}
+} 
+
+function getRealWidth(jsel) {
+	var sw = $(jsel).attr('scrollWidth');
+	if ($.browser.opera)
+	return sw;
+	var pl = parseInt($(jsel).css('padding-left'));
+	if (!isNaN(pl)) sw -= pl;
+	var pr = parseInt($(jsel).css('padding-right'));
+	if (!isNaN(pr))
+	sw -= pr;
+	return sw;
+}
+
+/**
+* Mark an input field as error one
+*/
+function markErrorField(id){
+	var div = $('#' + id).get();
+	$("label[for='"+id+"']").css('color', 'red');
+	$('#' + id).css('border', '1px solid red');
+	$('#' + id).css('background-color', '#FFEBEB');
+}
+
+/**
+* Reset an input field from marked as error to normal state
+*/
+function unmarkErrorField(id){
+	var div = $('#' + id).get();
+	$("label[for='"+id+"']").css('color', 'black');
+	$('#' + id).css('border', '1px solid black');
+	$('#' + id).css('background-color', 'white');
+}
+
+function resetMarkedErrorFields(){
+	unmarkErrorField('b_firstname');
+	unmarkErrorField('b_lastname');
+	unmarkErrorField('b_address');
+	unmarkErrorField('b_city');
+	unmarkErrorField('address_book_B_state');
+	unmarkErrorField('b_country');
+	unmarkErrorField('b_zipcode');
+	unmarkErrorField('b_phone');
+}
 </script>
