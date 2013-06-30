@@ -23,7 +23,7 @@
 		</li>
 		<li class="single-field">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_firstname">First
+		<div class="data-name"><label class="data-required" for="firstname">First
 		name</label><span class="star">*</span></div>
 		<div class="data-value"><input class="input" disabled type="text" value="<?php echo $address['firstname']?>" maxlength="32" size="32" name="address_book[firstname]" id="firstname"
 			autocomplete="off"></div>
@@ -31,7 +31,7 @@
 		</li>
 		<li class="single-field">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_lastname">Last
+		<div class="data-name"><label class="data-required" for="lastname">Last
 		name</label><span class="star">*</span></div>
 		<div class="data-value"><input class="input" disabled type="text" value="<?php echo $address['lastname']?>" maxlength="32" size="32" name="address_book[lastname]" id="lastname"
 			autocomplete="off"></div>
@@ -40,7 +40,7 @@
 		<li class="clearing"></li>
 		<li class="single-field">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_address">Address</label><span
+		<div class="data-name"><label class="data-required" for="address">Address</label><span
 			class="star">*</span></div>
 		<div class="data-value"><input class="input" disabled type="text" value="<?php echo $address['address']?>" maxlength="32" size="32" name="address_book[address]" id="address"
 			autocomplete="off"></div>
@@ -48,7 +48,7 @@
 		</li>
 		<li class="single-field">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_city">City</label><span
+		<div class="data-name"><label class="data-required" for="city">City</label><span
 			class="star">*</span></div>
 		<div class="data-value"><input class="input" disabled type="text" value="<?php echo $address['city']?>" maxlength="32" size="32" name="address_book[city]" id="city" autocomplete="off">
 		</div>
@@ -57,7 +57,7 @@
 		<li class="single-field">
 		<div class="field-container">
 		<div class="data-name"><label class="data-required"
-			for="address_book_B_state">State</label><span class="star">*</span></div>
+			for="address_book_state">State</label><span class="star">*</span></div>
 		<div class="data-value">
 			<select disabled style="width: 250px;"
 			class="input-style input" id="address_book_state"
@@ -78,7 +78,7 @@
 		</li>
 		<li class="single-field">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_country">Country</label><span
+		<div class="data-name"><label class="data-required" for="country">Country</label><span
 			class="star">*</span></div>
 		<div class="data-value">
 			<select disabled style="width: 250px;"
@@ -98,14 +98,14 @@
 		</li>
 		<li class="fields-group">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_zipcode">Zip/Postal
+		<div class="data-name"><label class="data-required" for="zipcode">Zip/Postal
 		code</label><span class="star">*</span></div>
 		<div class="data-value"><input class="input" disabled type="text" value="<?php echo $address['zipcode']?>" maxlength="32" size="32" name="address_book[zipcode]" class="zipcode billing" id="zipcode" autocomplete="off"></div>
 		</div>
 		</li>
 		<li class="fields-group last">
 		<div class="field-container">
-		<div class="data-name"><label class="data-required" for="b_phone">Phone</label><span
+		<div class="data-name"><label class="data-required" for="phone">Phone</label><span
 			class="star">*</span></div>
 		<div class="data-value"><input class="input" disabled type="text" value="<?php echo $address['phone']?>" maxlength="32" size="32" name="address_book[phone]" id="phone"
 			autocomplete="off"></div>

@@ -56,7 +56,7 @@ var baseUrl = '<?php echo DOMAIN ?>';
 			<label class="data-required" for="email">Email</label><span class="star">*</span>
 			</div>
 			<div class="data-value">
-			<input type="text" value="" maxlength="128" size="32" class="input-required input-email" name="email" id="email" autocomplete="off">
+			<input type="text" value="" maxlength="128" size="32" class="input-required input-email" name="email" id="email" autocomplete="on">
 			<div style="display: none;" class="note-box" id="email_note">Make sure you enter a valid email address because the store will send you notifications to this address.</div>
 			</div>
 			</div>
@@ -129,72 +129,106 @@ $(function() {
 	});
 	$("#btSubmit").click(function(){
 		resetMarkedErrorFields();
-		if($('input#b_firstname').val() == '' ) {
-            alert("The required field 'First name' is empty!");
-			markErrorField('b_firstname');
-			
-		} else if($('input#b_lastname').val() == '' ) {
-				alert("The required field 'Last name' is empty!");
-				markErrorField('b_lastname');
-		} else if($('input#b_address').val() == '' ) {
-				alert("The required field 'Address' is empty!");
-				markErrorField('b_address');		
-        } else if($('input#b_address').val() == '' ) {
-				alert("The required field 'Address' is empty!");
-				markErrorField('b_address');		
-        } else if($('input#b_city').val() == '' ) {
-				alert("The required field 'City' is empty!");
-				markErrorField('b_city');		
-        } else if($('select#address_book_B_state').val() == '' ) {
-				alert("The required field 'State' is not selected!");
-				markErrorField('address_book_B_state');		
-        } else if($('#b_country').val() == '' ) {
-				alert("The required field 'Country' is not selected!");
-				markErrorField('b_country');		
-        } else if($('input#b_zipcode').val() == '' ) {
-				alert("The required field 'Zip Code' is empty!");
-				markErrorField('b_zipcode');		
-        } else if($('input#b_phone').val() == '' ) {
-				alert("The required field 'Phone' is empty!");
-				markErrorField('b_phone');		
-        } else {
-			if($('#ship2diff').attr('checked')){
-				if($('input#s_firstname').val() == '' ) {
+		if($('input#firstname').is(':visible')) {
+			if($('input#firstname').val() == '' ) {
 					alert("The required field 'First name' is empty!");
-					markErrorField('s_firstname');
-				} else if($('input#s_lastname').val() == '' ) {
-						alert("The required field 'Last name' is empty!");
-						markErrorField('s_lastname');
-				} else if($('input#s_address').val() == '' ) {
-						alert("The required field 'Address' is empty!");
-						markErrorField('s_address');		
-				} else if($('input#s_address').val() == '' ) {
-						alert("The required field 'Address' is empty!");
-						markErrorField('s_address');		
-				} else if($('input#s_city').val() == '' ) {
-						alert("The required field 'City' is empty!");
-						markErrorField('s_city');		
-				} else if($('select#address_book_S_state').val() == '' ) {
-						alert("The required field 'State' is not selected!");
-						markErrorField('address_book_S_state');		
-				} else if($('#s_country').val() == '' ) {
-						alert("The required field 'Country' is not selected!");
-						markErrorField('s_country');		
-				} else if($('input#s_zipcode').val() == '' ) {
-						alert("The required field 'Zip Code' is empty!");
-						markErrorField('s_zipcode');		
-				} else if($('input#s_phone').val() == '' ) {
-						alert("The required field 'Phone' is empty!");
-						markErrorField('s_phone');
+					markErrorField('firstname');
+			} else if($('input#lastname').val() == '' ) {
+					alert("The required field 'Last name' is empty!");
+					markErrorField('lastname');
+			} else if($('input#address').val() == '' ) {
+					alert("The required field 'Address' is empty!");
+					markErrorField('address');		
+			} else if($('input#address').val() == '' ) {
+					alert("The required field 'Address' is empty!");
+					markErrorField('address');		
+			} else if($('input#city').val() == '' ) {
+					alert("The required field 'City' is empty!");
+					markErrorField('city');		
+			} else if($('select#address_book_state').val() == '' ) {
+					alert("The required field 'State' is not selected!");
+					markErrorField('address_book_state');		
+			} else if($('select#country').val() == '' ) {
+					alert("The required field 'Country' is not selected!");
+					markErrorField('country');		
+			} else if($('input#zipcode').val() == '' ) {
+					alert("The required field 'Zip Code' is empty!");
+					markErrorField('zipcode');		
+			} else if($('input#phone').val() == '' ) {
+					alert("The required field 'Phone' is empty!");
+					markErrorField('phone');		
+			}else{
+					this.disabled = true;
+					$('#registerform').submit();
+			} 
+		}else{
+			if($('input#b_firstname').val() == '' ) {
+				alert("The required field 'First name' is empty!");
+				markErrorField('b_firstname');
+				
+			} else if($('input#b_lastname').val() == '' ) {
+					alert("The required field 'Last name' is empty!");
+					markErrorField('b_lastname');
+			} else if($('input#b_address').val() == '' ) {
+					alert("The required field 'Address' is empty!");
+					markErrorField('b_address');		
+			} else if($('input#b_address').val() == '' ) {
+					alert("The required field 'Address' is empty!");
+					markErrorField('b_address');		
+			} else if($('input#b_city').val() == '' ) {
+					alert("The required field 'City' is empty!");
+					markErrorField('b_city');		
+			} else if($('select#address_book_B_state').val() == '' ) {
+					alert("The required field 'State' is not selected!");
+					markErrorField('address_book_B_state');		
+			} else if($('select#b_country').val() == '' ) {
+					alert("The required field 'Country' is not selected!");
+					markErrorField('b_country');		
+			} else if($('input#b_zipcode').val() == '' ) {
+					alert("The required field 'Zip Code' is empty!");
+					markErrorField('b_zipcode');		
+			} else if($('input#b_phone').val() == '' ) {
+					alert("The required field 'Phone' is empty!");
+					markErrorField('b_phone');		
+			} else {
+				if($('#ship2diff').attr('checked')){
+					if($('input#s_firstname').val() == '' ) {
+						alert("The required field 'First name' is empty!");
+						markErrorField('s_firstname');
+					} else if($('input#s_lastname').val() == '' ) {
+							alert("The required field 'Last name' is empty!");
+							markErrorField('s_lastname');
+					} else if($('input#s_address').val() == '' ) {
+							alert("The required field 'Address' is empty!");
+							markErrorField('s_address');		
+					} else if($('input#s_address').val() == '' ) {
+							alert("The required field 'Address' is empty!");
+							markErrorField('s_address');		
+					} else if($('input#s_city').val() == '' ) {
+							alert("The required field 'City' is empty!");
+							markErrorField('s_city');		
+					} else if($('select#address_book_S_state').val() == '' ) {
+							alert("The required field 'State' is not selected!");
+							markErrorField('address_book_S_state');		
+					} else if($('select#s_country').val() == '' ) {
+							alert("The required field 'Country' is not selected!");
+							markErrorField('s_country');		
+					} else if($('input#s_zipcode').val() == '' ) {
+							alert("The required field 'Zip Code' is empty!");
+							markErrorField('s_zipcode');		
+					} else if($('input#s_phone').val() == '' ) {
+							alert("The required field 'Phone' is empty!");
+							markErrorField('s_phone');
+					}else{
+						this.disabled = true;
+						$('#registerform').submit();
+					}
 				}else{
 					this.disabled = true;
 					$('#registerform').submit();
 				}
-			}else{
-				this.disabled = true;
-				$('#registerform').submit();
 			}
-        };
+        }
 		
 	});
 	$('#email')
@@ -282,5 +316,13 @@ function resetMarkedErrorFields(){
 	unmarkErrorField('s_country');
 	unmarkErrorField('s_zipcode');
 	unmarkErrorField('s_phone');
+	unmarkErrorField('firstname');
+	unmarkErrorField('lastname');
+	unmarkErrorField('address');
+	unmarkErrorField('city');
+	unmarkErrorField('address_book_state');
+	unmarkErrorField('country');
+	unmarkErrorField('zipcode');
+	unmarkErrorField('phone');
 }
 </script>
