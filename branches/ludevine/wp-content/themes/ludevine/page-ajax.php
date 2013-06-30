@@ -151,6 +151,19 @@ Template Name: Ajax
 				$sArress['id'] = $addressId;
 				$_SESSION['shippingAddr'] = $sArress;
 				break;
+			case 'save-billing':
+				require_once 'includes/validate.php';
+				require 'includes/order.php';
+				$sArress = getArray($_POST['address_book']);
+				$email = getParam('email');
+				if(empty($email) || !is_email($email)) throw new Exception('Please check your email address.', ERR_VALIDATE);
+				if(Validate::validateAddress($sArress) == false) throw new Exception('Customer info is invalid', ERR_VALIDATE_ADDRESS);
+				$sArress['email'] = $email;
+				$addressId = getParam('id');
+				Order::updateAddress($sArress, $addressId);
+				$sArress['id'] = $addressId;
+				$_SESSION['billAddr'] = $sArress;
+				break;
 			case 'login':
 				$email = getParam('email');
 				$password = getParam('password');

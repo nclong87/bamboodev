@@ -4,8 +4,8 @@ $nItem = 0;
 $total = 0;
 $shippingCost = PAYMENT_SHIPPING_FEE;
 $disabled = '';
-if(isset($address)) {
-	if($address['country'] != 'United States') {
+if(isset($shippingAddr)) {
+	if($shippingAddr['country'] != 'United States') {
 		$shippingCost = 0;
 	}
 } else {
