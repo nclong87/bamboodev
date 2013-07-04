@@ -262,8 +262,86 @@ jQuery(document).ready(function(){
 		}
 	});
 	$("#btSubmit").click(function(){
-		this.disabled = true;
-		$('#registerform').submit();
+			resetMarkedErrorFields();
+			if($('input#b_firstname').val() == '' ) {
+				alert("The required field 'First name' is empty!");
+				markErrorField('b_firstname');
+				return false;
+			} else if($('input#b_lastname').val() == '' ) {
+					alert("The required field 'Last name' is empty!");
+					markErrorField('b_lastname');
+					return false;
+			} else if($('input#b_address').val() == '' ) {
+					alert("The required field 'Address' is empty!");
+					markErrorField('b_address');
+					return false;					
+			} else if($('input#b_address').val() == '' ) {
+					alert("The required field 'Address' is empty!");
+					markErrorField('b_address');
+					return false;					
+			} else if($('input#b_city').val() == '' ) {
+					alert("The required field 'City' is empty!");
+					markErrorField('b_city');
+					return false;										
+			} else if($('select#address_book_B_state').val() == '' ) {
+					alert("The required field 'State' is not selected!");
+					markErrorField('address_book_B_state');
+					return false;										
+			} else if($('select#b_country').val() == '' ) {
+					alert("The required field 'Country' is not selected!");
+					markErrorField('b_country');
+					return false;										
+			} else if($('input#b_zipcode').val() == '' ) {
+					alert("The required field 'Zip Code' is empty!");
+					markErrorField('b_zipcode');
+					return false;										
+			} else if($('input#b_phone').val() == '' ) {
+					alert("The required field 'Phone' is empty!");
+					markErrorField('b_phone');
+					return false;										
+			} else {
+				if($('#ship2diff').attr('checked')){
+					if($('input#s_firstname').val() == '' ) {
+						alert("The required field 'First name' is empty!");
+						markErrorField('s_firstname');
+						return false;					
+					} else if($('input#s_lastname').val() == '' ) {
+							alert("The required field 'Last name' is empty!");
+							markErrorField('s_lastname');
+							return false;					
+					} else if($('input#s_address').val() == '' ) {
+							alert("The required field 'Address' is empty!");
+							markErrorField('s_address');
+							return false;												
+					} else if($('input#s_address').val() == '' ) {
+							alert("The required field 'Address' is empty!");
+							markErrorField('s_address');
+							return false;																			
+					} else if($('input#s_city').val() == '' ) {
+							alert("The required field 'City' is empty!");
+							markErrorField('s_city');
+							return false;																			
+					} else if($('select#address_book_S_state').val() == '' ) {
+							alert("The required field 'State' is not selected!");
+							markErrorField('address_book_S_state');
+							return false;																			
+					} else if($('select#s_country').val() == '' ) {
+							alert("The required field 'Country' is not selected!");
+							markErrorField('s_country');
+							return false;																			
+					} else if($('input#s_zipcode').val() == '' ) {
+							alert("The required field 'Zip Code' is empty!");
+							markErrorField('s_zipcode');
+							return false;																			
+					} else if($('input#s_phone').val() == '' ) {
+							alert("The required field 'Phone' is empty!");
+							markErrorField('s_phone');
+							return false;												
+					}
+				}
+			}
+			this.disabled = true;
+			$('#registerform').submit();
 	});
 	$("#b_country").change(function(){
 		var selectState = $("#address_book_B_state");
@@ -289,3 +367,4 @@ jQuery(document).ready(function(){
 	});
 });
 </script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/validation.js" type="text/javascript"></script>
