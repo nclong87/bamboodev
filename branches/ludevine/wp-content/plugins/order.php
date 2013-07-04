@@ -9,6 +9,7 @@ if (! class_exists ( 'WP_List_Table' )) {
 
 class Order_List_Table extends WP_List_Table {
 	private $per_page = 10;
+	private $filter;
 	function __construct() {
 		global $status, $page;
 		
@@ -93,13 +94,13 @@ class Order_List_Table extends WP_List_Table {
 	function column_action($item){
   		$actions = array(
             'view'      => sprintf('<a href="?page=%s&action=%s&id=%s">Detail</a>',$_REQUEST['page'],'view',$item['id']),
-  			'delete'      => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
+  			//'delete'      => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
         );
   		return sprintf('%1$s', $this->row_actions($actions) );
 	}
 	
 	function get_bulk_actions() {
-		$actions = array ('delete' => 'Delete' );
+		$actions = array ( );
 		return $actions;
 	}
 	
@@ -113,11 +114,33 @@ class Order_List_Table extends WP_List_Table {
 		$sortable = $this->get_sortable_columns ();
 		$this->_column_headers = array ($columns, $hidden, $sortable );
 		//usort( $this->example_data, array( &$this, 'usort_reorder' ) );
-		
+		if(isset($_GET['paged']) && !isset($_POST['filter'])) {
+			$this->filter = isset($_SESSION['filter'])?$_SESSION['filter']:array();
+		} else {
+			$this->filter = isset($_POST['filter'])?$_POST['filter']:array();
+			$_SESSION['filter'] = $this->filter;
+		}
+		//debug($filter);
+		$sWhere = ' 1=1 ';
+		$val = getValue($this->filter, 'status');
+		if($val != '') {
+			$sWhere.= ' AND t0.status = '.$val;
+		} else {
+			$sWhere.= ' AND t0.status >= 0';
+		}
+		$val = getValue($this->filter, 'create_time_from');
+		if($val != '') {
+			$sWhere.= " AND t0.time_create >= '$val'";
+		}
+		$val = getValue($this->filter, 'create_time_to');
+		if($val != '') {
+			$sWhere.= " AND t0.time_create <= '$val 23:59:59'";
+		}		
 
 		global $wpdb;
 		$current_page = $this->get_pagenum ();
-		$query = $wpdb->prepare ( 'SELECT SQL_CALC_FOUND_ROWS t0.*,t1.`country` FROM `orders` t0 LEFT JOIN `address` t1 ON t0.`address_id`=t1.`id` WHERE t0.status >= 0  ORDER BY t0.id DESC LIMIT %d,%d', (($current_page - 1) * $this->per_page), $this->per_page );
+		$query = $wpdb->prepare ( 'SELECT SQL_CALC_FOUND_ROWS t0.*,t1.`country` FROM `orders` t0 LEFT JOIN `address` t1 ON t0.`address_id`=t1.`id` WHERE '.$sWhere.'  ORDER BY t0.id DESC LIMIT %d,%d', (($current_page - 1) * $this->per_page), $this->per_page );
+		//debug($query);
 		$this->found_data = $wpdb->get_results ( $query, ARRAY_A );
 		$row = $wpdb->get_row ( 'SELECT FOUND_ROWS() as num' );
 		$total_items = $row->num;
@@ -126,6 +149,58 @@ class Order_List_Table extends WP_List_Table {
 'per_page' => $this->per_page )//WE have to determine how many items to show on a page
  );
 		$this->items = $this->found_data;
+	}
+	function search_box($text, $input_id) {
+		if ( empty( $_REQUEST['s'] ) && !$this->has_items() )
+			return;
+
+		$input_id = $input_id . '-search-input';
+
+		if ( ! empty( $_REQUEST['orderby'] ) )
+			echo '<input type="hidden" name="orderby" value="' . esc_attr( $_REQUEST['orderby'] ) . '" />';
+		if ( ! empty( $_REQUEST['order'] ) )
+			echo '<input type="hidden" name="order" value="' . esc_attr( $_REQUEST['order'] ) . '" />';
+		?>
+		<p class="search-box">
+		</p>
+		<?php
+	}
+	function extra_tablenav($which) {
+		if ( 'top' != $which )
+			return;
+		//$filter = isset($_POST['filter'])?$_POST['filter']:array();
+?>
+		<div class="alignleft actions">
+			<?php 
+			echo wp_dropdown(array(
+				'id' => '',
+				'name' => 'filter[status]',
+				'selected' => getValue($this->filter, 'status'),
+				'data' => array(
+					'' => '--Status--',
+					'0' => 'Contact',
+					'1' => 'Pending',
+					'2' => 'Payed'
+				)
+			));
+			echo wp_textbox(array(
+				'id' => '',
+				'name' => 'filter[create_time_from]',
+				'selected' => getValue($this->filter, 'create_time_from'),
+				'class' => 'datepicker',
+				'placeholder' => 'Date order from'
+			));
+			echo wp_textbox(array(
+				'id' => '',
+				'name' => 'filter[create_time_to]',
+				'selected' => getValue($this->filter, 'create_time_to'),
+				'class' => 'datepicker',
+				'placeholder' => 'Date order end'
+			));
+			submit_button( __( 'Filter' ), 'secondary', false, false, array( 'id' => 'post-query-submit' ) );
+?>
+		</div>
+<?php
 	}
 
 } //class
@@ -162,6 +237,14 @@ function my_render_list_page() {
 		$myListTable->display ();
 		?>
 		</form></div>
+		<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('.datepicker').datepicker({
+				showButtonPanel: true,
+				dateFormat : 'yy-mm-dd'
+			});
+		});
+		</script>
 		<?php
 	}
 }
