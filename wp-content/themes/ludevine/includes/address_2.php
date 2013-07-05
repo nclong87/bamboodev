@@ -277,21 +277,69 @@ jQuery(document).ready(function(){
 			$("#s3_non_state",form).show();
 		}
 	});
-	$('#shipping_form,#billing_form').ajaxForm(function(response) {
-		response = jQuery.parseJSON(response);
-		if(response.code == 1) {
-			location.href = baseUrl + "/payment";
-		} else {
-			alert(response.data);
-			$("#message").html('<span class="error_msg">'+response.data+'</span>');
-			$("#btSubmit")[0].disabled = false;
-			location.href = "#message";
+	var options = {
+		onkeyup : false,
+		//onfocusout : false,
+		rules : {
+			"address_book[firstname]" : {
+				required : true
+			},
+			"address_book[lastname]" : {
+				required : true
+			},
+			"address_book[address]" : {
+				required : true
+			},
+			"address_book[city]" : {
+				required : true
+			},
+			"address_book[state]" : {
+				required : function(element){
+					var form = $(element).parents("form");
+					return $("#country",form).val() == selected_country;
+				}
+			},
+			"address_book[country]" : {
+				required : true
+			},
+			"address_book[zipcode]" : {
+				required : true
+			},
+			"address_book[phone]" : {
+				required : true
+			},
+			"email" : {
+				required : true,
+				email : true
+			}
+		},
+		submitHandler : function(form){
+			var bt = $("#btSubmit",form)[0];
+			bt.disabled = true;
+			$.ajax({
+				url: baseUrl + "/ajax",
+				type: "POST",
+				data: $(form).serialize(),
+				success: function(response) {
+					response = jQuery.parseJSON(response);
+					if(response.code == 1) {
+						location.href = baseUrl + "/payment";
+					} else {
+						alert(response.data);
+						$("#message").html('<span class="error_msg">'+response.data+'</span>');
+						bt.disabled = false;
+						location.href = "#message";
+					}
+				},
+				error : function() {
+					$("#message").html('<span class="error_msg">'+MSG_SYSTEM_ERROR+'</span>');
+					bt.disabled = false;
+					location.href = "#message";
+				}
+			});
 		}
-	});
-	$(".btSubmit").click(function(){
-		this.disabled = true;
-		var form = $(this).parents("form");
-		form.submit();
-	});
+	}
+	$("#billing_form").validate(options);
+	$("#shipping_form").validate(options);
 });
 </script>
