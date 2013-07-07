@@ -45,7 +45,7 @@ function byId(id) {
 	<h2><span class="black circle">1</span>Name and address</h2>
 	<?php
 	require 'includes/order.php';
-	if(isset($_SESSION['shippingAddr'])) {
+	if(isset($_SESSION['billAddr'])) {
 		require 'includes/address_2.php';
 	} else {
 		require 'includes/address_1.php';

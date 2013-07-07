@@ -9,6 +9,13 @@ Template Name: Ajax
 		$success = array('code' => 1,'data' => '');
 		switch ($action) {
 			case 'debug':
+				require 'includes/date.php';
+				$expireTime = time() + 21600;
+				echo Date::time2SqlDate($expireTime);
+				exit;
+				$futureDate = $currentDate+(60*5);
+				$formatDate = date("Y-m-d H:i:s", $futureDate);
+				debug($formatDate);
 				debug($_SESSION['shippingAddr']);
 				require_once 'includes/order.php';
 				Order::sendMail(44);exit;
@@ -180,6 +187,47 @@ Template Name: Ajax
 				if($sArress != null) {
 					$_SESSION['shippingAddr'] = $sArress;
 				}
+				break;
+			case 'password_reset':
+				$email = getParam('email');
+				if(empty($email)) throw new Exception('Please input your email!', 0);
+				if(is_email($email) == false) throw new Exception('Your email is invalid', 0);
+				global $wpdb;
+				$query = $wpdb->prepare('SELECT `id`,`email` FROM `customers` WHERE `status` = 1 AND `email` = %s',$email);
+				$customer = $wpdb->get_row($query,ARRAY_A);
+				if($customer == null) throw new Exception('Your email is invalid', 0);
+				require 'includes/date.php';
+				$now = time();
+				$query = $wpdb->prepare('SELECT id FROM `keys` WHERE `status` = 1 AND `type` = 1 AND `expired` > %s AND `customer_id` = %d',Date::time2SqlDate($now),$customer['id']);
+				$row = $wpdb->get_row($query,ARRAY_A);
+				if($row != null) {
+					echo json_encode($success);
+					exit;
+				}
+				$token = Utils::genSecureKey(32);
+				$expireTime = $now + 21600;
+				$wpdb->insert('keys', array(
+					'customer_id' => $customer['id'],
+					'key' => $token,
+					'expired' => Date::time2SqlDate($expireTime),
+					'type' => KEY_RESET_PASSWORD,
+					'status' => 1
+				));
+				$data = array(
+					'link1' => DOMAIN.'/password-token',
+					'link2' => DOMAIN.'/password-token?code='.$token,
+					'code' => $token
+				);
+				$html = get_include_contents(ROOT.'/templates/reset_password.html', $data);
+				wp_mail($email, 'Password token', $html);
+				break;
+			case 'change_password':
+				$password = getParam('passwd1');
+				if(empty($password)) throw new Exception('ERROR', 0);
+				if(!isset($_SESSION['customer'])) throw new Exception('Please login again', 0);
+				$customer = $_SESSION['customer'];
+				global $wpdb;
+				$wpdb->update('customers', array('password' => md5($password)), array('id' => $customer['id']));
 				break;
 			case 'logout':
 				unset($_SESSION['customer']);

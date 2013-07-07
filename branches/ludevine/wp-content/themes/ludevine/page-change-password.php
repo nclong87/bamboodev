@@ -1,12 +1,12 @@
 <?php
 /*
-Template Name: Login
+Template Name: Change Password 
 */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Ludevine :: Login</title>
+<title>Ludevine :: Change Password</title>
 <link href="<?php echo get_template_directory_uri(); ?>/payment.css" type="text/css" rel="stylesheet">
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.validate.js" type="text/javascript"></script>
@@ -21,60 +21,67 @@ label.error {
 <body class="center">
 <center>
 <div class="wrap_center">
-	<form id="frmLogin" action="<?php echo DOMAIN?>/ajax" method="post" onsubmit="return false">
-	<input type="hidden" name="action" value="login"/>
-	<table style="width:285px">
+	<?php
+	$email = getParam('email');
+	if(!empty($email)) {
+	?>
+	<div>
+		<strong>An email has been sent to <?php echo $email?> which is the primary email address for your account.</strong> It includes information on changing and confirming your new password. Please reset your password within the next 6 hours.
+	</div>
+	<?php
+	} else {
+	?>
+	<form id="form" action="<?php echo DOMAIN?>/ajax" method="post" onsubmit="return false">
+	<input type="hidden" name="action" value="change_password"/>
+	<table style="width:335px">
 		<tr>
-			<td colspan="2" align="left"><h3 style="margin: 0px 0px 5px; border-bottom: 1px dashed gray;">Login</h3></td>
+			<td colspan="2" align="left"><h3 style="margin: 0px 0px 5px; border-bottom: 1px dashed gray;">Change your password</h3></td>
 		</tr>
 		<tr>
 			<td id="message" colspan="2" align="left"></td>
 		</tr>
 		<tr>
-			<td style="width:70px" valign="top">Email</td>
+			<td style="width:110px" valign="top">Password</td>
 			<td>
-				<input type="text" id="email" name="email" value="" placeholder="email" style="width:99%"/>
+				<input type="password" id="passwd1" name="passwd1" placeholder="Your new password" style="width:99%"/>
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">Password</td>
+			<td valign="top">Confirm password</td>
 			<td>
-				<input type="password" id="password" name="password" placeholder="password" style="width:99%"/>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<a style="color: navy; text-decoration: none;" href="<?php echo DOMAIN?>/password-reset" title="Forgotten your password?">Forgotten your password?</a>
+				<input type="password" id="passwd2" name="passwd2" placeholder="Confirm your new password" style="width:99%"/>
 			</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>
-				<input type="submit" value="Login" id="btSubmit"/>
-				<a href="<?php echo DOMAIN.getParam('ref')?>" style="display: block; text-decoration: none; text-align: right;">Back</a>
+				<input type="submit" value="Submit" id="btSubmit"/>
+				<a href="<?php echo DOMAIN?>/" style="display: block; text-decoration: none; text-align: right;">Back to Ludevine</a>
 			</td>
 		</tr>
 	</table>
 	</form>
+	<?php
+	}
+	?>
 </div>
 </center>
 </body>
 </html>
 <script type="text/javascript">
-var ref = '<?php echo getParam('ref')?>';
 var baseUrl = '<?php echo DOMAIN?>';
 $(function() {
-	$("#frmLogin").validate({
+	$("#form").validate({
 		onkeyup : false,
 		//onfocusout : false,
 		rules : {
-			"email" : {
+			"passwd1" : {
 				required : true,
-				email : true
+				minlength: 6
 			},
-			"password" : {
-				required : true
+			"passwd2" : {
+				required : true,
+				equalTo: "#passwd1"
 			}
 		},
 		submitHandler : function(form){
@@ -86,13 +93,13 @@ $(function() {
 				data: $(form).serialize(),
 				success: function(response) {
 					response = jQuery.parseJSON(response);
+					bt.disabled = false;
 					if(response.code == 1) {
-						location.href = baseUrl + ref;
+						$("#message").html('<span class="success_msg">Change your password successfully!</span>');
 					} else {
 						$("#message").html('<span class="error_msg">'+response.data+'</span>');
-						bt.disabled = false;
-						location.href = "#message";
 					}
+					location.href = "#message";
 				},
 				error : function() {
 					$("#message").html('<span class="error_msg">'+MSG_SYSTEM_ERROR+'</span>');
