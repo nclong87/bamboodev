@@ -70,7 +70,7 @@
 <div id="page" class="hfeed">
 	<header role="banner">
 		<div id="banner">
-			<a style="text-decoration:none;" href="<?php bloginfo('url'); ?>"/><img style="border: medium none; " src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="ludevine logo"/></a>
+			<a style="text-decoration:none;" href="<?php bloginfo('siteurl'); ?>"/><img style="border: medium none; " src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="ludevine logo"/></a>
 		</div>
 		<center>
 			<?php

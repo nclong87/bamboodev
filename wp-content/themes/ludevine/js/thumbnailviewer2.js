@@ -7,16 +7,17 @@
 jQuery.noConflict()
 
 jQuery.thumbnailviewer2={
-		loadmsg: '<img src="spinningred.gif" /><br />Loading Large Image...', //HTML for loading message. Make sure image paths are correct
+		loadmsg: '<img src="http://ludevine.com/wp-content/themes/ludevine/images/spinningred.gif" /><br />Loading Large Image...', //HTML for loading message. Make sure image paths are correct
 
 	/////NO NEED TO EDIT BEYOND HERE////////////////
 
 	dsetting: {trigger:'mouseover', preload:'yes', fx:'fade', fxduration:500, enabletitle:'yes'}, //default settings
 	buildimage:function($, $anchor, setting){
-		var imghtml='<img src="'+$anchor.attr('href')+'" style="border-width:0" />'
+		var imghtml='<img src="'+$anchor.attr('href')+'" style="border-width:0;max-width:455px" />'
 		if (setting.link)
-			imghtml='<a href="'+setting.link+'">'+imghtml+'</a>'
-		imghtml='<div>'+imghtml+((setting.enabletitle && $anchor.attr('title')!='')? '<br />'+$anchor.attr('title') : '')+'</div>'
+			imghtml='<a href="'+setting.link+'">'+imghtml+'</a>';
+			imghtml='<div>'+imghtml+'</div>';
+			//imghtml='<div>'+imghtml+((setting.enabletitle && ($anchor.attr('title')!='' && $anchor.attr('title')!='undefined'))? '<br />'+$anchor.attr('title') : '')+'</div>'
 		return $(imghtml)
 	},
 
