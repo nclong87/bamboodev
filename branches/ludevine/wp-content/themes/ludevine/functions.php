@@ -1,14 +1,14 @@
-<?phperror_reporting(E_ALL);define('DOMAIN',get_bloginfo('url'));define('PATH_COOKIE', 'd://NOTES/crawling/cookie.txt');define('PATH_LOG_FILES', 'd://NOTES/crawling/logs/');define('PAYPAL_CLIENTID', 'AX6fDRCuJbkF1NyJtdiASWxkn6ypVPnwXjlMduymrIRu0Jdnvn0p_lPANHDf');define('PAYPAL_SECRET', 'EFwqrhCZdIPSLnQ7zlVLq5oh7TIrYhDevOltntjqfS0dCP7bcTZ659nm9DiH');define('PAYPAL_URL', 'https://api.sandbox.paypal.com/v1/');define('PAYMENT_SHIPPING_FEE', 20);define('ROOT', dirname(__FILE__));define('DS', DIRECTORY_SEPARATOR);require_once 'includes/defines.php';if (function_exists('add_theme_support')) {
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 150, 150, true);
-	add_image_size('thumbnail', 150, 150, true);
-	add_image_size('medium', 1024, 468, true);
-	add_image_size('large', 9999, 500);
-}
-
-/* register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'wpdocs' ),
-        'collection' => __( 'Collection Navigation', 'wpdocs' ),
-        'lookbooks' => __( 'Look Books Navigation', 'wpdocs' ),
-	) ); */
+<?php	 	error_reporting(E_ALL);define('DOMAIN',get_bloginfo('url'));define('PAYPAL_CLIENTID', 'AX6fDRCuJbkF1NyJtdiASWxkn6ypVPnwXjlMduymrIRu0Jdnvn0p_lPANHDf');define('PAYPAL_SECRET', 'EFwqrhCZdIPSLnQ7zlVLq5oh7TIrYhDevOltntjqfS0dCP7bcTZ659nm9DiH');define('PAYPAL_URL', 'https://api.sandbox.paypal.com/v1/');define('PAYMENT_SHIPPING_FEE', 20);define('ROOT', dirname(__FILE__));define('DS', DIRECTORY_SEPARATOR);require_once 'includes/defines.php';if (function_exists('add_theme_support')) {
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 150, 150, true);
+	add_image_size('thumbnail', 150, 150, true);
+	add_image_size('medium', 1024, 468, true);
+	add_image_size('large', 9999, 500);
+}
+
+/* register_nav_menus( array(
+		'primary' => __( 'Primary Navigation', 'wpdocs' ),
+        'collection' => __( 'Collection Navigation', 'wpdocs' ),
+        'lookbooks' => __( 'Look Books Navigation', 'wpdocs' ),
+	) ); */
 function my_init() {	if (!is_admin()) {		wp_enqueue_script('jquery');	} else {		require_once 'includes/init_admin_config.php';		wp_enqueue_script('jquery');		wp_enqueue_script('jquery-ui-core');		wp_enqueue_script('jquery-ui-datepicker');		wp_enqueue_style('jquery.ui.css',get_template_directory_uri().'/jquery-ui.css');	}}add_action('init', 'my_init');/** *    init_sessions() * *    @uses session_id() *    @uses session_start() */function init_sessions() {    if (!session_id()) {        session_start();    }}add_action('init', 'init_sessions');function debug($var,$exit = true){	echo '<pre>';	print_r($var);	if($exit) die;}function check($var){	if($var == null) die('null');	if(empty($var)) die('empty');	exit;}function format_number($num){	return number_format($num,2);}function getParam($name,$default=''){	if(isset($_REQUEST[$name])) {		return strip_tags($_REQUEST[$name]);	}	return $default;}function getParams($name=''){	$params = array();	foreach($_REQUEST as $name => $value) {		$params[$name] = strip_tags($value); 	}	return $params;}function getArray($array){	$params = array();	foreach($array as $name => $value) {		$params[$name] = strip_tags($value); 	}	return $params;}function getParamsUrl($url) {	$info = parse_url($url);	$query = getValue($info, 'query');	parse_str($query,$info);	return $info;}function getValue($array,$index) {	return !isset($array[$index])?'':$array[$index];}function getCart(){	return isset($_SESSION['cart'])?$_SESSION['cart']:array();}function parseInt($string) {	$length = strlen($string);	$str = '';	for($i = 0; $i<$length;$i++) {		if(is_numeric($string[$i])) {			$str.=$string[$i];		}	}	return intval($str);}function get_include_contents($filename, $variablesToMakeLocal) {    extract($variablesToMakeLocal);    if (is_file($filename)) {        ob_start();        include $filename;        return ob_get_clean();    }	//die('ERROR');    return false;}add_filter( 'wp_mail_content_type', 'set_html_content_type' );function set_html_content_type(){	return 'text/html';}require_once 'includes/view.php';require_once 'includes/utils.php';require_once 'includes/init_product.php';require_once 'includes/init_media.php';define('IP', Utils::getIp());if(is_admin()) {function wp_dropdown($data) {	$name = getValue($data, 'name');	$id = getValue($data, 'id');	$selectedValue = getValue($data, 'selected');	$html = '<select name="'.$name.'" id="'.$id.'">';	foreach ($data['data'] as $value => $name) {		$selected = strcmp($selectedValue, $value)==0?'selected':'';		$html.='<option value="'.$value.'" '.$selected.'>'.$name.'</option>';	}	return $html;}function wp_textbox($data) {	$name = getValue($data, 'name');	$id = getValue($data, 'id');	$class = getValue($data, 'class');	$selectedValue = getValue($data, 'selected');	$placeholder = getValue($data, 'placeholder');	return '<input type="text" name="'.$name.'" id="'.$id.'" class="'.$class.'" value="'.$selectedValue.'" placeholder="'.$placeholder.'">';}}
