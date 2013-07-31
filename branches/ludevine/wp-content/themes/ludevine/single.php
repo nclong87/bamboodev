@@ -55,12 +55,12 @@ function MM_swapImage() { //v3.0
 //-->
 </script>
 </head>
-<body dir="ltr">
+<body dir="LTR">
   <table valign="top" border="0" cellpadding="0" width="930"><tbody><tr><th colspan="3" align="center"> </th>
     
 </tr><tr>
 <td valign="top">
-</td><td valign="top"><div id="loadarea" style="width:455px;height:455px;overflow:hidden"><img src="<?php echo $firstImage!=null?$firstImage[0]:''?>"></div></td>
+</td><td valign="top"><div id="loadarea" style="width:455px;height:455px;overflow:hidden"><img src="<?php echo $firstImage!=null?$firstImage[0]:''?>" style="border-width:0;max-width:455px"/></div></td>
 
 
 <td valign="top">&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;</td>
