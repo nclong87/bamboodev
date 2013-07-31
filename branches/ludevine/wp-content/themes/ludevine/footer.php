@@ -20,3 +20,14 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+	/* $("#menu-top-menu a").live("click", function() {
+		return false;
+	});
+	$("#menu-top-menu a:last").live("click", function() {
+		location.href = $(this).attr("href");
+		return false;
+	}); */
+});	
+</script>
