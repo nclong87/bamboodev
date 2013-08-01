@@ -53,7 +53,7 @@ foreach($cart as $item) {
   <form method="post" action="<?php echo DOMAIN?>/paypal" id="frmPaypal">
   <div class="checkout-customer-notes">
     <label for="customer_notes">Customer notes:</label>
-    <textarea <?php echo $disabled?> name="notes" id="customer_notes" rows="3" cols="44"></textarea>
+    <textarea <?php echo $disabled?> name="notes" id="customer_notes" rows="3" style="width: 265px;"></textarea>
 	<?php
 	if($shippingCost == 0) {
 		echo '<input style="margin-top: 10px; margin-right: -2px;" class="button" type="submit" value="Order Now!" id="btSubmitOrderNow"/>';
