@@ -100,7 +100,7 @@ Template Name: Process
 				require 'includes/order.php';
 				$rs = Order::sendMail($orderId);
 				Utils::log('payment::confirm_sendMail_END',array('$rs' => $rs));
-				wp_redirect(DOMAIN.'/success');
+				wp_redirect(DOMAIN.'/success?order_id='.$orderId);
 				exit;
 				break;
 			default:
