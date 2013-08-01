@@ -20,6 +20,7 @@ label.error {
 </head>
 <body class="center">
 <center>
+<a href="http://www.ludevine.com" class="logo">LUDEVINE</a>
 <div class="wrap_center">
 	<form id="frmLogin" action="<?php echo DOMAIN?>/ajax" method="post" onsubmit="return false">
 	<input type="hidden" name="action" value="login"/>
