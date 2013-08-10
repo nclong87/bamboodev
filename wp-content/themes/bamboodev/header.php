@@ -89,6 +89,6 @@
 					<div class="menu" style="width: 80px"><a href="<?php echo get_permalink(60); ?>">Khuyến Mãi</a></div>
 					<div class="menu" style="width: 60px"><a href="<?php echo get_permalink(52); ?>">Liên hệ</a></div>
 				</div>
-				<span id="slogan"><marquee behavior="scroll" scrollamount="5" direction="left" id="slogan marquee">Sự hài lòng của Quý Khách làm niềm vinh hạnh cho công ty chúng tôi.</marquee></span>
+				<span id="slogan"><marquee behavior="scroll" scrollamount="5" direction="left" id="slogan marquee">Sự hài lòng của Quý Khách là niềm vinh hạnh cho công ty chúng tôi.</marquee></span>
 			</div>
 			<div id="content">
