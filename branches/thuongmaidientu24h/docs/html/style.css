@@ -6,13 +6,22 @@ Version: 1.0
 
 html,body { height: 100%; margin: 0px; }
 body { 
+background-color: #E6E6E6;
 font-family: Helvetica,Arial,sans-serif;
+font-size: 13px;
+}
+a{
+color: #FF4500;
+text-decoration: none;
+}
+a:hover {
+color:navy
 }
 #header {
 background-image: url("images/bg_header.jpg");
 background-repeat: repeat-x;
 float: left;
-height: 60px;
+height: 52px;
 position: relative;
 width: 100%;
 }
@@ -27,7 +36,8 @@ width: 45px;
 }
 #header h1 {
 color: #222222;
-font-size: 1.1em;
+font-size: 1.4em;
+margin-top: 10px;
 padding-left: 55px;
 padding-top: 2px;
 text-shadow: 0 1px 0 #FFFFFF;
@@ -50,25 +60,19 @@ right: 7px;
 top: 5px;
 width: 85px;
 }
-#content {
-float: left;
-min-height: 200px;
-position: relative;
-width: 100%;
-}
 #footer {
 background-color: #E6E6E6;
 border-top: 1px solid #B2B2B2;
 bottom: 0;
 height: 45px;
-position: absolute;
+position: relative;
 text-align: center;
 width: 100%;
-
+float:left;
 }
 #footer h3 {
 color: #222222;
-font-size: 0.8em;
+font-size: 1em;
 margin-bottom: 3px;
 margin-top: 3px;
 padding-left: 55px;
@@ -90,4 +94,126 @@ background-position: -7px -51px;
 height: 44px;
 top: 0;
 width: 92px;
+}
+#content {
+background-color: #FFFFFF;
+display: block;
+float: left;
+min-height: 400px;
+position: relative;
+width: 100%;
+}
+#content .list {
+display: block;
+float: left;
+padding-bottom: 10px;
+padding-top: 10px;
+position: relative;
+width: 100%;
+}
+#content .list:hover {
+/* background-color: #FFEFD5; */
+}
+#content .list img.f_image {
+border: 1px solid #BBBBBB;
+display: inline-block;
+float: left;
+margin-left: 10px;
+padding: 2px;
+width: 20%;
+}
+#content .list a.title {
+display: inline-block;
+float: left;
+font-size: 1.1em;
+font-weight: bold;
+padding-left: 10px;
+width: 70%;
+}
+#content .list span.description {
+display: inline-block;
+float: left;
+padding-left: 10px;
+width: 70%;
+}
+#content .list .info {
+color: #808080;
+display: inline-block;
+float: left;
+font-size: 0.9em;
+padding-bottom: 5px;
+padding-left: 10px;
+width: 70%;
+}
+#content .list .time {
+color: #808080;
+font-size: 0.9em;
+position: absolute;
+right: 10px;
+top: 5px;
+width: 100px;
+}
+#content .break_list {
+border-top: 1px dashed gray;
+float: left;
+height: 2px;
+width: 100%;
+}
+#paging{
+float: left;
+height: 50px;
+padding-top: 10px;
+position: relative;
+text-align: center;
+width: 100%;
+}
+#paging .btNext {
+background-image: url("images/bt_next.jpg");
+background-position: -3px 0;
+display: block;
+float: right;
+height: 40px;
+width: 131px;
+}
+#paging .btNext:hover {
+  background-position: 0 -55px;
+  height: 45px;
+  width: 135px;
+}
+#paging .btPrev {
+background-image: url("images/bt_prev.jpg");
+background-position: 1px -1px;
+display: block;
+float: left;
+height: 45px;
+width: 140px;
+}
+#paging .btPrev:hover {
+  background-position: -1px -53px;
+  height: 45px;
+  width: 147px;
+}
+h2.page_title {
+background-color: #FF6347;
+border-bottom: 1px solid #FFFFFF;
+border-top: 1px solid #FFFFFF;
+color: #FFFAFA;
+float: left;
+font-size: 1.2em;
+height: 25px;
+margin: 0;
+padding: 5px 0 0;
+text-align: center;
+width: 100%;
+}
+h2.title {
+font-size: 1.3em;
+margin: 0;
+padding-left: 10px;
+}
+#content .list .content {
+float: left;
+padding-left: 10px;
+padding-top: 10px;
+width: 95%;
 }
