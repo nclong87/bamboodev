@@ -6,7 +6,12 @@ Version: 1.0
 
 html,body { height: 100%; margin: 0px; }
 body { 
+background-color: #E6E6E6;
 font-family: Helvetica,Arial,sans-serif;
+}
+a{
+color: #FF4500;
+text-decoration: none;
 }
 #header {
 background-image: url("images/bg_header.jpg");
@@ -51,13 +56,6 @@ right: 7px;
 top: 5px;
 width: 85px;
 }
-#content {
-float: left;
-min-height: 400px;
-position: relative;
-width: 100%;
-display:block;
-}
 #footer {
 background-color: #E6E6E6;
 border-top: 1px solid #B2B2B2;
@@ -92,4 +90,12 @@ background-position: -7px -51px;
 height: 44px;
 top: 0;
 width: 92px;
+}
+#content {
+background-color: #FFFFFF;
+display: block;
+float: left;
+min-height: 400px;
+position: relative;
+width: 100%;
 }
