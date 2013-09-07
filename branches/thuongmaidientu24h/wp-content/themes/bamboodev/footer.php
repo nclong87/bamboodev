@@ -11,9 +11,12 @@
 ?>
 </div>
 <div id="footer">
-	<a href="#" id="btHome"></a>
+	<a href="<?php echo DOMAIN?>" id="btHome"></a>
+	<div style="padding-left:10px">
 	<h3>Cổng Thông Tin Thương Mại Điện Tử Việt Nam</h3>
-	<div style="font-size: 12px;">Mọi chi tiết vui lòng liên hệ email <a href="mailto:lienhe@thuongmaidientu24h.net">lienhe@thuongmaidientu24h.net</a> hoặc số điện thoại 0932.337.487</div>
+	<span>Email : lienhe@thuongmaidientu24h.net</span>
+	<span>Phone : 0932.337.487</span>
+	</div>
 </div>
 </body>
 </html>

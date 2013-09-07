@@ -8,16 +8,20 @@ html,body { height: 100%; margin: 0px; }
 body { 
 background-color: #E6E6E6;
 font-family: Helvetica,Arial,sans-serif;
+font-size: 13px;
 }
 a{
 color: #FF4500;
 text-decoration: none;
 }
+a:hover {
+color:navy
+}
 #header {
 background-image: url("images/bg_header.jpg");
 background-repeat: repeat-x;
 float: left;
-height: 60px;
+height: 52px;
 position: relative;
 width: 100%;
 }
@@ -32,12 +36,11 @@ width: 45px;
 }
 #header h1 {
 color: #222222;
-font-size: 1.1em;
+font-size: 1.4em;
+margin-top: 10px;
 padding-left: 55px;
 padding-top: 2px;
 text-shadow: 0 1px 0 #FFFFFF;
-white-space: nowrap;
-margin-top:10px;
 }
 #header a#btTags {
 background-image: url("images/tags_bt.jpg");
@@ -48,6 +51,13 @@ right: 12px;
 top: 9px;
 width: 75px;
 z-index: 99999;
+}
+#breadcrumbs {
+background-color: #FFFFE0;
+border-bottom: 1px solid #B2B2B2;
+color: #808080;
+height: 20px;
+margin: 0;padding-left: 10px;padding-top: 5px;
 }
 #header a#btTags:hover{
 background-position: -3px -46px;
@@ -60,27 +70,26 @@ width: 85px;
 background-color: #E6E6E6;
 border-top: 1px solid #B2B2B2;
 bottom: 0;
-height: 45px;
+float: left;
+height: 65px;
 position: relative;
-text-align: center;
+text-align: left;
 width: 100%;
-float:left;
 }
 #footer h3 {
 color: #222222;
-font-size: 0.8em;
-margin-bottom: 3px;
+font-size: 1em;
+margin-bottom: 5px;
 margin-top: 3px;
-padding-left: 55px;
 padding-top: 2px;
 text-shadow: 0 1px 0 #FFFFFF;
 }
 #footer a#btHome {
 background-image: url("images/bt_home.jpg");
-background-position: -7px -5px;
+background-position: -13px -6px;
 height: 36px;
-left: 7px;
 position: absolute;
+right: 7px;
 top: 6px;
 width: 85px;
 z-index: 99999;
@@ -98,4 +107,147 @@ float: left;
 min-height: 400px;
 position: relative;
 width: 100%;
+}
+#content .list {
+display: block;
+float: left;
+padding-bottom: 10px;
+padding-top: 10px;
+position: relative;
+width: 100%;
+}
+#content .list:hover {
+/* background-color: #FFEFD5; */
+}
+#content .list img.f_image {
+border: 1px solid #BBBBBB;
+display: inline-block;
+float: left;
+margin-bottom: 5px;
+margin-right: 5px;
+margin-top: 3px;
+padding: 2px;
+}
+#content .list a.title {
+display: inline-block;
+float: left;
+font-size: 1.1em;
+font-weight: bold;
+width: 95%;
+}
+#content .list span.description {
+display: inline-block;
+float: left;
+width: 95%;
+}
+#content .list .info {
+color: #808080;
+display: inline-block;
+float: left;
+font-size: 0.9em;
+margin: 0;
+padding-bottom: 5px;
+width: 95%;
+}
+#content .list .top {
+display: block;
+float: left;
+padding-left: 10px;
+padding-top: 5px;
+width: 95%;
+}
+#content .list .time {
+color: #808080;
+font-size: 0.8em;
+position: absolute;
+right: 0;
+top: 0px;
+width: 100px;
+}
+#content .break_list {
+border-top: 1px dashed gray;
+float: left;
+height: 2px;
+width: 100%;
+}
+#paging{
+float: left;
+height: 50px;
+padding-top: 10px;
+position: relative;
+text-align: center;
+width: 100%;
+}
+#paging .btNext {
+background-image: url("images/bt_next.jpg");
+background-position: -3px 0;
+display: block;
+float: right;
+height: 40px;
+width: 131px;
+}
+#paging .btNext:hover {
+  background-position: 0 -55px;
+  height: 45px;
+  width: 135px;
+}
+#paging .btPrev {
+background-image: url("images/bt_prev.jpg");
+background-position: 1px -1px;
+display: block;
+float: left;
+height: 45px;
+width: 140px;
+}
+#paging .btPrev:hover {
+  background-position: -1px -53px;
+  height: 45px;
+  width: 147px;
+}
+h2.page_title {
+background-color: #FF6347;
+border-bottom: 1px solid #FFFFFF;
+border-top: 1px solid #FFFFFF;
+color: #FFFAFA;
+float: left;
+font-size: 1.2em;
+height: 25px;
+margin: 0;
+padding: 5px 0 0;
+text-align: center;
+width: 100%;
+}
+h2.title {
+display: block;
+font-size: 1.4em;
+margin: 0;
+padding-bottom: 5px;
+width: 90%;
+}
+#content .list .content {
+display: block;
+float: left;
+text-align: justify;
+width: 98%;
+}
+#content .list .short_content {
+display: block;
+float: left;
+margin-bottom: 7px;
+padding-left: 10px;
+padding-right: 10px;
+text-align: justify;
+width: 95%;
+}
+.tag_separator {
+margin: 10px;
+}
+span.share{
+color: #008080;
+display: block;
+font-weight: bold;
+height: 25px;
+}
+#footer span {
+display: block;
 }

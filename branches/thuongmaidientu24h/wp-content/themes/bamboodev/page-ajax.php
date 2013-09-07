@@ -8,6 +8,33 @@ Template Name: Ajax
 	switch($action) {
 		case 'test' :
 			echo '<pre><br/>';
+			/* $array = query_posts( array('post_type' => 'post', 'orderby' => 'created', 'order' => 'DESC','posts_per_page' => POSTS_PER_PAGE)); */
+			
+			$tags = wp_get_post_tags(7);
+			$array = array();
+			foreach($tags as $tag) {
+				$array[]= $tag->term_id;
+			}
+			$array = query_posts(array(
+				'orderby' => 'rand',
+				'post__not_in' => array(7),
+				'posts_per_page' => 5,
+				'tax_query' => array( array(
+				  'taxonomy' => 'post_tag',
+				  'terms'    => $array,
+				) )
+			));
+			print_r($array);
+			exit;
+			$args=array(
+				'tag__in' => array($array),
+				'post__not_in' => array(7),
+				'posts_per_page'=>5,
+				'caller_get_posts'=>1
+				);
+			$my_query = new WP_Query($args);
+			debug($my_query);
+			exit;
 			global $title,$wpdb;
 			$mam_global_where = "AND $wpdb->posts.post_title LIKE '%VP DT - 01%'";
 			$array = query_posts( array('post_type' => 'product', 'orderby' => 'created', 'order' => 'ASC','posts_per_page' => POSTS_PER_PAGE));
