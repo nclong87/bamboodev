@@ -78,7 +78,10 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
+define('AUTOSAVE_INTERVAL', 300 ); // seconds
+define('WP_POST_REVISIONS', false );
+define('DOMAIN','http://localhost/thuongmaidientu24h/');
 
 /* That's all, stop editing! Happy blogging. */
 

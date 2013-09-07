@@ -27,25 +27,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width" />
+<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/thuongmaidientu24h.ico" /> 
 <?php wp_head();?>
 <title><?php
 	global $page, $paged, $title;
-	//wp_title( '|', true, 'right' );
-	// Add the blog name.
-	bloginfo( 'name' );
-	
+	$page = getParam('page',1);
 	if(isset($title)) {
 		echo " | $title";
 	} else {
-		// Add the blog description for the home/front page.
 		if ( is_home() || is_front_page() ) {
-			echo " | Trang chủ";
+			bloginfo( 'name' );
+			if ( $paged >= 2 || $page >= 2 ) {
+				echo ' | Trang ' . $page;
+			} else {
+				echo " | Trang chủ";
+			}
 		} else {
 			wp_title( '|', true);
+			if ( $paged >= 2 || $page >= 2 )
+				echo ' | Trang ' . $page;
 		}
-		// Add a page number if necessary:
-		if ( $paged >= 2 || $page >= 2 )
-			echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
 	}
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -57,8 +58,8 @@
 </head>
 <body>
 <div id="header">
-	<a href="#" id="logo"></a>
-	<h1>Cổng Thông Tin Thương Mại Điện Tử Việt Nam</h1>
-	<a href="#" id="btTags"></a>
+	<a href="<?php echo DOMAIN?>" id="logo"></a>
+	<h1>Thương Mại Điện Tử 24h</h1>
+	<a href="<?php echo DOMAIN.'tags-cloud'?>" id="btTags"></a>
 </div>
 <div id="content">
