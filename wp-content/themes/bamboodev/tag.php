@@ -54,7 +54,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'thumbnai
 			?>
 		</div>
 	</div>
-	<span class="time"><?php echo format_date($post->post_modified,'Y/m/d H:i')?></span>
+	<span class="time"><?php echo format_date($post->post_modified,'d/m/Y')?></span>
 </div>
 <?php
 if($i < $len-1) echo '<div class="break_list"></div>';
