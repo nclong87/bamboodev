@@ -36,7 +36,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'thumbnai
 			?>
 		</div>
 	</div>
-	<span class="time"><?php echo format_date($post->post_modified,'d/m/Y H:i')?></span>
+	<span class="time"><?php echo format_date($post->post_modified,'d/m/Y')?></span>
 </div>
 <?php
 if($i < $len-1) echo '<div class="break_list"></div>';
@@ -46,8 +46,8 @@ if($i < $len-1) echo '<div class="break_list"></div>';
 	<center>
 	<div style="width: 300px">
 	<?php
-	if($page > 1) echo '<a class="btPrev" href="?page='.($page-1).'"></a>';
-	if($page < $max_num_pages) echo '<a class="btNext" href="?page='.($page+1).'"></a>';
+	if($page > 1) echo '<a rel="prev" class="btPrev" href="?page='.($page-1).'"></a>';
+	if($page < $max_num_pages) echo '<a rel="next" class="btNext" href="?page='.($page+1).'"></a>';
 	?>
 	</div>
 	</center>

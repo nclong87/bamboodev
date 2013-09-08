@@ -26,6 +26,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8">
+<meta name="google-site-verification" content="v_yvNPfmyZ-HMB_tb3APh9NFG6ARN5Ko9Z8jQsC2Oe4" />
 <meta name="viewport" content="width=device-width" />
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/thuongmaidientu24h.ico" /> 
 <?php wp_head();?>
