@@ -7,8 +7,7 @@ Version: 1.0
 html,body { height: 100%; margin: 0px; }
 body { 
 background-color: #E6E6E6;
-font-family: Helvetica,Arial,sans-serif;
-font-size: 13px;
+font: 1em/20px 'Open Sans',"Myriad Pro",Arial,Helvetica,sans-serif
 }
 a{
 color: #FF4500;
@@ -36,10 +35,10 @@ width: 45px;
 }
 #header h1 {
 color: #222222;
-font-size: 1.4em;
+font-size: 1em;
 margin-top: 10px;
 padding-left: 55px;
-padding-top: 2px;
+padding-top: 4px;
 text-shadow: 0 1px 0 #FFFFFF;
 }
 #header a#btTags {
@@ -56,8 +55,13 @@ z-index: 99999;
 background-color: #FFFFE0;
 border-bottom: 1px solid #B2B2B2;
 color: #808080;
+font-size: 0.8em;
 height: 20px;
-margin: 0;padding-left: 10px;padding-top: 5px;
+margin: 0;
+overflow: hidden;
+padding-left: 10px;
+padding-top: 5px;
+white-space: nowrap;
 }
 #header a#btTags:hover{
 background-position: -3px -46px;
@@ -105,6 +109,7 @@ background-color: #FFFFFF;
 display: block;
 float: left;
 min-height: 400px;
+overflow: hidden;
 position: relative;
 width: 100%;
 }
@@ -160,8 +165,9 @@ width: 95%;
 color: #808080;
 font-size: 0.8em;
 position: absolute;
-right: 0;
-top: 0px;
+right: 5px;
+text-align: right;
+top: 0;
 width: 100px;
 }
 #content .break_list {
@@ -219,10 +225,11 @@ width: 100%;
 }
 h2.title {
 display: block;
-font-size: 1.4em;
+font-size: 1.2em;
+line-height: 25px;
 margin: 0;
 padding-bottom: 5px;
-width: 90%;
+width: 95%;
 }
 #content .list .content {
 display: block;
@@ -250,4 +257,7 @@ height: 25px;
 }
 #footer span {
 display: block;
+}
+#content .list .content img {
+width: 98%;
 }
