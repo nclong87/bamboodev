@@ -1,5 +1,6 @@
 http://autosurf.vn
 http://traffboost.net/
+http://feedburner.google.com/fb/a/myfeeds
 
 bbddoquocket@zing.vn / 123456   http://traffboost.net?ref=Yr0  http://autosurf.vn/signup.html?ref=guAIL7X
 bbdthaobk74@zing.vn
@@ -18,3 +19,8 @@ bbdnguyenthanhlong8287@zing.vn
 bbdnhha2013@zing.vn
 bbdtubep2014@zing.vn
 bbdduhi295@zing.vn
+
+
+
+jetpack
+Google XML Sitemaps
