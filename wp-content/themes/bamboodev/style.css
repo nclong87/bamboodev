@@ -3,8 +3,10 @@ Theme Name: Bamboodev
 Author: nclong
 Version: 1.0
 */
-
 html,body { height: 100%; margin: 0px; }
+#abc{
+
+}
 body { 
 background-color: #E6E6E6;
 font: 1em/20px 'Open Sans',"Myriad Pro",Arial,Helvetica,sans-serif
