@@ -28,13 +28,13 @@
 <meta charset="utf-8">
 <meta name="google-site-verification" content="v_yvNPfmyZ-HMB_tb3APh9NFG6ARN5Ko9Z8jQsC2Oe4" />
 <meta name="viewport" content="width=device-width" />
-<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/thuongmaidientu24h.ico" /> 
+<link rel="shortcut icon" href="<?php echo TEMPLATE_DIRECTORY; ?>/images/thuongmaidientu24h.ico" /> 
 <?php wp_head();?>
 <title><?php
 	global $page, $paged, $title;
 	$page = getParam('page',1);
 	if(isset($title)) {
-		echo " | $title";
+		echo "$title";
 	} else {
 		if ( is_home() || is_front_page() ) {
 			bloginfo( 'name' );
@@ -52,9 +52,8 @@
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_DIRECTORY; ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 </head>
 <body>
