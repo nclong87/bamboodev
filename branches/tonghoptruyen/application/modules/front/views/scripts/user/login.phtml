@@ -1,0 +1,52 @@
+<?php
+$baseUrl = $this->baseUrl ();
+$actual_link = Core_Utils_Tools::getFullURL ();
+?>
+<style>
+.fb-login-button {
+	display: none;
+}
+</style>
+<link rel="stylesheet" href="<?php echo $baseUrl?>/css/post.css"
+	type="text/css" media="screen" />
+<script type="text/javascript"
+	src="<?php echo $baseUrl?>/js/jquery.validate.js"></script>
+<!--[if lt IE 8]><style>
+.wraptocenter span {
+    display: inline-block;
+    height: 100%;
+}
+</style><![endif]-->
+<div id="right_col" style="margin-left: 10px">
+	<div
+		style="width: 500px; margin: 20px auto 0px; text-align: left; float: left;">
+		<h1
+			style="text-align: left; border-bottom: 1px dashed gray; padding-bottom: 10px; margin-bottom: 10px;">Đăng
+			nhập bằng tài khoản jobbid.vn</h1>
+	<?php echo $this->form?>
+	<a id="linkRegistration" href="../registration/jobbid"
+			title="Đăng ký tài khoản jobbid.vn mới" style="margin-left: 108px;">Đăng
+			ký tài khoản mới</a> <a href="../user/forgot-password"
+			title="Quên mật khẩu đăng nhập"
+			style="display: block; margin-left: 108px;">Quên mật khẩu đăng nhập</a>
+	</div>
+</div>
+</div>
+<script type='text/javascript'>
+var isPopup = '0';
+$(document).ready(function(){	
+	if(window.opener != null) {
+		isPopup = '1';
+		var registrationUrl = $("#fb-register").attr("data-registration-url");
+		$("#fb-register").attr("data-registration-url",registrationUrl+"?isPopup=1");
+		$("#linkRegistration").attr("href",$("#linkRegistration").attr("href")+"?is_popup=1");
+	}
+	$("#fLogin #isPopup").val(isPopup);
+	<?php
+	$msg = '';
+	if (! empty ( $this->errors ))
+		$msg = join ( ',', $this->errors );
+	?>
+	$("#fLogin #msg").text("<?php echo $msg?>");
+});
+</script>

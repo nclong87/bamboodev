@@ -1,0 +1,145 @@
+<?php
+$baseUrl = $this->baseUrl ();
+$actual_link = Core_Utils_Tools::getFullURL ();
+?>
+<link rel="stylesheet" href="<?php echo $baseUrl?>/css/post.css"
+	type="text/css" media="screen" />
+<!--[if lt IE 8]><style>
+.wraptocenter span {
+    display: inline-block;
+    height: 100%;
+}
+</style><![endif]-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=344438602327914";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php echo $this->render('/templates/left.phtml')?>
+<div id="right_col">
+	<center>
+		<div style="margin: 20px auto 0px; text-align: left;">
+			<span
+				style="color: gray; font-size: 11px; text-align: right; width: 100%; display: block;"><?php echo Core_Utils_Date::displaySQLDate($this->job['time_update'],'dd/MM/Y HH:mm')?></span>
+			<h1><?php echo $this->job['title']?></h1>
+			<table style="width: 100%">
+				<tr>
+					<td style="width: 100px"><span class="bold">Công ty :</span></td>
+					<td><a
+						href="<?php echo $baseUrl.Core_Utils_Tools::genCompanyUrl($this->job['company_id'],$this->job['company']) ?>"
+						title="Xem những việc làm tại <?php echo $this->job['company']?>"><?php echo $this->job['company']?></a>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="bold">Làm việc tại :</span></td>
+					<td><a
+						href="<?php echo $baseUrl.Core_Utils_Tools::genCityUrl($this->job['city_id'],$this->job['name_city']) ?>"
+						title="Xem những việc làm tại <?php echo $this->job['name_city']?>"><?php echo $this->job['name_city']?></a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><span class="bold">Mô tả công việc :</span><br /> <pre><?php echo $this->job['job_description']?></pre>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="bold">Loại công việc :</span></td>
+					<td>
+				<?php echo $this->job['job_type']==1?'Part-time':'Full-time'?>
+			</td>
+				</tr>
+				<tr>
+					<td><span class="bold">Email liên hệ :</span></td>
+					<td><a href="mailto:<?php echo $this->job['email_to']?>" title=""><?php echo $this->job['email_to']?></a>
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="2">
+				<?php
+				$array = array ();
+				foreach ( $this->tags as $tag ) {
+					$array [] = '<a href="' . $baseUrl . '/tag/' . $tag ['key'] . '" title="' . $tag ['tag'] . '">' . $tag ['tag'] . '</a>';
+				}
+				echo 'Tags : ' . join ( ', ', $array );
+				?>
+			</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right"><span class="jb_button share"
+						title="Chia sẽ lên Facebook">Share</span> <span
+						class="jb_button report" title="Báo cáo tin đăng xấu">UnLike</span>
+					</td>
+				</tr>
+		<?php
+		if (Core_Utils_Tools::isOwner ( $this->job )) {
+			?>
+		<tr>
+					<td colspan="2" align="left">
+						<form method="GET" action="<?php echo $baseUrl?>/job/edit">
+							<input type="hidden" name="job_id"
+								value="<?php echo $this->job['id']?>" />
+							<button id="btEdit" class="button"
+								title="Cập nhật nội dung tin đăng của bạn">Chỉnh sửa</button>
+						</form>
+						<form method="POST"
+							action="<?php echo $baseUrl?>/action/refesh-job">
+							<input type="hidden" name="job_id"
+								value="<?php echo $this->job['id']?>" />
+							<button id="btUp" class="button"
+								title="Chức năng đẩy tin đăng của bạn lên top những tin đăng mới nhất ( tối đa 3 lần 1 ngày)">Làm
+								mới (up tin)</button>
+						</form>
+				<?php
+			if (Core_Utils_Tools::isAdmin ()) {
+				echo '<b>' . Core_Utils_Tools::uid2username ( $this->job ['account_id'] ) . '</b><br/>';
+				echo '- <a target="_blank" href="' . $baseUrl . '/admin/lock-account?uid=' . $this->job ['account_id'] . '&a=' . ACTION_POST_JOB . '">Lock post</a><br/>';
+				echo '- <a target="_blank" href="' . $baseUrl . '/admin/lock-account?uid=' . $this->job ['account_id'] . '&a=' . ACTION_EDIT_JOB . '">Lock edit</a>';
+			}
+			?>
+			</td>
+				</tr>
+		<?php
+		}
+		?>
+	</table>
+			<fieldset class="block">
+				<legend>Những công việc tương tự</legend>
+		<?php
+		foreach ( $this->similarJobs as $item ) {
+			echo '<span style="display:block;margin-left:3px">- <a title="' . $item ['title'] . '" href="' . $baseUrl . Core_Utils_Tools::genJobUrl ( $item ) . '">' . $item ['title'] . '</a> (' . Core_Utils_Date::displaySQLDate ( $item ['time_update'], 'dd/MM/Y HH:mm' ) . ')</span>';
+		}
+		?>
+	</fieldset>
+			<fieldset class="block">
+				<legend>Bình luận</legend>
+				<div class="fb-comments"
+					data-href="<?php echo $this->facebook_comment?>" data-width="600"
+					data-num-posts="10"></div>
+			</fieldset>
+		</div>
+	</center>
+
+</div>
+<?php echo $this->render('/templates/ads.phtml')?>
+<script type='text/javascript'>
+var token = '<?php echo $this->token?>';
+$(document).ready(function(){	
+	$("span.jb_button.share").live("click",function(){
+		window.open("http://www.facebook.com/share.php?u=<?php echo $actual_link?>", "window_name","location=1,status=1,scrollbars=1,resizable=no,width=500,height=400");
+	});
+	$("span.jb_button.report").live("click",function(){
+		$.get(baseUrl+"/ajax/report-job?id=<?php echo $this->job['id']?>",function(response) {
+			if(response == 'ERROR') {
+				alert(ERROR_MESSAGE);
+			} else {
+				alert('Report thành công, cảm ơn bạn đã report.');
+			}
+		});
+	});
+	if(token != '') {
+		$.get(baseUrl + "/ajax/view-job?id=<?php echo $this->job['id']?>&token="+token);
+	}
+});
+</script>

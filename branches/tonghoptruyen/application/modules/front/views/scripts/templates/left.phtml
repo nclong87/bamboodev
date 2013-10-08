@@ -1,0 +1,27 @@
+<?php $baseUrl = $this->baseUrl()?>
+<div id="left_col">
+	<div class="block">
+		<a class="logo" style="text-decoration: none; text-align: center;"
+			href="<?php echo $baseUrl ?>/" /><img style="border: medium none;"
+			src="<?php echo $baseUrl ?>/images/logo.png" alt="logo" /> <span
+			class="slogan">Mạng xã hội việc làm Việt Nam</span></a>
+	</div>
+	<div class="block">
+		<span class="block_title">Tìm theo công ty </span>
+		<?php echo $this->render('/templates/top-company.phtml')?>
+	</div>
+	<div class="block">
+		<span class="block_title">Tin tức về làm thêm </span>
+		<?php echo $this->render('/templates/top-news.phtml')?>
+	</div>
+	<div class="block">
+		<span class="block_title">Tag nổi bật </span>
+		<?php echo $this->render('/templates/top-tag.phtml')?>
+	</div>
+	<div class="block" id="connect_site">
+		<span class="block_title">Liên kết </span> <a
+			href="http://thuongmaidientu24h.net/"
+			title="Tạp chí thương mại điện tử 24h">Tạp chí thương mại điện tử 24h</a>
+		<a target="_blank" href="http://truyentranhhot.net/">Truyện tranh hot</a>
+	</div>
+</div>
