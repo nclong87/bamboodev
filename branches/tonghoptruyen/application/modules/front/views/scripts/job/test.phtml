@@ -1,0 +1,19 @@
+<?php
+$baseUrl = $this->baseUrl ();
+?>
+<a href="http://localhost/jobbid/user/login" id="linkLogin">Login</a>
+<script type='text/javascript'>
+function loginSuccess() {
+	console.log('Testing console');
+}
+$(document).ready(function(){	
+	$("a#linkLogin").live("click",function(){
+		var w = 600;
+		var h = 350;
+		var left = (screen.width/2)-(w/2);
+		var top = (screen.height/2)-(h/2);
+		window.open(this.href, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left); 
+		return false;
+	});
+});
+</script>
