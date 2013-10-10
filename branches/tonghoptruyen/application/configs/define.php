@@ -105,3 +105,13 @@ define ( 'QUERY_DB_RETURN_NO', 3 );
 //image
 define('IMG_THUMB_WIDTH', 150);
 define('IMG_THUMB_HEIGHT', 200);
+
+//define url type
+define('URL_CAT', 1);
+define('URL_COMIC', 2);
+define('URL_CHAP', 3);
+//error define
+define('ERR_NORMAL', 0);
+define('ERR_GET_CONTENT', 1);
+define('ERR_STRUCTURE', 2);
+define('ERR_EMPTY', 3);
