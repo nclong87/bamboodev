@@ -52,6 +52,10 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			Core_Log::log('Get comics in url '.$url);
 			$array = array();
 			$content = $this->ajCurl->getContent($url);
+			if(empty($content)) {
+				Core_Utils::insertLog($url, URL_CAT, ERR_GET_CONTENT);
+				throw new Exception('getComics empty content',ERR_GET_CONTENT);
+			}
 			$charset = mb_detect_encoding($content);
 			if($charset == 'UTF-8') {
 				$doc = Core_Dom_Query::newDocumentHTML ( $content );
@@ -61,52 +65,62 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			$now = Core_Utils_Date::getCurrentDateSQL();
 			//$content = file_get_contents('D://test.html');
 			if($data['type'] == 1) { //chung
-				foreach ($doc['ul.show-story > li'] as $li) {
-					$li = pq($li);
-					$a = $li->find('> a')->get(0);
-					$href = trim($a->getAttribute('href'));
-					$sid = $this->getId($href);
-					$seo_name = trim($a->getAttribute('title'));
-					$img = $li->find('> a > img')->get(0);
-					$feature_image = trim($img->getAttribute('src'));
-					$name = trim($img->getAttribute('alt'));
-					$array[] = array(
-							'comic_url' => $href,
-							'sid' => $sid,
-							'seo_name' => $seo_name,
-							'name' => $name,
-							'feature_image_src' => $feature_image,
-							'source_id' => $this->source_info['id'],
-							'url' => getSlug($seo_name),
-							'main_cat' => $data['category_id'],
-							'create_time' => $now,
-							'update_time' => $now,
-							'update_chap_time' => $now
-					);
+				try {
+					foreach ($doc['ul.show-story > li'] as $li) {
+						$li = pq($li);
+						$a = $li->find('> a')->get(0);
+						$href = trim($a->getAttribute('href'));
+						$sid = $this->getId($href);
+						$seo_name = trim($a->getAttribute('title'));
+						$img = $li->find('> a > img')->get(0);
+						$feature_image = trim($img->getAttribute('src'));
+						$name = trim($img->getAttribute('alt'));
+						$array[] = array(
+								'comic_url' => $href,
+								'sid' => $sid,
+								'seo_name' => $seo_name,
+								'name' => $name,
+								'feature_image_src' => $feature_image,
+								'source_id' => $this->source_info['id'],
+								'url' => getSlug($seo_name),
+								'main_cat' => $data['category_id'],
+								'create_time' => $now,
+								'update_time' => $now,
+								'update_chap_time' => $now
+						);
+					}
+				} catch (Exception $e) {
+					Core_Utils::insertLog($url, URL_CAT, ERR_STRUCTURE);
+					throw new Exception('Read structure site error',ERR_STRUCTURE);
 				}
 			} elseif ($data['type'] == 2) { //truyen che
-				foreach ($doc['.main-content .truyen-che-thumbnail'] as $li) {
-					$li = pq($li);
-					$a = $li->find('> a')->get(0);
-					$href = trim($a->getAttribute('href'));
-					$sid = $this->getId($href);
-					$seo_name = trim($a->getAttribute('title'));
-					$img = $li->find('> a > img')->get(0);
-					$feature_image = trim($img->getAttribute('src'));
-					$name = trim($img->getAttribute('alt'));
-					$array[] = array(
-							'comic_url' => $href,
-							'sid' => $sid,
-							'seo_name' => $seo_name,
-							'name' => $name,
-							'feature_image_src' => $feature_image,
-							'source_id' => $this->source_info['id'],
-							'url' => getSlug($seo_name),
-							'main_cat' => $data['category_id'],
-							'create_time' => $now,
-							'update_time' => $now,
-							'update_chap_time' => $now
-					);
+				try {
+					foreach ($doc['.main-content .truyen-che-thumbnail'] as $li) {
+						$li = pq($li);
+						$a = $li->find('> a')->get(0);
+						$href = trim($a->getAttribute('href'));
+						$sid = $this->getId($href);
+						$seo_name = trim($a->getAttribute('title'));
+						$img = $li->find('> a > img')->get(0);
+						$feature_image = trim($img->getAttribute('src'));
+						$name = trim($img->getAttribute('alt'));
+						$array[] = array(
+								'comic_url' => $href,
+								'sid' => $sid,
+								'seo_name' => $seo_name,
+								'name' => $name,
+								'feature_image_src' => $feature_image,
+								'source_id' => $this->source_info['id'],
+								'url' => getSlug($seo_name),
+								'main_cat' => $data['category_id'],
+								'create_time' => $now,
+								'update_time' => $now,
+								'update_chap_time' => $now
+						);
+					}
+				} catch (Exception $e) {
+					Core_Utils::insertLog($url, URL_CAT, ERR_STRUCTURE);
+					throw new Exception('Read structure site error',ERR_STRUCTURE);
 				}
 			}
 			if(!empty($array)) {
@@ -135,10 +149,12 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 					sleep(1);
 				}
 				Core_Log::log(array('insert comic','end'));
+			} else {
+				Core_Utils::insertLog($url, URL_CAT, ERR_EMPTY);
 			}
 			return true;
 		} catch (Exception $e) {
-			Core_Log::log ( $e, Zend_Log::ERR );
+			Core_Log::log ( array($e,$data), Zend_Log::ERR );
 		}
 		return false;
 	}
@@ -150,7 +166,10 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			Core_Log::log(array('getChapters','begin',$data));
 			$array = array();
 			$content = $this->ajCurl->getContent($url);
-			if(empty($content)) throw new Exception('empty content');
+			if(empty($content)) {
+				Core_Utils::insertLog($url, URL_COMIC, ERR_GET_CONTENT);
+				throw new Exception('getChapters empty content',ERR_GET_CONTENT);
+			}
 			$charset = mb_detect_encoding($content);
 			if($charset == 'UTF-8') {
 				$doc = Core_Dom_Query::newDocumentHTML ( $content );
@@ -177,22 +196,29 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 				}
 			}
 			if($data['fetch_type'] == 1) { //chung
-				$description = $doc->find('div.main-content .description')->text();
-				$description = trim($description);
-				$array = array();
-				foreach ($doc['#list-chapter > .tr > .td > a'] as $item) {
-					$chap_name = trim($item->textContent);
-					$chap_seo_name = trim($item->getAttribute('title'));
-					$chap_url = trim($item->getAttribute('href'));
-					$array[] = array(
-							'seo_name' => $chap_seo_name,
-							'name' => $chap_name,
-							'url' => getSlug($chap_name),
-							'chap_url' => $chap_url,
-							'comic_id' => $data['id'],
-							'create_time' => $now,
-							'update_time' => $now,
-					);
+				try {
+					$description = $doc->find('div.main-content .description')->text();
+					$description = trim($description);
+					$array = array();
+					foreach ($doc['#list-chapter > .tr > .td > a'] as $item) {
+						$chap_name = trim($item->textContent);
+						$chap_seo_name = trim($item->getAttribute('title'));
+						$chap_url = trim($item->getAttribute('href'));
+						$array[] = array(
+								'seo_name' => $chap_seo_name,
+								'name' => $chap_name,
+								'url' => getSlug($chap_name),
+								'chap_url' => $chap_url,
+								'comic_id' => $data['id'],
+								'create_time' => $now,
+								'update_time' => $now,
+								'fetch_type' => 1,
+								'status' => '0'
+						);
+					}
+				} catch (Exception $e) {
+					Core_Utils::insertLog($url, URL_COMIC, ERR_STRUCTURE);
+					throw new Exception('Read structure site error',ERR_STRUCTURE);
 				}
 			} 
 			$comic_update_data = array(
@@ -231,16 +257,100 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 						sleep(1);
 					}
 				}
-				if($has_new_chap) {
-					Core_Log::log(array('has new chap'));
-					Core_Utils_DB::update('comics', array('update_chap_time' => $now), array('id' => $data['id']));
+			} else {
+				Core_Utils::insertLog($url, URL_COMIC, ERR_EMPTY);
+			}
+			$return = 1;
+		} catch (Exception $e) {
+			Core_Log::log ( array($e,$data), Zend_Log::ERR );
+		}
+		Core_Log::log(array('getChapters','end','return = '.$return));
+		return $return;
+	}
+	
+	public function getImages($data) {
+		$return = 0;
+		try {
+			$url = $data['chap_url'];
+			Core_Log::log(array('getImages','begin',$data));
+			$array = array();
+			$content = $this->ajCurl->getContent($url);
+			if(empty($content)) {
+				Core_Utils::insertLog($url, URL_CHAP, ERR_GET_CONTENT);
+				throw new Exception('getImages empty content',ERR_GET_CONTENT);
+			}
+			$charset = mb_detect_encoding($content);
+			if($charset == 'UTF-8') {
+				$doc = Core_Dom_Query::newDocumentHTML ( $content );
+			} else {
+				$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
+			}
+			$now = Core_Utils_Date::getCurrentDateSQL();
+			$feature_image = '';
+			$meta_description = '';
+			$meta_keywords = '';
+			foreach ($doc['head meta'] as $meta) {
+				$name = $meta->getAttribute('name');
+				if($name == 'description') {
+					$meta_description = $meta->getAttribute('content');
+				} elseif ($name == 'keywords') {
+					$meta_keywords = $meta->getAttribute('content');
+				}
+			}
+			$array = array();
+			if($data['fetch_type'] == 1) { //chung
+				try {
+					foreach ($doc['#contentWapper img.tap-truyen-img'] as $item) {
+						$chap_name = trim($item->textContent);
+						$alt = trim($item->getAttribute('alt'));
+						$src = trim($item->getAttribute('data-original'));
+						$array[] = array(
+								'chap_id' => $data['id'],
+								'alt' => $alt,
+								'src' => $src,
+								'create_time' => $now,
+								'update_time' => $now,
+						);
+					}
+				} catch (Exception $e) {
+					Core_Utils::insertLog($url, URL_CHAP, ERR_STRUCTURE);
+					throw new Exception('Read structure site error',ERR_STRUCTURE);
+				}
+				
+			}
+			$update_chap_data = array(
+					'meta_description' => $meta_description,
+					'meta_keywords' => $meta_keywords,
+					'update_time' => $now
+			);
+			if(!empty($array)) {
+				Core_Log::log(array('has new chap'));
+				$update_chap_data['status'] = 1;
+				Core_Utils_DB::update('comics', array('update_chap_time' => $now), array('id' => $data['comic_id']));
+			} else {
+				Core_Utils::insertLog($url, URL_CHAP, ERR_EMPTY);
+			}
+			Core_Utils_DB::update('chaps', $update_chap_data, array('id' => $data['id']));
+			if(!empty($array)) {
+				//$array = array_reverse($array);
+				$db = Core_Global::getDbMaster();
+				$sql = Core_Utils_DB::genInsertQuery('images', $array[0]);
+				$stmt = $db->prepare($sql);
+				foreach ($array as $item) {
+					$chap = Core_Utils::findImageBySrc($item['src'],$data['id']);
+					if($chap == null) {
+						Core_Log::log(array('insert new image','begin',$item));
+						$stmt->execute($item);
+						Core_Log::log(array('insert new image','end','1'));
+						sleep(1);
+					}
 				}
 			}
 			$return = 1;
 		} catch (Exception $e) {
-			Core_Log::log ( $e, Zend_Log::ERR );
+			Core_Log::log ( array($e,$data), Zend_Log::ERR );
 		}
-		Core_Log::log(array('getChapters','end','return = '.$return));
+		Core_Log::log(array('getImages','end','return = '.$return));
 		return $return;
 	}
 	
@@ -252,20 +362,17 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 		} else {
 			$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
 		}
-		$description = $doc->find('div.main-content .description')->text();
-		$description = trim($description);
-		die($description);
-		foreach ($doc['head meta'] as $meta) {
-			$name = $meta->getAttribute('name');
-			if($name == 'description') {
-				$content = $meta->getAttribute('content');
-				echo $content;
-			} elseif ($name == 'keywords') {
-				$content = $meta->getAttribute('keywords');
-				echo $content;
-			}
-			//echo $name;
+		$array = array();
+		foreach ($doc['#contentWapper img.tap-truyen-img'] as $item) {
+			$chap_name = trim($item->textContent);
+			$alt = trim($item->getAttribute('alt'));
+			$src = trim($item->getAttribute('data-original'));
+			$array[] = array(
+					'alt' => $alt,
+					'src' => $src,
+			);
 		}
+		print_r($array);
 		//Core_Log::write($str);
 	}
 }

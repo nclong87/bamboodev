@@ -29,5 +29,14 @@ class Core_Utils {
 		$row = Core_Utils_DB::query($sql, QUERY_DB_RETURN_ONE,array($url));
 		return $row==false?null:$row;
 	}
+	public static function findImageBySrc($src,$chap_id) {
+		$sql = 'SELECT * FROM `images` WHERE `status` = 1 AND `src` = ? AND chap_id = ?';
+		$row = Core_Utils_DB::query($sql, QUERY_DB_RETURN_ONE,array($src,$chap_id));
+		return $row==false?null:$row;
+	}
+	public static function insertLog($url,$type,$err_type) {
+		$sql = 'INSERT DELAYED INTO `log`(`url`,`type`,`err_type`,`create_time`) VALUES (:url,:type,:err_type,NOW())';
+		Core_Utils_DB::query($sql, QUERY_DB_RETURN_NO,array('url' => $url,'type' => $type,'err_type' => $err_type));
+	}
 }
 ?>

@@ -33,6 +33,7 @@ class Core_Log {
 	}
 	public static function log($data, $type = Zend_Log::INFO) {
 		if ($type == Zend_Log::ERR) {
+			$logFileName = 'ERR_LOG_'. date ( 'Y-m-d' ) . '.txt';
 			$str = '';
 			if (is_array ( $data )) {
 				foreach ( $data as $index => $item ) {
@@ -53,10 +54,15 @@ class Core_Log {
 			$code = $e->getCode ();
 			$file = $e->getFile ();
 			$line = $e->getLine ();
-			$trace = $e->getTraceAsString();
-			$message = "[Code:{$code}]  [Message:{$message}{$str}]  [File:{$file}:{$line}]  ".PHP_EOL;
+			if($code == 0) {
+				$trace = '';
+			} else {
+				$trace = $e->getTraceAsString().PHP_EOL;
+			}
+			$message = "{code:{$code}}  {message:{$message}{$str}}  {file:{$file}:{$line}}".PHP_EOL;
 			$message.=$trace;
 		} else {
+			$logFileName = 'INFO_LOG_'. date ( 'Y-m-d' ) . '.txt';
 			if (is_array ( $data )) {
 				$message = '';
 				foreach ( $data as $item ) {
@@ -72,7 +78,6 @@ class Core_Log {
 				$message = $data;
 			}
 		}
-		$logFileName = 'LOG_' . date ( 'Y-m-d' ) . '.txt';
 		$writer = new Zend_Log_Writer_Stream ( PATH_LOG_FILES . $logFileName );
 		$logger = new Zend_Log ( $writer );
 		$logger->setTimestampFormat ( 'Y-m-d H:i:s' );
