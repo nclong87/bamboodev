@@ -20,12 +20,14 @@ class Application_Model_Worker_GetChap {
 	public function start() {
 		$ids = array();
 		$db = Core_Global::getDbMaster();
+		$log_data = array();
 		try {
 			if(Core_Utils_Tools::isConnectInternet() == false) throw new Exception('No internet connection');
 			Core_Log::log ( 'begin get chap' );
 			$today = date('Y-m-d');
 			$sql = 'SELECT * FROM `comics` WHERE `status` = 1 AND `update_time` <= ? AND num_fetch_error < 5 ORDER BY `update_time` ASC LIMIT 0,'.$this->limit;
 			$rows = Core_Utils_DB::query($sql,QUERY_DB_RETURN_MULTI,array($today));
+			$log_data['comics'] = $rows;
 			foreach ($rows as $row) {
 				$ids[$row['id']] = $row['id'];
 			}
@@ -46,7 +48,7 @@ class Application_Model_Worker_GetChap {
 			}
 			//print_r($rs);
 		} catch ( Exception $e ) {
-			Core_Log::log ( $e, Zend_Log::ERR );
+			Core_Log::log ( array($e,$log_data), Zend_Log::ERR );
 		}
 		Core_Log::log ( 'end get chap' );
 	}
