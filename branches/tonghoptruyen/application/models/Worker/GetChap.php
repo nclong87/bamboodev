@@ -3,7 +3,7 @@ class Application_Model_Worker_GetChap {
 	protected static $_instance = null;
 	var $_header;
 	var $_cUrl;
-	var $limit = 3;
+	var $limit = 10;
 	public static function getInstance($className = __CLASS__) {
 		// Check instance
 		if (empty ( self::$_instance )) {

@@ -159,11 +159,11 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 		return false;
 	}
 	
-	public function getChapters($data) {
+	public function getChapters($comic) {
 		$return = 0;
 		try {
-			$url = $data['comic_url'];
-			Core_Log::log(array('getChapters','begin',$data));
+			$url = $comic['comic_url'];
+			Core_Log::log(array('getChapters','begin',$comic));
 			$array = array();
 			$content = $this->ajCurl->getContent($url);
 			if(empty($content)) {
@@ -177,9 +177,8 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 				$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
 			}
 			$now = Core_Utils_Date::getCurrentDateSQL();
-			if(empty($data['feature_image'])) {
-				$feature_image = Core_Image::getInstance()->getImageFromUrl($data['feature_image_src'], PUBLIC_DIR.PATH_UPLOAD_IMAGE, $data['url'].'_'.$data['id'],150, 200);
-				if(!empty($feature_image)) $feature_image = PATH_UPLOAD_IMAGE . $feature_image;
+			if(empty($comic['feature_image'])) {
+				$feature_image = Core_Utils::getFeatureComicImage($comic);
 			} else {
 				$feature_image = '';
 			}
@@ -195,8 +194,8 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 					$meta_keywords = $meta->getAttribute('content');
 				}
 			}
-			if($data['fetch_type'] == 1) { //chung
-				try {
+			try {
+				if($doc['#list-chapter']->length() > 0) { //chung
 					$description = $doc->find('div.main-content .description')->text();
 					$description = trim($description);
 					$array = array();
@@ -209,18 +208,34 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 								'name' => $chap_name,
 								'url' => getSlug($chap_name),
 								'chap_url' => $chap_url,
-								'comic_id' => $data['id'],
+								'comic_id' => $comic['id'],
 								'create_time' => $now,
 								'update_time' => $now,
 								'fetch_type' => 1,
 								'status' => '0'
 						);
 					}
-				} catch (Exception $e) {
-					Core_Utils::insertLog($url, URL_COMIC, ERR_STRUCTURE);
-					throw new Exception('Read structure site error',ERR_STRUCTURE);
+				} elseif ($doc['#wrap-content']->length() > 0) {
+					//http://vuitruyentranh.vn/truyen-tranh/khi-do-la-mot-niem-hanh-phuc/19862/
+					$array[] = array(
+							'seo_name' => $comic['seo_name'],
+							'name' => $comic['name'],
+							'url' => $comic['url'],
+							'chap_url' => $url,
+							'comic_id' => $comic['id'],
+							'create_time' => $now,
+							'update_time' => $now,
+							'fetch_type' => 1,
+							'status' => '0'
+					);
+					Core_Utils::stopUpdateComic($comic['id']);
+				} else {
+					throw new Exception();
 				}
-			} 
+			} catch (Exception $e) {
+				Core_Utils::insertLog($url, URL_COMIC, ERR_STRUCTURE);
+				throw new Exception('Read structure site error',ERR_STRUCTURE);
+			}
 			$comic_update_data = array(
 					'meta_description' => $meta_description,
 					'meta_keywords' => $meta_keywords,
@@ -230,7 +245,7 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			if(!empty($feature_image)) {
 				$comic_update_data['feature_image'] = $feature_image;
 			}
-			Core_Utils_DB::update('comics', $comic_update_data, array('id' => $data['id']));
+			Core_Utils_DB::update('comics', $comic_update_data, array('id' => $comic['id']));
 			if(!empty($array)) {
 				$array = array_reverse($array);
 				$has_new_chap = false;
@@ -262,17 +277,17 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			}
 			$return = 1;
 		} catch (Exception $e) {
-			Core_Log::log ( array($e,$data), Zend_Log::ERR );
+			Core_Log::log ( array($e,$comic), Zend_Log::ERR );
 		}
 		Core_Log::log(array('getChapters','end','return = '.$return));
 		return $return;
 	}
 	
-	public function getImages($data) {
+	public function getImages($chap) {
 		$return = 0;
 		try {
-			$url = $data['chap_url'];
-			Core_Log::log(array('getImages','begin',$data));
+			$url = $chap['chap_url'];
+			Core_Log::log(array('getImages','begin',$chap));
 			$array = array();
 			$content = $this->ajCurl->getContent($url);
 			if(empty($content)) {
@@ -298,25 +313,40 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 				}
 			}
 			$array = array();
-			if($data['fetch_type'] == 1) { //chung
-				try {
+			try {
+				if($doc['#contentWapper']->length() > 0) { //chung
 					foreach ($doc['#contentWapper img.tap-truyen-img'] as $item) {
-						$chap_name = trim($item->textContent);
 						$alt = trim($item->getAttribute('alt'));
 						$src = trim($item->getAttribute('data-original'));
+						if(empty($src)) $src = trim($item->getAttribute('src'));
 						$array[] = array(
-								'chap_id' => $data['id'],
+								'chap_id' => $chap['id'],
 								'alt' => $alt,
 								'src' => $src,
 								'create_time' => $now,
 								'update_time' => $now,
 						);
 					}
-				} catch (Exception $e) {
-					Core_Utils::insertLog($url, URL_CHAP, ERR_STRUCTURE);
-					throw new Exception('Read structure site error',ERR_STRUCTURE);
+				} elseif ($doc['#wrap-content']->length() > 0) {
+					//http://vuitruyentranh.vn/truyen-tranh/khi-do-la-mot-niem-hanh-phuc/19862/
+					foreach ($doc['#wrap-content #content > div > img'] as $item) {
+						$alt = trim($item->getAttribute('alt'));
+						$src = trim($item->getAttribute('data-original'));
+						if(empty($src)) $src = trim($item->getAttribute('src'));
+						$array[] = array(
+								'chap_id' => $chap['id'],
+								'alt' => $alt,
+								'src' => $src,
+								'create_time' => $now,
+								'update_time' => $now,
+						);
+					}
+				} else {
+					throw new Exception();
 				}
-				
+			} catch (Exception $e) {
+				Core_Utils::insertLog($url, URL_CHAP, ERR_STRUCTURE);
+				throw new Exception('Read structure site error',ERR_STRUCTURE);
 			}
 			$update_chap_data = array(
 					'meta_description' => $meta_description,
@@ -326,19 +356,19 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			if(!empty($array)) {
 				Core_Log::log(array('has new chap'));
 				$update_chap_data['status'] = 1;
-				Core_Utils_DB::update('comics', array('update_chap_time' => $now), array('id' => $data['comic_id']));
+				Core_Utils_DB::update('comics', array('update_chap_time' => $now), array('id' => $chap['comic_id']));
 			} else {
 				Core_Utils::insertLog($url, URL_CHAP, ERR_EMPTY);
 			}
-			Core_Utils_DB::update('chaps', $update_chap_data, array('id' => $data['id']));
+			Core_Utils_DB::update('chaps', $update_chap_data, array('id' => $chap['id']));
 			if(!empty($array)) {
 				//$array = array_reverse($array);
 				$db = Core_Global::getDbMaster();
 				$sql = Core_Utils_DB::genInsertQuery('images', $array[0]);
 				$stmt = $db->prepare($sql);
 				foreach ($array as $item) {
-					$chap = Core_Utils::findImageBySrc($item['src'],$data['id']);
-					if($chap == null) {
+					$image = Core_Utils::findImageBySrc($item['src'],$chap['id']);
+					if($image == null) {
 						Core_Log::log(array('insert new image','begin',$item));
 						$stmt->execute($item);
 						Core_Log::log(array('insert new image','end','1'));
@@ -348,7 +378,7 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			}
 			$return = 1;
 		} catch (Exception $e) {
-			Core_Log::log ( array($e,$data), Zend_Log::ERR );
+			Core_Log::log ( array($e,$chap), Zend_Log::ERR );
 		}
 		Core_Log::log(array('getImages','end','return = '.$return));
 		return $return;
@@ -362,15 +392,14 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 		} else {
 			$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
 		}
-		$array = array();
-		foreach ($doc['#contentWapper img.tap-truyen-img'] as $item) {
-			$chap_name = trim($item->textContent);
-			$alt = trim($item->getAttribute('alt'));
-			$src = trim($item->getAttribute('data-original'));
-			$array[] = array(
-					'alt' => $alt,
-					'src' => $src,
-			);
+		foreach ($doc['#wrap-content #content > div > img'] as $item) {
+				$alt = trim($item->getAttribute('alt'));
+				$src = trim($item->getAttribute('data-original'));
+				if(empty($src)) $src = trim($item->getAttribute('src'));
+				$array[] = array(
+						'alt' => $alt,
+						'src' => $src,
+				);
 		}
 		print_r($array);
 		//Core_Log::write($str);
