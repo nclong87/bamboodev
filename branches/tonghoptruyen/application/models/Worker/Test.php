@@ -19,19 +19,8 @@ class Application_Model_Worker_Test {
 	public function start() {
 		try {
 			Core_Log::log ( 'BEGIN' );
-			Core_Utils::insertLog('http://vuitruyentranh.vn/truyen-tranh/rebirth-the-lunatic-taker/chapter-2/13011/1/2/', URL_CHAP, ERR_GET_CONTENT);
-			die;
-			$db = Core_Global::getDbMaster();
-			$rows = Core_Utils_DB::query('SELECT * FROM `chaps`', QUERY_DB_RETURN_MULTI);
-			$sql= 'UPDATE `chaps` SET `url` = ? WHERE `id` = ?';
-			$stmt = $db->prepare($sql);
-			foreach ($rows as $row) {
-				Core_Log::log(array($row));
-				$url = getSlug($row['name']);
-				$stmt->execute(array($url,$row['id']));
-			}
-			exit;
-			Core_Content_VuiTruyenTranh::getInstance()->test('http://vuitruyentranh.vn/truyen-tranh/rebirth-the-lunatic-taker/chapter-2/13011/1/2/');
+			
+			Core_Content_VuiTruyenTranh::getInstance()->test('http://vuitruyentranh.vn/truyen-tranh/khi-do-la-mot-niem-hanh-phuc/19862/');
 			//print_r($id);
 			exit;
 			/* $sql = 'SELECT * FROM `feed_comic` WHERE `id` = ?';

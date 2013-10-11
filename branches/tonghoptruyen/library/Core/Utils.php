@@ -25,7 +25,7 @@ class Core_Utils {
 		return $row==false?null:$row;
 	}
 	public static function findChapByUrl($url) {
-		$sql = 'SELECT * FROM `chaps` WHERE `status` = 1 AND `chap_url` = ?';
+		$sql = 'SELECT * FROM `chaps` WHERE `status` >= 0 AND `chap_url` = ?';
 		$row = Core_Utils_DB::query($sql, QUERY_DB_RETURN_ONE,array($url));
 		return $row==false?null:$row;
 	}
@@ -37,6 +37,15 @@ class Core_Utils {
 	public static function insertLog($url,$type,$err_type) {
 		$sql = 'INSERT DELAYED INTO `log`(`url`,`type`,`err_type`,`create_time`) VALUES (:url,:type,:err_type,NOW())';
 		Core_Utils_DB::query($sql, QUERY_DB_RETURN_NO,array('url' => $url,'type' => $type,'err_type' => $err_type));
+	}
+	public static function stopUpdateComic($comic_id) {
+		$sql = 'UPDATE `comics` SET `status` = 2 WHERE `id` = ?';
+		Core_Utils_DB::query($sql, QUERY_DB_RETURN_NO,array($comic_id));
+	}
+	public static function getFeatureComicImage($comic) {
+		$feature_image = Core_Image::getInstance()->getImageFromUrl($comic['feature_image_src'], PUBLIC_DIR.PATH_UPLOAD_IMAGE, $comic['url'].'_'.$comic['id'],140, 170);
+		if(!empty($feature_image)) $feature_image = PATH_UPLOAD_IMAGE . $feature_image;
+		return $feature_image;
 	}
 }
 ?>

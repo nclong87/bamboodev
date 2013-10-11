@@ -208,7 +208,7 @@ class Front_AdminController extends Zend_Controller_Action {
 			;
 			$this->view->title = 'Feed Comic management';
 			$array = array (
-					0 => 't0.status > 0'
+					0 => 't0.status >= 0'
 			);
 			if ($this->_request->isPost ()) {
 				$form_data = $this->_request->getParams ();
@@ -221,8 +221,8 @@ class Front_AdminController extends Zend_Controller_Action {
 					if (! empty ( $form_data ['id'] )) { // update
 						Core_Utils_DB::update ( $tableName, $data, array ('id' => $form_data ['id']) );
 					} else {
-						$data['status'] = 1;
-						$tableName['update_time'] = Core_Utils_Date::getCurrentDateSQL();
+						$data['status'] = 0;
+						$data['update_time'] = Core_Utils_Date::getCurrentDateSQL();
 						Core_Utils_DB::insert($tableName, $data);
 					}
 					$this->_redirect ( $redirect_url );
