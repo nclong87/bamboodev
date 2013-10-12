@@ -127,7 +127,7 @@ class Core_Image {
 			unlink($tmp_filepath);
 			return $filename . $sType;
 		} catch (Exception $e) {
-			Core_Log::log ( $e, Zend_Log::ERR );
+			Core_Log::getInstance()->log ( $e, Zend_Log::ERR );
 		}
 		return '';
 	}

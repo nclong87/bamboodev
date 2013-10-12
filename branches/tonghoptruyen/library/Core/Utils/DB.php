@@ -21,7 +21,6 @@ class Core_Utils_DB {
 		$stmt = $db->prepare ( $query );
 		$stmt->execute ( $params );
 		$stmt->closeCursor ();
-		$db->closeConnection ();
 	}
 	public static function insert($tableName, $data, $return = false) {
 		if (empty ( $data ))
@@ -45,7 +44,6 @@ class Core_Utils_DB {
 			$id = $row ['id'];
 		}
 		$stmt->closeCursor ();
-		$db->closeConnection ();
 		return $id;
 	}
 	public static function query($sql, $flag, $params = array()) {
@@ -61,7 +59,6 @@ class Core_Utils_DB {
 		} else if ($flag == QUERY_DB_RETURN_NO) { // execute not return
 		}
 		$stmt->closeCursor ();
-		$db->closeConnection ();
 		return $result;
 	}
 	public static function delete($tableName, $id, $key = 'id') {
@@ -94,10 +91,9 @@ class Core_Utils_DB {
 		$stmt->execute ();
 		$result = $stmt->fetchAll ();
 		$stmt->closeCursor ();
-		$db->closeConnection ();
 		return $result;
 	}
-	public static function genInsertQuery($tableName, $data) {
+	public static function genInsertQuery($tableName, $data, $delayed='') {
 		if (empty ( $data ))
 			return;
 		$fieldNames = array ();
@@ -106,7 +102,7 @@ class Core_Utils_DB {
 			$fieldNames [] = "`$key`";
 			$fieldValues [] = ":$key";
 		}
-		$query = 'INSERT INTO `' . $tableName . '`(' . join ( ',', $fieldNames ) . ') VALUES(' . join ( ',', $fieldValues ) . ') ';
+		$query = 'INSERT '.$delayed.' INTO `' . $tableName . '`(' . join ( ',', $fieldNames ) . ') VALUES(' . join ( ',', $fieldValues ) . ') ';
 		return $query;
 	}
 	public static function genUpdateQuery($tableName, $data,$where) {
