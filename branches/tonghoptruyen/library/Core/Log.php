@@ -1,5 +1,27 @@
 <?php
 class Core_Log {
+	protected static $_instance = null;
+	public static function getInstance() {
+		if (! empty ( self::$_instance )) {
+			return self::$_instance;
+		}
+		self::$_instance = new Core_Log ();
+		return self::$_instance;
+		return new Core_Log ();
+	}
+
+	protected $error_log_file;
+	protected $info_log_file;
+	public function __construct() {
+		$log_path = PATH_LOG_FILES.date('Ymd');
+		if(!is_dir($log_path))
+			mkdir($log_path, 0777, true);
+		$date = new Zend_Date();
+		$this->error_log_file = $log_path.'/ERR_LOG_'. $date->toString('YMMdd_HHmmss') . '.txt';
+		$this->info_log_file = $log_path.'/INFO_LOG_'. $date->toString('YMMdd_HHmmss') . '.txt';
+	}
+	public function __destruct() {
+	}
 	public static function error($e, $pri = Zend_Log::ERR) {
 		// echo 'MESSAGE : '.$msg.PHP_EOL;
 		$msg = $e->getMessage () . PHP_EOL;
@@ -31,9 +53,8 @@ class Core_Log {
 		 * $writer = new Zend_Log_Writer_Stream(PATH_LOG_FILES.$logFileName,'w'); $logger = new Zend_Log($writer); $logger->setTimestampFormat('Y-m-d H:i:s'); $logger->log($msg, Zend_Log::ERR); $writer->shutdown();
 		 */
 	}
-	public static function log($data, $type = Zend_Log::INFO) {
+	public function log($data, $type = Zend_Log::INFO) {
 		if ($type == Zend_Log::ERR) {
-			$logFileName = 'ERR_LOG_'. date ( 'Y-m-d' ) . '.txt';
 			$str = '';
 			if (is_array ( $data )) {
 				foreach ( $data as $index => $item ) {
@@ -54,15 +75,15 @@ class Core_Log {
 			$code = $e->getCode ();
 			$file = $e->getFile ();
 			$line = $e->getLine ();
-			if($code == 0) {
-				$trace = '';
-			} else {
-				$trace = $e->getTraceAsString().PHP_EOL;
-			}
+			$trace = $e->getTraceAsString().PHP_EOL;
 			$message = "{code:{$code}}  {message:{$message}{$str}}  {file:{$file}:{$line}}".PHP_EOL;
 			$message.=$trace;
+			$writer = new Zend_Log_Writer_Stream ($this->error_log_file );
+			$logger = new Zend_Log ( $writer );
+			$logger->setTimestampFormat ( 'Y-m-d H:i:s' );
+			$logger->log ( $message, $type );
+			$writer->shutdown ();
 		} else {
-			$logFileName = 'INFO_LOG_'. date ( 'Y-m-d' ) . '.txt';
 			if (is_array ( $data )) {
 				$message = '';
 				foreach ( $data as $item ) {
@@ -78,7 +99,7 @@ class Core_Log {
 				$message = $data;
 			}
 		}
-		$writer = new Zend_Log_Writer_Stream ( PATH_LOG_FILES . $logFileName );
+		$writer = new Zend_Log_Writer_Stream ( $this->info_log_file );
 		$logger = new Zend_Log ( $writer );
 		$logger->setTimestampFormat ( 'Y-m-d H:i:s' );
 		$logger->log ( $message, $type );

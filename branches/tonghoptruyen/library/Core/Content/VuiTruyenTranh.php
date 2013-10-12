@@ -10,7 +10,6 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 		return new Core_Content_VuiTruyenTranh ();
 	}
 	protected $ajCurl;
-	protected $source_info;
 	public function __construct() {
 		parent::__construct ();
 		$this->ajCurl = new Core_Dom_Curl ( array (
@@ -25,14 +24,43 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 				)
 		) );
 		$this->home_page = 'http://vuitruyentranh.vn';
-		$sources = Core_Utils::getSources();
-		$this->source_info = $sources['vuitruyentranh.vn'];
+		$this->source_info = $this->sources['vuitruyentranh.vn'];
 	}
 	public function __destruct() {
 		parent::__destruct ();
 	}
-	public function getContent($url) {
-		return $this->curl->getContent ( $url );
+	
+	public function getContent($url,$url_type) {
+		Core_Log::getInstance()->log(array('getContent',$url,'begin',));
+		$doc = null;
+		$cnt = 1;
+		while ($cnt <= 5) {
+			Core_Log::getInstance()->log('Count = '.$cnt);
+			try {
+				$content = $this->ajCurl->getContent($url);
+				if(!empty($content)) {
+					$charset = mb_detect_encoding($content);
+					if($charset == 'UTF-8') {
+						$doc = Core_Dom_Query::newDocumentHTML ( $content );
+					} else {
+						$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
+					}
+					break;
+				}
+			} catch (Exception $e) {
+				Core_Log::getInstance()->log($e,Zend_Log::ERR);
+			}
+			Core_Log::getInstance()->log('Waiting 10s to try again...');
+			$cnt++;
+			sleep(10);
+		}
+		if($doc == null) {
+			Core_Log::getInstance()->log(array('getContent fail'));
+			Core_Utils::insertLog($url, $url_type, ERR_GET_CONTENT);
+		} else {
+			Core_Log::getInstance()->log(array('getContent success'));
+		}
+		return $doc;
 	}
 	public function getId($url) {
 		$id = '';
@@ -42,26 +70,16 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			preg_match_all('/\/(?P<id>\d+)\//', $path, $matches);
 			if(isset($matches['id'][0])) $id = $matches['id'][0];
 		} catch (Exception $e) {
-			Core_Log::log ( $e, Zend_Log::ERR );
+			Core_Log::getInstance()->log ( $e, Zend_Log::ERR );
 		}
 		return $id;
 	}
 	public function getComics($data) {
 		try {
 			$url = $data['url'];
-			Core_Log::log('Get comics in url '.$url);
+			Core_Log::getInstance()->log('Get comics in url '.$url);
 			$array = array();
-			$content = $this->ajCurl->getContent($url);
-			if(empty($content)) {
-				Core_Utils::insertLog($url, URL_CAT, ERR_GET_CONTENT);
-				throw new Exception('getComics empty content',ERR_GET_CONTENT);
-			}
-			$charset = mb_detect_encoding($content);
-			if($charset == 'UTF-8') {
-				$doc = Core_Dom_Query::newDocumentHTML ( $content );
-			} else {
-				$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
-			}
+			$doc = $this->getContent($url, URL_CAT);
 			$now = Core_Utils_Date::getCurrentDateSQL();
 			//$content = file_get_contents('D://test.html');
 			if($data['type'] == 1) { //chung
@@ -91,6 +109,7 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 					}
 				} catch (Exception $e) {
 					Core_Utils::insertLog($url, URL_CAT, ERR_STRUCTURE);
+					$return = 1;
 					throw new Exception('Read structure site error',ERR_STRUCTURE);
 				}
 			} elseif ($data['type'] == 2) { //truyen che
@@ -120,41 +139,18 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 					}
 				} catch (Exception $e) {
 					Core_Utils::insertLog($url, URL_CAT, ERR_STRUCTURE);
+					$return = 1;
 					throw new Exception('Read structure site error',ERR_STRUCTURE);
 				}
 			}
 			if(!empty($array)) {
-				
-				$db = Core_Global::getDbMaster();
-				$sql = Core_Utils_DB::genInsertQuery('comics', $array[0]);
-				$stmt = $db->prepare($sql);
-				foreach ($array as $item) {
-					$commic = Core_Utils::findComicByUrl($item['comic_url']);
-					if($commic != null) {
-						$data_update = array();
-						if($commic['seo_name'] != $item) $data_update['seo_name'] = $item['seo_name'];
-						if($commic['name'] != $item) $data_update['name'] = $item['name'];
-						if($commic['feature_image_src'] != $item) $data_update['feature_image_src'] = $item['feature_image_src'];
-						if(!empty($data_update)) {
-							$data_update['update_time'] = $now;
-							Core_Log::log(array('update comic','begin',$commic,$data_update));
-							Core_Utils_DB::update('comics', $data_update, array('id' => $commic['id']));
-							Core_Log::log(array('update comic','end','1'));
-						}
-					} else {
-						Core_Log::log(array('insert comic','begin',$item));
-						$stmt->execute($item);
-						Core_Log::log(array('insert comic','end','1'));
-					}
-					sleep(1);
-				}
-				Core_Log::log(array('insert comic','end'));
+				Core_Utils::insertComics($array);
 			} else {
 				Core_Utils::insertLog($url, URL_CAT, ERR_EMPTY);
 			}
 			return true;
 		} catch (Exception $e) {
-			Core_Log::log ( array($e,$data), Zend_Log::ERR );
+			Core_Log::getInstance()->log ( array($e,$data), Zend_Log::ERR );
 		}
 		return false;
 	}
@@ -163,19 +159,9 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 		$return = 0;
 		try {
 			$url = $comic['comic_url'];
-			Core_Log::log(array('getChapters','begin',$comic));
+			Core_Log::getInstance()->log(array('getChapters','begin',$comic));
 			$array = array();
-			$content = $this->ajCurl->getContent($url);
-			if(empty($content)) {
-				Core_Utils::insertLog($url, URL_COMIC, ERR_GET_CONTENT);
-				throw new Exception('getChapters empty content',ERR_GET_CONTENT);
-			}
-			$charset = mb_detect_encoding($content);
-			if($charset == 'UTF-8') {
-				$doc = Core_Dom_Query::newDocumentHTML ( $content );
-			} else {
-				$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
-			}
+			$doc = $this->getContent($url, URL_COMIC);
 			$now = Core_Utils_Date::getCurrentDateSQL();
 			if(empty($comic['feature_image'])) {
 				$feature_image = Core_Utils::getFeatureComicImage($comic);
@@ -234,6 +220,7 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 				}
 			} catch (Exception $e) {
 				Core_Utils::insertLog($url, URL_COMIC, ERR_STRUCTURE);
+				$return = 1;
 				throw new Exception('Read structure site error',ERR_STRUCTURE);
 			}
 			$comic_update_data = array(
@@ -247,39 +234,15 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 			}
 			Core_Utils_DB::update('comics', $comic_update_data, array('id' => $comic['id']));
 			if(!empty($array)) {
-				$array = array_reverse($array);
-				$has_new_chap = false;
-				$db = Core_Global::getDbMaster();
-				$sql = Core_Utils_DB::genInsertQuery('chaps', $array[0]);
-				$stmt = $db->prepare($sql);
-				foreach ($array as $item) {
-					$chap = Core_Utils::findChapByUrl($item['chap_url']);
-					if($chap != null) {
-						$data_update = array();
-						if($chap['seo_name'] != $item) $data_update['seo_name'] = $item['seo_name'];
-						if($chap['name'] != $item) $data_update['name'] = $item['name'];
-						if(!empty($data_update)) {
-							$data_update['update_time'] = $now;
-							Core_Log::log(array('update chap','begin',$chap,$data_update));
-							Core_Utils_DB::update('chaps', $data_update, array('id' => $chap['id']));
-							Core_Log::log(array('update chap','end','1'));
-						}
-					} else {
-						Core_Log::log(array('insert new chap','begin',$item));
-						$stmt->execute($item);
-						Core_Log::log(array('insert new chap','end','1'));
-						$has_new_chap = true;
-						sleep(1);
-					}
-				}
+				Core_Utils::insertChaps($array);
 			} else {
 				Core_Utils::insertLog($url, URL_COMIC, ERR_EMPTY);
 			}
 			$return = 1;
 		} catch (Exception $e) {
-			Core_Log::log ( array($e,$comic), Zend_Log::ERR );
+			Core_Log::getInstance()->log ( array($e,$comic), Zend_Log::ERR );
 		}
-		Core_Log::log(array('getChapters','end','return = '.$return));
+		Core_Log::getInstance()->log(array('getChapters','end','return = '.$return));
 		return $return;
 	}
 	
@@ -287,19 +250,9 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 		$return = 0;
 		try {
 			$url = $chap['chap_url'];
-			Core_Log::log(array('getImages','begin',$chap));
+			Core_Log::getInstance()->log(array('getImages','begin',$chap));
 			$array = array();
-			$content = $this->ajCurl->getContent($url);
-			if(empty($content)) {
-				Core_Utils::insertLog($url, URL_CHAP, ERR_GET_CONTENT);
-				throw new Exception('getImages empty content',ERR_GET_CONTENT);
-			}
-			$charset = mb_detect_encoding($content);
-			if($charset == 'UTF-8') {
-				$doc = Core_Dom_Query::newDocumentHTML ( $content );
-			} else {
-				$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
-			}
+			$doc = $this->getContent($url, URL_CHAP);
 			$now = Core_Utils_Date::getCurrentDateSQL();
 			$feature_image = '';
 			$meta_description = '';
@@ -346,6 +299,7 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 				}
 			} catch (Exception $e) {
 				Core_Utils::insertLog($url, URL_CHAP, ERR_STRUCTURE);
+				$return = 1;
 				throw new Exception('Read structure site error',ERR_STRUCTURE);
 			}
 			$update_chap_data = array(
@@ -354,33 +308,21 @@ class Core_Content_VuiTruyenTranh extends Core_Content {
 					'update_time' => $now
 			);
 			if(!empty($array)) {
-				Core_Log::log(array('has new chap'));
+				Core_Log::getInstance()->log(array('has new chap'));
 				$update_chap_data['status'] = 1;
 				Core_Utils_DB::update('comics', array('update_chap_time' => $now), array('id' => $chap['comic_id']));
+			} 
+			Core_Utils_DB::update('chaps', $update_chap_data, array('id' => $chap['id']));
+			if(!empty($array)) {
+				Core_Utils::insertImages($array,$chap['id']);
 			} else {
 				Core_Utils::insertLog($url, URL_CHAP, ERR_EMPTY);
 			}
-			Core_Utils_DB::update('chaps', $update_chap_data, array('id' => $chap['id']));
-			if(!empty($array)) {
-				//$array = array_reverse($array);
-				$db = Core_Global::getDbMaster();
-				$sql = Core_Utils_DB::genInsertQuery('images', $array[0]);
-				$stmt = $db->prepare($sql);
-				foreach ($array as $item) {
-					$image = Core_Utils::findImageBySrc($item['src'],$chap['id']);
-					if($image == null) {
-						Core_Log::log(array('insert new image','begin',$item));
-						$stmt->execute($item);
-						Core_Log::log(array('insert new image','end','1'));
-						sleep(1);
-					}
-				}
-			}
 			$return = 1;
 		} catch (Exception $e) {
-			Core_Log::log ( array($e,$chap), Zend_Log::ERR );
+			Core_Log::getInstance()->log ( array($e,$chap), Zend_Log::ERR );
 		}
-		Core_Log::log(array('getImages','end','return = '.$return));
+		Core_Log::getInstance()->log(array('getImages','end','return = '.$return));
 		return $return;
 	}
 	
