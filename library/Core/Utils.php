@@ -48,6 +48,7 @@ class Core_Utils {
 		Core_Utils_DB::query($sql, QUERY_DB_RETURN_NO,array($comic_id));
 	}
 	public static function getFeatureComicImage($comic) {
+		Core_Log::getInstance()->log('Get image from URL '.$comic['feature_image_src'].'...');
 		$feature_image = Core_Image::getInstance()->getImageFromUrl($comic['feature_image_src'], PUBLIC_DIR.PATH_UPLOAD_IMAGE, $comic['url'].'_'.$comic['id'],140, 170);
 		if(!empty($feature_image)) $feature_image = PATH_UPLOAD_IMAGE . $feature_image;
 		return $feature_image;
