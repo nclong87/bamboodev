@@ -358,7 +358,7 @@ class Core_Utils_Tools {
 		return $proxy;
 	}
 	public static function isConnectInternet() {
-		$connected = @fsockopen("www.google.com.vn", 80, $errno,$errstr,10); //website and port
+		$connected = @fsockopen("www.google.com.vn", 80, $errno,$errstr,30); //website and port
 		if ($connected){
 			$is_conn = true; //action when connected
 			fclose($connected);
@@ -366,5 +366,24 @@ class Core_Utils_Tools {
 			$is_conn = false; //action in connection failure
 		}
 		return $is_conn;
+	}
+	public static function getHeadMeta($doc) {
+		$result = array(
+				'title' => '',
+				'meta_description' => '',
+				'meta_keywords' => ''
+		);
+		if($doc['head title']->length() > 0) {
+			$result['title'] = trim($doc['head title']->text());
+		}
+		foreach ($doc['head meta'] as $meta) {
+			$name = $meta->getAttribute('name');
+			if($name == 'description') {
+				$result['meta_description'] = $meta->getAttribute('content');
+			} elseif ($name == 'keywords') {
+				$result['meta_keywords'] = $meta->getAttribute('content');
+			} 
+		}
+		return $result;
 	}
 }

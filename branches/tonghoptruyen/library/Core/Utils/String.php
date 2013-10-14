@@ -69,4 +69,13 @@ class Core_Utils_String {
 		}
 		return false;
 	}
+	public static function contains_array($string, $array,$encoding='UTF-8') {
+		foreach ($array as $item) {
+			if (mb_strpos ( $string, $item,0,$encoding ) !== false) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
