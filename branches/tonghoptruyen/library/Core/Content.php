@@ -62,5 +62,31 @@ class Core_Content {
 		return $obj->getImages($data);
 	}
 	public function getId($url) {}
+	public static function getFullUrl($url,$home_page) {
+		$info = parse_url($url);
+		if(isset($info['scheme']) && isset($info['host'])) {
+			return $url;
+		}
+		return $home_page.$url;
+	}
+	public function test($data) {
+		$content = $this->ajCurl->getContent($data);
+		$charset = mb_detect_encoding($content);
+		if($charset == 'UTF-8') {
+			$doc = Core_Dom_Query::newDocumentHTML ( $content );
+		} else {
+			$doc = Core_Dom_Query::newDocumentHTML ( $content ,'UTF-8');
+		}
+		foreach ($doc['table.listing '] as $item) {
+			$alt = trim($item->getAttribute('alt'));
+			$src = trim($item->getAttribute('data-original'));
+			if(empty($src)) $src = trim($item->getAttribute('src'));
+			$array[] = array(
+					'alt' => $alt,
+					'src' => $src,
+			);
+		}
+		print_r($array);
+	}
 }
 ?>

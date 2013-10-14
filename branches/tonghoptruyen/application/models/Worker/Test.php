@@ -22,20 +22,15 @@ class Application_Model_Worker_Test {
 	}
 	public function start() {
 		try {
-			Core_Log::getInstance()->log('HELLLO1');
-			Core_Log::getInstance()->log('HELLLO2');
-			Core_Log::getInstance()->log('HELLLO3');
-			throw new Exception('TEST ERRRRR');
-			exit;
-			$date = date('Ymd');
-			$log_path = PATH_LOG_FILES.$date;
-			if(!is_dir($log_path))
-				mkdir($log_path, 0777, true);
-			//$rs = $this->makeDir($log_path);
-			exit;
-			$feed_comic = Core_Utils::findComicByUrl('http://truyentranhhot.net/comics/khong-tuoc-minh-vuong/');
+			//echo urlencode('http://truyen4.vnsharing.net/Uploads4/Etc/10-9-2013/757934988424 c.jpg');
+			//die;
+			$url = 'http://truyen.vnsharing.net/Truyen/Ngung-dong/Chap-1?id=106504';
+			//$data = Core_Utils::findCatComicByUrl($url);
+			$data = Core_Utils::findChapByUrl($url);
+			/* Core_Content::getInstance()->test($url);
+			exit; */
 			//print_r($feed_comic);exit;
-			Core_Content_TruyenTranhHot::getInstance()->getChapters($feed_comic);
+			Core_Content_VnSharing::getInstance()->getImages($data);
 			//print_r($id);
 			exit;
 			/* $sql = 'SELECT * FROM `feed_comic` WHERE `id` = ?';

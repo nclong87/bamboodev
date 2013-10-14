@@ -27,6 +27,7 @@ class Core_Image {
 	public function getImageFromUrl($link,$dst_folder,$filename,$width,$height)
 	{
 		try {
+			$link = str_replace(' ', '%20', $link);
 			$contents = $this->curl->getImage($link);
 			//echo $contents;die;
 			///$contents= $this->curl->getImage();
