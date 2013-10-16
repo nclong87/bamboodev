@@ -91,9 +91,9 @@ class Core_Utils {
 			$commic = Core_Utils::findComicByUrl($item['comic_url']);
 			if($commic != null) {
 				$data_update = array();
-				if($commic['seo_name'] != $item['seo_name']) $data_update['seo_name'] = $item['seo_name'];
-				if($commic['name'] != $item['name']) $data_update['name'] = $item['name'];
-				if($commic['feature_image_src'] != $item['feature_image_src']) $data_update['feature_image_src'] = $item['feature_image_src'];
+				if(isset($item['seo_name']) && $commic['seo_name'] != $item['seo_name']) $data_update['seo_name'] = $item['seo_name'];
+				if(isset($item['name']) && $commic['name'] != $item['name']) $data_update['name'] = $item['name'];
+				if(isset($item['feature_image_src']) && $commic['feature_image_src'] != $item['feature_image_src']) $data_update['feature_image_src'] = $item['feature_image_src'];
 				if(!empty($data_update)) {
 					$data_update['update_time'] = $now;
 					Core_Log::getInstance()->log(array('update comic','begin',$commic,$data_update));
