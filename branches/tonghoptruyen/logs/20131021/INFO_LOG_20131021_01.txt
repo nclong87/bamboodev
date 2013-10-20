@@ -1,0 +1,562 @@
+2013-10-21 01:08:25 ERR (3): 20131021010825_528  {code:0}  {message:}  {file:C:\wamp\www\tonghoptruyen\library\Core\Utils.php:152}
+#0 C:\wamp\www\tonghoptruyen\application\models\Worker\Test.php(25): Core_Utils::test()
+#1 C:\wamp\www\tonghoptruyen\console.php(55): Application_Model_Worker_Test->start()
+#2 {main}
+
+
+2013-10-21 01:18:10 INFO (6): 20131021011810_84  begin get comic
+
+2013-10-21 01:18:10 INFO (6): 20131021011810_84  Get comics in url http://truyen.vnsharing.net/TheLoai/Adult/MoiCapNhat
+
+2013-10-21 01:18:10 INFO (6): 20131021011810_84  getContent  http://truyen.vnsharing.net/TheLoai/Adult/MoiCapNhat  begin  
+
+2013-10-21 01:18:10 INFO (6): 20131021011810_84  Count = 1
+
+2013-10-21 01:18:10 INFO (6): 20131021011810_84  getContent success  
+
+2013-10-21 01:18:10 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ichi-the-Killer---------?id=9002","seo_name":"Ichi the Killer","name":"Ichi the Killer","source_id":"3","url":"ichi-the-killer","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:11 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:12 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mujaki-no-Rakuen----?id=8995","seo_name":"Mujaki no Rakuen","name":"Mujaki no Rakuen","source_id":"3","url":"mujaki-no-rakuen","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:12 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:13 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/My-Feeling-Rivetra-SnK-Dou?id=8985","seo_name":"Shingeki no Kyojin - My Feeling [RivaPetra]","name":"Shingeki no Kyojin - My Feeling [RivaPetra]","source_id":"3","url":"shingeki-no-kyojin-my-feeling-rivapetra","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:13 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:14 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan?id=5988","seo_name":"Kodomo no Jikan","name":"Kodomo no Jikan","source_id":"3","url":"kodomo-no-jikan","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:14 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:15 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO?id=8344","seo_name":"Oyasumi Punpun","name":"Oyasumi Punpun","source_id":"3","url":"oyasumi-punpun","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:15 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:16 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Sekirei?id=8464","seo_name":"Sekirei","name":"Sekirei","source_id":"3","url":"sekirei","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:17 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:18 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Chuyen-chang-Minamoto-001?id=4119","seo_name":"Chuy\u1ec7n ch\u00e0ng Minamoto","name":"Chuy\u1ec7n ch\u00e0ng Minamoto","source_id":"3","url":"chuyen-chang-minamoto","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:18 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:19 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/7-Daime-no-Tomari-?id=8940","seo_name":"7-Daime no Tomari!","name":"7-Daime no Tomari!","source_id":"3","url":"7-daime-no-tomari","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:19 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:20 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Boku-no-Futatsu-no-Tsubasa-1?id=7150","seo_name":"Boku no Futatsu no Tsubasa","name":"Boku no Futatsu no Tsubasa","source_id":"3","url":"boku-no-futatsu-no-tsubasa","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:20 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:21 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Nekoka-Kareshi-no-Ayashikata?id=8570","seo_name":"Nekoka Kareshi no Ayashikata","name":"Nekoka Kareshi no Ayashikata","source_id":"3","url":"nekoka-kareshi-no-ayashikata","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:21 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:22 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ngung-dong?id=8898","seo_name":"Ng\u01b0ng \u0111\u1ecdng","name":"Ng\u01b0ng \u0111\u1ecdng","source_id":"3","url":"ngung-dong","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:22 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:23 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Yuureitou?id=7115","seo_name":"Yuureitou","name":"Yuureitou","source_id":"3","url":"yuureitou","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:24 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:25 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/SS-Sisters?id=8045","seo_name":"SS Sisters","name":"SS Sisters","source_id":"3","url":"ss-sisters","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:25 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:26 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mousou-Cherry?id=8851","seo_name":"Mousou Cherry","name":"Mousou Cherry","source_id":"3","url":"mousou-cherry","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:26 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:27 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Renai-Idenshi-XX?id=8850","seo_name":"Renai Idenshi XX","name":"Renai Idenshi XX","source_id":"3","url":"renai-idenshi-xx","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:27 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:28 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Silence?id=8738","seo_name":"Silence","name":"Silence","source_id":"3","url":"silence","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:28 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:29 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/The-Secret-Service?id=8590","seo_name":"The Secret Service","name":"The Secret Service","source_id":"3","url":"the-secret-service","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:30 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:31 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kirara-Hon-ma-quyen-ru2?id=8224","seo_name":"Kirara - H\u1ed3n ma quy\u1ebfn r\u0169","name":"Kirara - H\u1ed3n ma quy\u1ebfn r\u0169","source_id":"3","url":"kirara-hon-ma-quyen-ru","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:31 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:32 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Sun-Ken-Rock--?id=5908","seo_name":"Sun-Ken Rock","name":"Sun-Ken Rock","source_id":"3","url":"sun-ken-rock","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:32 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:33 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Black-Joke?id=6628","seo_name":"Black Joke","name":"Black Joke","source_id":"3","url":"black-joke","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:33 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:34 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Communication-is-still-an-issue?id=8769","seo_name":"Communication  is still  an issue","name":"Communication  is still  an issue","source_id":"3","url":"communication-is-still-an-issue","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:34 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:35 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/High-Schoo-DXD-2?id=4293","seo_name":"High-School DxD","name":"High-School DxD","source_id":"3","url":"high-school-dxd","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:36 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:37 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Alice-no-Hyakudo-CC?id=7700","seo_name":"Alice no 100\u00b0C C","name":"Alice no 100\u00b0C C","source_id":"3","url":"alice-no-100c-c","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:37 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:38 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Sengoku-Rance?id=8660","seo_name":"Sengoku Rance","name":"Sengoku Rance","source_id":"3","url":"sengoku-rance","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:38 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:39 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Megu-Miruku?id=7186","seo_name":"Megu Miruku","name":"Megu Miruku","source_id":"3","url":"megu-miruku","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:39 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:40 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Hiiragi-Shougakkou-Renai-Kurabu-----?id=8697","seo_name":"Hiiragi Shougakkou Renai Kurabu","name":"Hiiragi Shougakkou Renai Kurabu","source_id":"3","url":"hiiragi-shougakkou-renai-kurabu","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:40 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:41 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Saezuru-Tori-wa-Habatakanai?id=5788","seo_name":"Saezuru Tori wa Habatakanai","name":"Saezuru Tori wa Habatakanai","source_id":"3","url":"saezuru-tori-wa-habatakanai","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:41 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:42 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Crossed-Series---Benh-hoang-tuong?id=8193","seo_name":"Crossed Series - B\u1ec7nh hoang t\u01b0\u1edfng","name":"Crossed Series - B\u1ec7nh hoang t\u01b0\u1edfng","source_id":"3","url":"crossed-series-benh-hoang-tuong","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:43 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:44 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Futari-no-Maharaja?id=8086","seo_name":"Futari no Maharaja","name":"Futari no Maharaja","source_id":"3","url":"futari-no-maharaja","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:44 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:45 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Abnormal-Kei-Joshi-?id=7991","seo_name":"Abnormal-kei Joshi","name":"Abnormal-kei Joshi","source_id":"3","url":"abnormal-kei-joshi","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:45 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:46 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ghost?id=8542","seo_name":"Ghost","name":"Ghost","source_id":"3","url":"ghost","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:46 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:47 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Delivery-Cinderella00?id=8452","seo_name":"Delivery Cinderella","name":"Delivery Cinderella","source_id":"3","url":"delivery-cinderella","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:47 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:48 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kebukurohatsu-Zensekai-Yuki-?id=6257","seo_name":"Kebukurohatsu, Zensekai Yuki!","name":"Kebukurohatsu, Zensekai Yuki!","source_id":"3","url":"kebukurohatsu-zensekai-yuki","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:48 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:49 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ubel-Blatt?id=2030","seo_name":"Ubel Blatt","name":"Ubel Blatt","source_id":"3","url":"ubel-blatt","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:50 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:51 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Eden--It-s-an-Endless-World-?id=8257","seo_name":"Eden - It's an Endless World!","name":"Eden - It's an Endless World!","source_id":"3","url":"eden-its-an-endless-world","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:51 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:18:52 INFO (6): 20131021011810_84  insert comic  begin  {"comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Koimoku?id=7162","seo_name":"Koimoku","name":"Koimoku","source_id":"3","url":"koimoku","main_cat":"1","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10"}  
+
+2013-10-21 01:18:52 INFO (6): 20131021011810_84  insert comic  end  1  
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  begin get chap
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  Remain 21 items
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  getChapters  begin  {"id":"1","comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ichi-the-Killer---------?id=9002","source_id":"3","sid":null,"name":"Ichi the Killer","seo_name":"Ichi the Killer","url":"ichi-the-killer","feature_image":null,"feature_image_src":null,"author":null,"description":null,"meta_keywords":null,"meta_description":null,"main_cat":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10","last_grab_time":null,"status":"1"}  
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  getContent  http://truyen.vnsharing.net/Truyen/Ichi-the-Killer---------?id=9002&confirm=yes  begin  
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  Count = 1
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  getContent success  
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  Get image from URL http://truyen4.vnsharing.net/Uploads4/Etc/10-20-2013/6330041357389.jpg...
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  __construct Core_Upload...  
+
+2013-10-21 01:19:15 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Ichi the Killer Chapter 009 online","name":"\u0110\u1ecdc Ichi the Killer Chapter 009 online","url":"doc-ichi-the-killer-chapter-009-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ichi-the-Killer---------\/Chapter-009?id=107403","comic_id":"1","create_time":"2013-10-21 01:19:15","update_time":"2013-10-21 01:19:15","status":"0"}  
+
+2013-10-21 01:19:16 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:17 INFO (6): 20131021011915_59  getChapters  end  return = 1  
+
+2013-10-21 01:19:17 INFO (6): 20131021011915_59  Waiting 3s...
+
+2013-10-21 01:19:20 INFO (6): 20131021011915_59  getChapters  begin  {"id":"2","comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mujaki-no-Rakuen----?id=8995","source_id":"3","sid":null,"name":"Mujaki no Rakuen","seo_name":"Mujaki no Rakuen","url":"mujaki-no-rakuen","feature_image":null,"feature_image_src":null,"author":null,"description":null,"meta_keywords":null,"meta_description":null,"main_cat":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10","last_grab_time":null,"status":"1"}  
+
+2013-10-21 01:19:20 INFO (6): 20131021011915_59  getContent  http://truyen.vnsharing.net/Truyen/Mujaki-no-Rakuen----?id=8995&confirm=yes  begin  
+
+2013-10-21 01:19:20 INFO (6): 20131021011915_59  Count = 1
+
+2013-10-21 01:19:20 INFO (6): 20131021011915_59  getContent success  
+
+2013-10-21 01:19:20 INFO (6): 20131021011915_59  Get image from URL http://truyen4.vnsharing.net/Uploads4/Etc/10-20-2013/5693311357388.jpg...
+
+2013-10-21 01:19:20 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Mujaki no Rakuen Chap 001 - Tr\u1edf v\u1ec1 qu\u00e1 kh\u1ee9 online","name":"\u0110\u1ecdc Mujaki no Rakuen Chap 001 - Tr\u1edf v\u1ec1 qu\u00e1 kh\u1ee9 online","url":"doc-mujaki-no-rakuen-chap-001-tro-ve-qua-khu-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mujaki-no-Rakuen----\/Chap-001---Tro-ve-qua-khu?id=107368","comic_id":"2","create_time":"2013-10-21 01:19:20","update_time":"2013-10-21 01:19:20","status":"0"}  
+
+2013-10-21 01:19:21 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:22 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Mujaki no Rakuen Chap 002 - Thi\u00ean \u0110\u01b0\u1eddng k\u1ef3 di\u1ec7u online","name":"\u0110\u1ecdc Mujaki no Rakuen Chap 002 - Thi\u00ean \u0110\u01b0\u1eddng k\u1ef3 di\u1ec7u online","url":"doc-mujaki-no-rakuen-chap-002-thien-duong-ky-dieu-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mujaki-no-Rakuen----\/Chap-002---Thien-Duong-ky-dieu?id=107369","comic_id":"2","create_time":"2013-10-21 01:19:20","update_time":"2013-10-21 01:19:20","status":"0"}  
+
+2013-10-21 01:19:22 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:23 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Mujaki no Rakuen Chap 003 - Thi\u00ean \u0111\u01b0\u1eddng c\u1ee7a s\u1ef1 \u1ea5m \u00e1p online","name":"\u0110\u1ecdc Mujaki no Rakuen Chap 003 - Thi\u00ean \u0111\u01b0\u1eddng c\u1ee7a s\u1ef1 \u1ea5m \u00e1p online","url":"doc-mujaki-no-rakuen-chap-003-thien-duong-cua-su-am-ap-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mujaki-no-Rakuen----\/Chap-003---Thien-duong-cua-su-am-ap?id=107370","comic_id":"2","create_time":"2013-10-21 01:19:20","update_time":"2013-10-21 01:19:20","status":"0"}  
+
+2013-10-21 01:19:24 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:25 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Mujaki no Rakuen Chap 004 - Cu\u1ed9c ch\u1ea1y tr\u1ed1n tuy\u1ec7t v\u1eddi kh\u1ecfi thi\u00ean \u0111\u01b0\u1eddng online","name":"\u0110\u1ecdc Mujaki no Rakuen Chap 004 - Cu\u1ed9c ch\u1ea1y tr\u1ed1n tuy\u1ec7t v\u1eddi kh\u1ecfi thi\u00ean \u0111\u01b0\u1eddng online","url":"doc-mujaki-no-rakuen-chap-004-cuoc-chay-tron-tuyet-voi-khoi-thien-duong-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Mujaki-no-Rakuen----\/Chap-004---Cuoc-chay-tron-tuyet-voi-khoi-thien-duong?id=107371","comic_id":"2","create_time":"2013-10-21 01:19:20","update_time":"2013-10-21 01:19:20","status":"0"}  
+
+2013-10-21 01:19:25 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:26 INFO (6): 20131021011915_59  getChapters  end  return = 1  
+
+2013-10-21 01:19:26 INFO (6): 20131021011915_59  Waiting 3s...
+
+2013-10-21 01:19:29 INFO (6): 20131021011915_59  getChapters  begin  {"id":"3","comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/My-Feeling-Rivetra-SnK-Dou?id=8985","source_id":"3","sid":null,"name":"Shingeki no Kyojin - My Feeling [RivaPetra]","seo_name":"Shingeki no Kyojin - My Feeling [RivaPetra]","url":"shingeki-no-kyojin-my-feeling-rivapetra","feature_image":null,"feature_image_src":null,"author":null,"description":null,"meta_keywords":null,"meta_description":null,"main_cat":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10","last_grab_time":null,"status":"1"}  
+
+2013-10-21 01:19:29 INFO (6): 20131021011915_59  getContent  http://truyen.vnsharing.net/Truyen/My-Feeling-Rivetra-SnK-Dou?id=8985&confirm=yes  begin  
+
+2013-10-21 01:19:29 INFO (6): 20131021011915_59  Count = 1
+
+2013-10-21 01:19:30 INFO (6): 20131021011915_59  getContent success  
+
+2013-10-21 01:19:30 INFO (6): 20131021011915_59  Get image from URL http://truyen4.vnsharing.net/Uploads4/Etc/10-19-2013/828633829338415110.jpg...
+
+2013-10-21 01:19:30 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Shingeki no Kyojin - My Feeling [RivaPetra] chap 001 online","name":"\u0110\u1ecdc Shingeki no Kyojin - My Feeling [RivaPetra] chap 001 online","url":"doc-shingeki-no-kyojin-my-feeling-rivapetra-chap-001-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/My-Feeling-Rivetra-SnK-Dou\/chap-1?id=107282","comic_id":"3","create_time":"2013-10-21 01:19:30","update_time":"2013-10-21 01:19:30","status":"0"}  
+
+2013-10-21 01:19:30 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:31 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Shingeki no Kyojin - My Feeling [RivaPetra] chap 002 online","name":"\u0110\u1ecdc Shingeki no Kyojin - My Feeling [RivaPetra] chap 002 online","url":"doc-shingeki-no-kyojin-my-feeling-rivapetra-chap-002-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/My-Feeling-Rivetra-SnK-Dou\/chap-2?id=107297","comic_id":"3","create_time":"2013-10-21 01:19:30","update_time":"2013-10-21 01:19:30","status":"0"}  
+
+2013-10-21 01:19:32 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:33 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Shingeki no Kyojin - My Feeling [RivaPetra] chap 003 [END] online","name":"\u0110\u1ecdc Shingeki no Kyojin - My Feeling [RivaPetra] chap 003 [END] online","url":"doc-shingeki-no-kyojin-my-feeling-rivapetra-chap-003-end-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/My-Feeling-Rivetra-SnK-Dou\/chap-3-END?id=107300","comic_id":"3","create_time":"2013-10-21 01:19:30","update_time":"2013-10-21 01:19:30","status":"0"}  
+
+2013-10-21 01:19:33 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:34 INFO (6): 20131021011915_59  getChapters  end  return = 1  
+
+2013-10-21 01:19:34 INFO (6): 20131021011915_59  Waiting 3s...
+
+2013-10-21 01:19:37 INFO (6): 20131021011915_59  getChapters  begin  {"id":"4","comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan?id=5988","source_id":"3","sid":null,"name":"Kodomo no Jikan","seo_name":"Kodomo no Jikan","url":"kodomo-no-jikan","feature_image":null,"feature_image_src":null,"author":null,"description":null,"meta_keywords":null,"meta_description":null,"main_cat":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10","last_grab_time":null,"status":"1"}  
+
+2013-10-21 01:19:37 INFO (6): 20131021011915_59  getContent  http://truyen.vnsharing.net/Truyen/Kodomo-no-Jikan?id=5988&confirm=yes  begin  
+
+2013-10-21 01:19:37 INFO (6): 20131021011915_59  Count = 1
+
+2013-10-21 01:19:37 INFO (6): 20131021011915_59  getContent success  
+
+2013-10-21 01:19:37 INFO (6): 20131021011915_59  Get image from URL http://images.wikia.com/kodomonojikan/images/1/11/Kodomo_no_Jikan_Light_Novel_Volume_01.jpg...
+
+2013-10-21 01:19:38 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 54 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 54 online","url":"doc-kodomo-no-jikan-chap-54-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-54?id=76566","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:39 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:40 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 54 (b\u1ea3n \u0111\u1eb9p) online","name":"\u0110\u1ecdc Kodomo no Jikan chap 54 (b\u1ea3n \u0111\u1eb9p) online","url":"doc-kodomo-no-jikan-chap-54-ban-dep-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-54-ban-dep?id=79176","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:40 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:41 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 56 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 56 online","url":"doc-kodomo-no-jikan-chap-56-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-56?id=79452","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:41 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:42 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 57 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 57 online","url":"doc-kodomo-no-jikan-chap-57-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-57?id=79458","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:43 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:44 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 58 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 58 online","url":"doc-kodomo-no-jikan-chap-58-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-58?id=79459","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:44 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:45 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 59 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 59 online","url":"doc-kodomo-no-jikan-chap-59-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-59?id=79460","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:46 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:47 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 60 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 60 online","url":"doc-kodomo-no-jikan-chap-60-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-60?id=78958","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:47 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:48 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 60 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 60 online","url":"doc-kodomo-no-jikan-chap-60-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-60-r8?id=79461","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:48 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:49 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 61 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 61 online","url":"doc-kodomo-no-jikan-chap-61-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-61?id=79180","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:50 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:51 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 62 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 62 online","url":"doc-kodomo-no-jikan-chap-62-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-62?id=79248","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:51 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:52 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 63 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 63 online","url":"doc-kodomo-no-jikan-chap-63-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-63?id=79608","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:52 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:53 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 64 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 64 online","url":"doc-kodomo-no-jikan-chap-64-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-64?id=81573","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:54 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:55 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 64.5 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 64.5 online","url":"doc-kodomo-no-jikan-chap-645-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-64-5?id=81801","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:55 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:56 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 65 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 65 online","url":"doc-kodomo-no-jikan-chap-65-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-65?id=84755","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:56 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:57 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 66 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 66 online","url":"doc-kodomo-no-jikan-chap-66-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-66?id=86822","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:58 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:19:59 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 67 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 67 online","url":"doc-kodomo-no-jikan-chap-67-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-67?id=88018","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:19:59 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:00 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 67 (fix) online","name":"\u0110\u1ecdc Kodomo no Jikan chap 67 (fix) online","url":"doc-kodomo-no-jikan-chap-67-fix-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-67-fix?id=88435","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:01 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:02 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan chap 68 online","name":"\u0110\u1ecdc Kodomo no Jikan chap 68 online","url":"doc-kodomo-no-jikan-chap-68-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/chap-68?id=89505","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:03 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:04 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 69 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 69 online","url":"doc-kodomo-no-jikan-chap-69-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-069?id=93194","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:04 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:05 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 70 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 70 online","url":"doc-kodomo-no-jikan-chap-70-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-70?id=95390","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:06 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:07 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 71 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 71 online","url":"doc-kodomo-no-jikan-chap-71-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-71?id=97024","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:07 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:08 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 72 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 72 online","url":"doc-kodomo-no-jikan-chap-72-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-72?id=100590","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:09 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:10 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 73 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 73 online","url":"doc-kodomo-no-jikan-chap-73-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-073?id=101209","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:10 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:11 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 74 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 74 online","url":"doc-kodomo-no-jikan-chap-74-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-74?id=103180","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:12 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:14 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Kodomo no Jikan Chap 75 online","name":"\u0110\u1ecdc Kodomo no Jikan Chap 75 online","url":"doc-kodomo-no-jikan-chap-75-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Kodomo-no-Jikan\/Chap-75?id=107222","comic_id":"4","create_time":"2013-10-21 01:19:37","update_time":"2013-10-21 01:19:37","status":"0"}  
+
+2013-10-21 01:20:14 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:15 INFO (6): 20131021011915_59  getChapters  end  return = 1  
+
+2013-10-21 01:20:15 INFO (6): 20131021011915_59  Waiting 3s...
+
+2013-10-21 01:20:18 INFO (6): 20131021011915_59  getChapters  begin  {"id":"5","comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO?id=8344","source_id":"3","sid":null,"name":"Oyasumi Punpun","seo_name":"Oyasumi Punpun","url":"oyasumi-punpun","feature_image":null,"feature_image_src":null,"author":null,"description":null,"meta_keywords":null,"meta_description":null,"main_cat":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10","last_grab_time":null,"status":"1"}  
+
+2013-10-21 01:20:18 INFO (6): 20131021011915_59  getContent  http://truyen.vnsharing.net/Truyen/Oyasumi-Punpun-MTO?id=8344&confirm=yes  begin  
+
+2013-10-21 01:20:18 INFO (6): 20131021011915_59  Count = 1
+
+2013-10-21 01:20:18 INFO (6): 20131021011915_59  getContent success  
+
+2013-10-21 01:20:18 INFO (6): 20131021011915_59  Get image from URL http://truyen4.vnsharing.net/Uploads4/Etc/8-13-2013/634763670tumblr_mqzntzwPUP1s3l0cto1_500.jpg...
+
+2013-10-21 01:20:19 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 051 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 051 online","url":"doc-oyasumi-punpun-chuong-051-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-051?id=101112","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:19 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:20 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 052 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 052 online","url":"doc-oyasumi-punpun-chuong-052-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-052?id=101544","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:20 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:21 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 053 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 053 online","url":"doc-oyasumi-punpun-chuong-053-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-053?id=102356","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:22 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:23 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 054 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 054 online","url":"doc-oyasumi-punpun-chuong-054-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-054-FIXED?id=102964","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:23 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:24 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 055 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 055 online","url":"doc-oyasumi-punpun-chuong-055-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-055?id=104085","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:25 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:26 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 056 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 056 online","url":"doc-oyasumi-punpun-chuong-056-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-056?id=104149","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:26 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:27 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 057 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 057 online","url":"doc-oyasumi-punpun-chuong-057-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-057?id=105314","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:27 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:28 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 058 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 058 online","url":"doc-oyasumi-punpun-chuong-058-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-058?id=106221","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:29 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:30 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 059 online","name":"\u0110\u1ecdc Oyasumi Punpun Ch\u01b0\u01a1ng 059 online","url":"doc-oyasumi-punpun-chuong-059-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Oyasumi-Punpun-MTO\/Chuong-059?id=107180","comic_id":"5","create_time":"2013-10-21 01:20:18","update_time":"2013-10-21 01:20:18","status":"0"}  
+
+2013-10-21 01:20:30 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:31 INFO (6): 20131021011915_59  getChapters  end  return = 1  
+
+2013-10-21 01:20:31 INFO (6): 20131021011915_59  Waiting 3s...
+
+2013-10-21 01:20:34 INFO (6): 20131021011915_59  getChapters  begin  {"id":"6","comic_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Sekirei?id=8464","source_id":"3","sid":null,"name":"Sekirei","seo_name":"Sekirei","url":"sekirei","feature_image":null,"feature_image_src":null,"author":null,"description":null,"meta_keywords":null,"meta_description":null,"main_cat":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:18:10","update_time":"2013-10-21 01:18:10","update_chap_time":"2013-10-21 01:18:10","last_grab_time":null,"status":"1"}  
+
+2013-10-21 01:20:34 INFO (6): 20131021011915_59  getContent  http://truyen.vnsharing.net/Truyen/Sekirei?id=8464&confirm=yes  begin  
+
+2013-10-21 01:20:34 INFO (6): 20131021011915_59  Count = 1
+
+2013-10-21 01:20:34 INFO (6): 20131021011915_59  getContent success  
+
+2013-10-21 01:20:34 INFO (6): 20131021011915_59  Get image from URL http://truyen4.vnsharing.net/Uploads4/Etc/10-6-2013/68875294900cover vol 14.jpg...
+
+2013-10-21 01:20:35 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Sekirei Chapter 135 online","name":"\u0110\u1ecdc Sekirei Chapter 135 online","url":"doc-sekirei-chapter-135-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Sekirei\/Chapter-135?id=102226","comic_id":"6","create_time":"2013-10-21 01:20:34","update_time":"2013-10-21 01:20:34","status":"0"}  
+
+2013-10-21 01:20:35 INFO (6): 20131021011915_59  insert new chap  end  1  
+
+2013-10-21 01:20:36 INFO (6): 20131021011915_59  insert new chap  begin  {"seo_name":"\u0110\u1ecdc Sekirei Chapter 136 online","name":"\u0110\u1ecdc Sekirei Chapter 136 online","url":"doc-sekirei-chapter-136-online","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Sekirei\/Sekirei-Chapter-136?id=102359","comic_id":"6","create_time":"2013-10-21 01:20:34","update_time":"2013-10-21 01:20:34","status":"0"}  
+
+2013-10-21 01:22:48 INFO (6): 20131021012248_791  begin get image
+
+2013-10-21 01:22:48 INFO (6): 20131021012248_791  Remain 0 items
+
+2013-10-21 01:22:48 INFO (6): 20131021012248_791  getImages  begin  {"id":"1","chap_url":"http:\/\/truyen.vnsharing.net\/Truyen\/Ichi-the-Killer---------\/Chapter-009?id=107403","seo_name":"\u0110\u1ecdc Ichi the Killer Chapter 009 online","name":"\u0110\u1ecdc Ichi the Killer Chapter 009 online","url":"doc-ichi-the-killer-chapter-009-online","feature_image":null,"meta_keywords":null,"meta_description":null,"comic_id":"1","fetch_type":"1","num_fetch":"0","num_fetch_error":"0","create_time":"2013-10-21 01:19:15","update_time":"2013-10-21 01:19:15","last_grab_time":null,"status":"0"}  
+
+2013-10-21 01:22:48 INFO (6): 20131021012248_791  getContent  http://truyen.vnsharing.net/Truyen/Ichi-the-Killer---------/Chapter-009?id=107403  begin  
+
+2013-10-21 01:22:48 INFO (6): 20131021012248_791  Count = 1
+
+2013-10-21 01:22:49 INFO (6): 20131021012248_791  getContent success  
+
+2013-10-21 01:22:49 INFO (6): 20131021012248_791  has new chap  
+
+2013-10-21 01:22:49 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-ttzCdh4pweE\/UmPwsCOVuQI\/AAAAAAADmoE\/DN43LN9X4Ks\/Chapter%252520009-001.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:49 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:50 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-Dyp4-Zqx6pE\/UmPws4cw2qI\/AAAAAAADmoM\/r76bwePyx-k\/Chapter%252520009-002.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:51 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:52 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-3d-l37q_1-8\/UmPwtr5g3EI\/AAAAAAADmoQ\/Dvgw5FNHzws\/Chapter%252520009-003.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:52 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:53 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-O_RGxWq9tc0\/UmPwuWOnbCI\/AAAAAAADmoc\/6wTmIZnFLnQ\/Chapter%252520009-004.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:53 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:54 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-ke-SH3OFtA8\/UmPwvQxob3I\/AAAAAAADmok\/iTFPrW_hYiU\/Chapter%252520009-005.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:54 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:55 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-0NnE5LZx8pM\/UmPwwPYrHJI\/AAAAAAADmos\/A8LnSw3pPP4\/Chapter%252520009-006.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:55 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:56 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-4tdgmRThfOs\/UmPww6SfuKI\/AAAAAAADmo0\/S7Om0nyxw-c\/Chapter%252520009-007.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:57 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:58 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-b1C_11wT-xg\/UmPwx9jn3RI\/AAAAAAADmo8\/vqdfqivBxM8\/Chapter%252520009-008.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:58 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:22:59 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-aagUV8x4BIE\/UmPwykFIzeI\/AAAAAAADmpE\/Lc7JBLK5bEE\/Chapter%252520009-009.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:22:59 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:00 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-QdK8xF1uELY\/UmPwzlw6q8I\/AAAAAAADmpQ\/5K_0-HXXlFM\/Chapter%252520009-010.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:00 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:01 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-4_5jeEFeINQ\/UmPw0jUt_fI\/AAAAAAADmpY\/d9Q6ceVIkgc\/Chapter%252520009-011.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:02 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:03 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-bz2t52j-f1Y\/UmPw1g2zwDI\/AAAAAAADmpg\/-2KapcSYrgg\/Chapter%252520009-012.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:03 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:04 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-XO6vQgkNWkc\/UmPw2G2cr6I\/AAAAAAADmpo\/Tp2g956C218\/Chapter%252520009-013.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:04 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:05 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-Pt0xMeH1D-o\/UmPw20kW1cI\/AAAAAAADmps\/Hu5sjSBkG6A\/Chapter%252520009-014.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:05 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:06 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-m-Ep_ZtWKO0\/UmPw3_dNGAI\/AAAAAAADmp4\/LVxJxKg4MP0\/Chapter%252520009-015.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:06 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:07 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-PI7yAmO5Mpw\/UmPw5PRv7mI\/AAAAAAADmqA\/vQlB14dNujg\/Chapter%252520009-016.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:08 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:09 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-4qZMa-0XuEo\/UmPw5zSIrrI\/AAAAAAADmqE\/WF-cfVC2TEc\/Chapter%252520009-017.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:09 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:10 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-i-J_2A9YzAU\/UmPw6m59cZI\/AAAAAAADmqQ\/rGqzOuImWZc\/Chapter%252520009-018.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:10 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:11 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-sjfpk-hqliU\/UmPw7kHiW7I\/AAAAAAADmqY\/aWFZrusff_w\/Chapter%252520009-019.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:11 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:12 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-1XC6Dv85I4I\/UmPw8XrNhxI\/AAAAAAADmqg\/wTZbmxhGUIc\/Chapter%252520009-020.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:12 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:13 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-8QizGUpVTrU\/UmPw9QKzv2I\/AAAAAAADmqo\/23O6-jgl-y0\/Chapter%252520009-021.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:14 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:15 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-75xlXWwzbo0\/UmPw99g7sqI\/AAAAAAADmqw\/D1RL0qqtz9I\/Chapter%252520009-022.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:15 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:16 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-TR3h03q9ptk\/UmPw-sS1M6I\/AAAAAAADmq4\/x32aOjdj48E\/Chapter%252520009-023.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:16 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:17 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-1eyso3gSq5Y\/UmPw_lkDSAI\/AAAAAAADmrA\/QSUUJDTZc_E\/Chapter%252520009-024.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:17 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:18 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-X9aT2IO303g\/UmPxAQy4NAI\/AAAAAAADmrI\/tS2IliMkUg4\/Chapter%252520009-025.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:19 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:20 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-U4vPw9nAso0\/UmPxBLnQQjI\/AAAAAAADmrQ\/_0LdLueYQ6w\/Chapter%252520009-026.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:20 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:21 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-53LORiY61Vg\/UmPxCN9gqXI\/AAAAAAADmrY\/cUmoiT8BW10\/Chapter%252520009-027.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:21 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:22 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-VkOJMst7OSw\/UmPxCzsWnCI\/AAAAAAADmrc\/3G1_jZh_baA\/Chapter%252520009-028.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:22 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:23 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-93ZfxUn34xY\/UmPxDVssXpI\/AAAAAAADmro\/yBwp925j8DY\/Chapter%252520009-029.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:23 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:24 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-4TE4XuHH8sM\/UmPxEOsQzUI\/AAAAAAADmrw\/i-conIM44VE\/Chapter%252520009-030.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:24 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:25 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-JkIqH-Evw0s\/UmPxFFAKiLI\/AAAAAAADmr4\/TaH6D3ahDuM\/Chapter%252520009-031.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:26 INFO (6): 20131021012248_791  insert new image  end  1  
+
+2013-10-21 01:23:27 INFO (6): 20131021012248_791  insert new image  begin  {"chap_id":"1","alt":"","src":"http:\/\/2.bp.blogspot.com\/-B_LTUqi89ZE\/UmPxGCRtxbI\/AAAAAAADmsA\/ZbaBakrdY7U\/Chapter%252520009-032.png?imgmax=2000","create_time":"2013-10-21 01:22:49","update_time":"2013-10-21 01:22:49"}  
+
+2013-10-21 01:23:27 INFO (6): 20131021012248_791  insert new image  end  1  
+
