@@ -21,6 +21,7 @@ class Core_Content_VnSharing extends Core_Content {
 	}
 	public function getContent($url,$url_type) {
 		Core_Log::getInstance()->log(array('getContent',$url,'begin',));
+		Core_Utils::insertHistory($url,$url_type);
 		$doc = null;
 		$cnt = 1;
 		while ($cnt <= 5) {
@@ -186,6 +187,7 @@ class Core_Content_VnSharing extends Core_Content {
 			if($isCompleted == true) {
 				$comic_update_data['status'] = 2;
 			}
+			Core_Utils_DB::updateRemote('comics', $comic_update_data, array('id' => $comic['id']));
 			Core_Utils_DB::update('comics', $comic_update_data, array('id' => $comic['id']));
 			if(!empty($array)) {
 				Core_Utils::insertChaps($array);
@@ -242,8 +244,10 @@ class Core_Content_VnSharing extends Core_Content {
 			if(!empty($array)) {
 				Core_Log::getInstance()->log(array('has new chap'));
 				$update_chap_data['status'] = 1;
+				Core_Utils_DB::updateRemote('comics', array('update_chap_time' => $now), array('id' => $chap['comic_id']));
 				Core_Utils_DB::update('comics', array('update_chap_time' => $now), array('id' => $chap['comic_id']));
 			} 
+			Core_Utils_DB::updateRemote('chaps', $update_chap_data, array('id' => $chap['id']));
 			Core_Utils_DB::update('chaps', $update_chap_data, array('id' => $chap['id']));
 			if(!empty($array)) {
 				Core_Utils::insertImages($array,$chap['id']);

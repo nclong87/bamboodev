@@ -1,0 +1,5 @@
+2013-10-21 01:08:25 ERR (3): 20131021010825_528  {code:0}  {message:}  {file:C:\wamp\www\tonghoptruyen\library\Core\Utils.php:152}
+#0 C:\wamp\www\tonghoptruyen\application\models\Worker\Test.php(25): Core_Utils::test()
+#1 C:\wamp\www\tonghoptruyen\console.php(55): Application_Model_Worker_Test->start()
+#2 {main}
+

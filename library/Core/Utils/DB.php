@@ -37,6 +37,7 @@ class Core_Utils_DB {
 		$db = Core_Global::getDbMaster ();
 		$stmt = $db->prepare ( $query );
 		$stmt->execute ( $params );
+		$id = null;
 		if ($return) {
 			$stmt = $db->prepare ( 'SELECT LAST_INSERT_ID() as id' );
 			$stmt->execute ();
@@ -120,5 +121,75 @@ class Core_Utils_DB {
 		}
 		$query = 'UPDATE `' . $tableName . '` SET ' . join ( ',', $arraySet ) . ' WHERE ' . $sWhere;
 		return $query;
+	}
+	
+	public static function updateRemote($tableName, $data, $where) {
+		$rs = false;
+		$i = 1;
+		$service = new Core_ApiService('DB');
+		while ($i < 10) {
+			try {
+				$response = $service->update($tableName,$data,$where);
+				if(isset($response['response_code']) && $response['response_code'] == 1) {
+					$rs = true;
+					break;
+				} else {
+					throw new Exception($response['response_message']);
+				}
+			} catch (Exception $e) {
+				Core_Log::getInstance()->log($e,Zend_Log::ERR);
+			}
+			$i++;
+			sleep(10);
+			Core_Log::getInstance()->log('updateRemote failed, try time '.$i);
+		}
+		if($rs === false) throw new Exception();
+		return $rs;
+	}
+	public static function insertRemote($tableName, $data, $return = false) {
+		$rs = false;
+		$i = 1;
+		$service = new Core_ApiService('DB');
+		while ($i < 10) {
+			try {
+				$response = $service->insert($tableName,$data,$return);
+				if(isset($response['response_code']) && $response['response_code'] == 1) {
+					$rs = $response['response_data'];
+					break;
+				} else {
+					throw new Exception($response['response_message']);
+				}
+			} catch (Exception $e) {
+				Core_Log::getInstance()->log($e,Zend_Log::ERR);
+			}
+			$i++;
+			sleep(10);
+			Core_Log::getInstance()->log('insertRemote failed, try time '.$i);
+		}
+		if($rs === false) throw new Exception();
+		return $rs;
+	}
+	public static function queryRemote($sql, $flag, $params = array()) {
+		$rs = false;
+		$i = 1;
+		$service = new Core_ApiService('DB');
+		while ($i < 10) {
+			try {
+				$response = $service->query($sql,$flag,$params);
+				if(isset($response['response_code']) && $response['response_code'] == 1) {
+					$rs = $response['response_data'];
+					break;
+				} else {
+					throw new Exception($response['response_message']);
+				}
+			} catch (Exception $e) {
+				Core_Log::getInstance()->log($e,Zend_Log::ERR);
+			}
+			$i++;
+			sleep(10);
+			Core_Log::getInstance()->log('queryRemote failed, try time '.$i);
+		}
+		if($rs === false) throw new Exception();
+		return $rs;
 	}
 }

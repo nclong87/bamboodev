@@ -12,13 +12,15 @@ class Core_Log {
 
 	protected $error_log_file;
 	protected $info_log_file;
+	private $process_id;
 	public function __construct() {
 		$log_path = PATH_LOG_FILES.date('Ymd');
 		if(!is_dir($log_path))
 			mkdir($log_path, 0777, true);
 		$date = new Zend_Date();
-		$this->error_log_file = $log_path.'/ERR_LOG_'. $date->toString('YMMdd_HHmmss') . '.txt';
-		$this->info_log_file = $log_path.'/INFO_LOG_'. $date->toString('YMMdd_HHmmss') . '.txt';
+		$this->process_id = $date->toString('YMMddHHmmss').'_'.rand(1, 1000);
+		$this->error_log_file = $log_path.'/ERR_LOG_'. $date->toString('YMMdd_HH') . '.txt';
+		$this->info_log_file = $log_path.'/INFO_LOG_'. $date->toString('YMMdd_HH') . '.txt';
 	}
 	public function __destruct() {
 	}
@@ -81,7 +83,7 @@ class Core_Log {
 			$writer = new Zend_Log_Writer_Stream ($this->error_log_file );
 			$logger = new Zend_Log ( $writer );
 			$logger->setTimestampFormat ( 'Y-m-d H:i:s' );
-			$logger->log ( $message, $type );
+			$logger->log ( $this->process_id.'  '.$message, $type );
 			$writer->shutdown ();
 		} else {
 			if (is_array ( $data )) {
@@ -102,7 +104,11 @@ class Core_Log {
 		$writer = new Zend_Log_Writer_Stream ( $this->info_log_file );
 		$logger = new Zend_Log ( $writer );
 		$logger->setTimestampFormat ( 'Y-m-d H:i:s' );
-		$logger->log ( $message, $type );
+		$logger->log ( $this->process_id.'  '.$message.PHP_EOL, $type );
 		$writer->shutdown ();
+	}
+
+	public function getProcessId() {
+		return $this->process_id;
 	}
 }
