@@ -22,7 +22,7 @@ define ( 'MAX_LOGIN_FAILED', 3 );
 define ( 'MAX_RESETPASS_REQUEST', 3 );
 define ( 'RESETPASS_KEY_EXPIRE', 3 );
 define ( 'PUBLIC_DIR', APPLICATION_PATH . "/.." );
-define ( 'PATH_UPLOAD_IMAGE', '/upload/images' );
+define ( 'PATH_UPLOAD_IMAGE', '/upload/images/' );
 define ( 'PATH_IMAGE_THUMN', '/upload/images/thumn' );
 define ( 'PATH_IMAGE_RESIZE', '/upload/images/resize' );
 define ( 'PATH_UPLOAD_LOGO', '/upload/images/logo' );

@@ -51,6 +51,6 @@ www.go.vn	FALSE	/	FALSE	0	PHPSESSID	49dq4mhdfum368j0q0g0vugo66
 123.vn	FALSE	/	FALSE	0	acn	bbdthudep
 123.vn	FALSE	/	FALSE	0	vngauth	AAFaAskdslFwasMMAAAAAKxSf1Y%3D
 www.jobbid.vn	FALSE	/	FALSE	0	PHPSESSID	210ac9b234fedde5061748b36ce63c00
-truyentranhhot.net	FALSE	/	FALSE	1413099018	wpmp_switcher	desktop
+truyentranhhot.net	FALSE	/	FALSE	1413554145	wpmp_switcher	desktop
 vuitruyentranh.vn	FALSE	/	FALSE	0	PHPSESSID	v4lt8umuvierqjju8cehk3qqp6
 #HttpOnly_truyen.vnsharing.net	FALSE	/	FALSE	0	ASP.NET_SessionId	nszp4ulujcobfdyybitkmflm

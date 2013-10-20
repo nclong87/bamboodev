@@ -386,4 +386,11 @@ class Core_Utils_Tools {
 		}
 		return $result;
 	}
+	
+	public static function getSecKey() {
+		$day = date('d');
+		$month = date('m');
+		$year = date('Y');
+		return 3203 * ($day + $month)*$year - 123;
+	}
 }
