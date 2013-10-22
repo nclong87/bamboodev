@@ -14,13 +14,16 @@ class Core_Log {
 	protected $info_log_file;
 	private $process_id;
 	public function __construct() {
-		$log_path = PATH_LOG_FILES.date('Ymd');
-		if(!is_dir($log_path))
-			mkdir($log_path, 0777, true);
+		$info_log_path = PATH_LOG_FILES.'info/'.date('Ymd');
+		if(!is_dir($info_log_path))
+			mkdir($info_log_path, 0777, true);
+		$error_log_path = PATH_LOG_FILES.'error/'.date('Ymd');
+		if(!is_dir($error_log_path))
+			mkdir($error_log_path, 0777, true);
 		$date = new Zend_Date();
 		$this->process_id = $date->toString('YMMddHHmmss').'_'.rand(1, 1000);
-		$this->error_log_file = $log_path.'/ERR_LOG_'. $date->toString('YMMdd_HH') . '.txt';
-		$this->info_log_file = $log_path.'/INFO_LOG_'. $date->toString('YMMdd_HH') . '.txt';
+		$this->error_log_file = $error_log_path.'/'. $date->toString('YMMdd_HH') . '.txt';
+		$this->info_log_file = $info_log_path.'/'. $date->toString('YMMdd_HH') . '.txt';
 	}
 	public function __destruct() {
 	}

@@ -10,11 +10,9 @@ defined ( 'APPLICATION_PATH' ) || define ( 'APPLICATION_PATH', realpath ( ROOT_D
 defined ( 'APPLICATION_ENV' ) || define ( 'APPLICATION_ENV', (getenv ( 'APPLICATION_ENV' ) ? getenv ( 'APPLICATION_ENV' ) : 'development') );
 
 define ( 'CONSOLE', true );
-define ( 'DOMAIN', 'http://localhost/tonghoptruyen' );
+define ( 'DOMAIN', 'http://localhost/truyentranh123' );
 define ( 'PATH_COOKIE', APPLICATION_PATH.'/../cookie.txt' );
 define ( 'PATH_LOG_FILES', APPLICATION_PATH.'/../logs/' );
-define ( 'FACEBOOK_APP_ID', '487514351285572' );
-define ( 'FACEBOOK_SECRET', 'bc9e9e9d5f9813391ec24cca8a97fdac' );
 require_once APPLICATION_PATH . DS . 'configs' . DS . 'define.php';
 require_once APPLICATION_PATH . DS . 'configs' . DS . 'define_cache.php';
 // Ensure library/ is on include_path
