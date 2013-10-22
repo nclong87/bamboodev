@@ -23,6 +23,8 @@ class Application_Model_Worker_Test {
 	public function start() {
 		try {
 			Core_Utils::test();
+			$pid = getmygid();
+			echo $pid;
 			die('OKKK');
 			$sql = 'SELECT * FROM `comics`';
 			$rows = Core_Utils_DB::query($sql, QUERY_DB_RETURN_MULTI);
