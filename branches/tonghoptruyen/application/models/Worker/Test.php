@@ -22,7 +22,7 @@ class Application_Model_Worker_Test {
 	}
 	public function start() {
 		try {
-			Core_Utils::test();
+			//Core_Utils::test();
 			$pid = getmygid();
 			echo $pid;
 			die('OKKK');
