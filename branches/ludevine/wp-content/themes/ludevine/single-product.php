@@ -160,9 +160,9 @@ function MM_swapImage() { //v3.0
 <br/>
 <strong style=" clear: left; " class="addviews">JOIN LUDEVINE!</strong><br/>
 <ul class="tags">
-		<li><a target="_blank" href="https://www.facebook.com/pages/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/fb.jpg"></a></li>
-		<li><a target="_blank" href="http://www.twitter.com/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/twitter.jpg"></a></li>
-		<li><a target="_blank" href="http://pinterests.com/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/pinterest.jpg"></a></li>
+		<li><a target="_blank" href="https://www.facebook.com/pages/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/facebook.png"></a></li>
+		<li><a target="_blank" href="http://www.twitter.com/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/twitter.png"></a></li>
+		<li><a target="_blank" href="http://pinterests.com/ludevine"><img src="<?php echo get_template_directory_uri(); ?>/images/pinterest.png"></a></li>
 	</ul>
 </td></tr>
 </tbody></table>
